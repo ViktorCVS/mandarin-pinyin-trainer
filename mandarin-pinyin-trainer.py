@@ -1309,10 +1309,9 @@ class PinyinTrainer(tk.Tk):
         seen = sum(1 for x in records if x["hits"] or x["misses"])
         hits = sum(x["hits"] for x in records)
         misses = sum(x["misses"] for x in records)
-        total_misses = sum(x["total_misses"] for x in records)
         values = {"total": len(words), "seen": seen, "hits": hits,
                   "misses": misses,
-                  "rate": f"{100*hits/(hits+total_misses):.1f}%" if hits+total_misses else "—"}
+                  "rate": f"{100*hits/(hits+misses):.1f}%" if hits+misses else "—"}
         for k, val in values.items():
             self.stats[k].config(text=str(val))
         self.progress["value"] = 100*seen/len(words) if words else 0
