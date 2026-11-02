@@ -6,6 +6,9 @@ Built with Python and Tkinter. The interface is available in Brazilian Portugues
 
 **Tested on Windows 11.**
 
+<img width="1264" height="1057" alt="image" src="https://github.com/user-attachments/assets/bf5221b9-b129-4ce3-8dcd-30dd8173285e" />
+
+
 ## Project Purpose
 
 Mandarin Pinyin Trainer connects Hanzi, Pinyin, and meaning through active recall. Each flashcard presents a word or vocabulary unit; the learner types its pronunciation with tones and receives feedback, a translation, and a contextual example.
