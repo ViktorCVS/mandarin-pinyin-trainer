@@ -2,7 +2,7 @@
 
 **An offline desktop application for practicing Mandarin vocabulary, recognizing Chinese characters, and recalling accurate Hanyu Pinyin with tones.**
 
-Built with Python and Tkinter. The interface is available in Brazilian Portuguese, English, Spanish, and Simplified Chinese. Vocabulary and example translations remain in Brazilian Portuguese in every interface language.
+Built with Python and Tkinter. The interface is available in Brazilian Portuguese, English, Spanish, and Simplified Chinese. English and Spanish modes also display vocabulary meanings and example translations in the selected language. Portuguese mode uses Brazilian Portuguese translations. Simplified Chinese mode hides translations while keeping Chinese text and Pinyin.
 
 **Tested on Windows 11.**
 
@@ -33,15 +33,17 @@ Words may appear in more than one block. Each occurrence has independent progres
 
 ## Features
 
-- **Interface language selector:** switch between Português, English, Español, and 简体中文 without changing study content or progress. Your choice is saved automatically.
+- **Interface language selector:** switch between Português, English, Español, and 简体中文 while preserving your current card and progress. Your choice is saved automatically.
+- **English and Spanish study translations:** both modes include word meanings and example translations for all 1,009 cards in Blocks 16–20, bundled for offline use.
 - **Tone-aware answers:** numerical Pinyin and accented Pinyin input, with supported pronunciation variants.
-- **Contextual feedback:** numerical Pinyin, tone marks, Brazilian Portuguese translation, and an example with Chinese text, Pinyin, and translation.
+- **Contextual feedback:** numerical Pinyin, tone marks, and a Chinese example with Pinyin. Word meanings and example translations are shown in English, Spanish, or Brazilian Portuguese according to the selected mode. Simplified Chinese mode hides both translations and keeps the Pinyin.
 - **Adaptive review:** intervals measured in answers within the selected session, with extra reinforcement after mistakes.
 - **Growing priority for new cards:** a gradually increasing chance of introducing unseen vocabulary ahead of due reviews.
 - **Individual training index:** consecutive correct answers minus pending errors.
 - **Session completion:** trained cards leave the queue; completed sessions receive a visible indicator.
 - **Detailed progress:** total correct answers, consecutive correct answers, pending errors, training index, and status for each card.
 - **Independent reset:** restart one session or reset all progress.
+- **Settings tab:** customize review intervals, repetitions, error recovery, training thresholds, and new-card priority. The original training values are the defaults.
 - **Automatic local saving:** resume learning without an account or internet connection.
 
 ## Installation
@@ -87,20 +89,22 @@ An executable does not require a separate Python installation. Check the release
 
 ## How to Use
 
+The window has two tabs: **Practice** for studying and **Settings** for adjusting training values. Labels in this README refer to the English interface.
+
 ### Interface Language
 
 Use the language selector at the top of the window to choose:
 
-| Option | Interface language |
-|---|---|
-| Português | Brazilian Portuguese (default) |
-| English | English |
-| Español | Spanish |
-| 简体中文 | Simplified Chinese |
+| Option | Interface language | Word and example translations |
+|---|---|---|
+| Português | Brazilian Portuguese (default) | Brazilian Portuguese |
+| English | English | English |
+| Español | Spanish | Spanish |
+| 简体中文 | Simplified Chinese | Hidden; Chinese text and Pinyin remain visible |
 
 The selection takes effect immediately and is saved for the next launch. It updates interface labels, buttons, feedback messages, and progress displays while preserving the current card, typed answer, and learning progress.
 
-**Only the interface changes language.** Chinese vocabulary, Pinyin, example sentences, and their Brazilian Portuguese translations remain unchanged. Selecting Spanish, English, or Simplified Chinese does not translate the study content into that language.
+**English and Spanish modes also switch word meanings and example translations to the selected language.** Portuguese mode uses the original Brazilian Portuguese translations. **Simplified Chinese mode hides both word and example translations**, keeping the Chinese text and the word and example Pinyin. If an answer is already visible, changing languages immediately hides, restores, or updates its translations. Accepted answers, review scheduling, and learning progress stay the same.
 
 ### Practice a Session
 
@@ -133,7 +137,30 @@ Spaces between syllables are accepted. Accented Pinyin is also supported, for ex
 
 Tone accuracy matters: correct letters with an incorrect tone are not enough. Supported pronunciation variants are handled explicitly.
 
+## Training Settings
+
+Open the **Settings** tab, edit the values, and click **Save settings**. These settings apply to all blocks and sessions and are saved locally with your progress.
+
+| Setting | Default |
+|---|---|
+| Correct-answer intervals, stages 1–4 | 5–10, 15–20, 25–50, 50–100 other answers |
+| Base repetitions, stages 1–4 | 1, 2, 3, 4 |
+| Interval after an error | 3–7 other answers |
+| Extra repetitions per historical error, at each stage | 1 |
+| Pending errors cleared per correct answer | 1 |
+| Minimum indices for OK / Good / Trained | 1 / 5 / 10 |
+| New-card chance increase per round without a new card | 1 percentage point |
+| Maximum new-card chance | 20% |
+
+Intervals accept whole numbers from 1 to 10,000 and repetitions from 1 to 1,000. Each interval's minimum must not exceed its maximum, and correct-answer intervals must stay the same or increase between stages. Training thresholds must follow **OK < Good < Trained**. The form shows the allowed ranges for the remaining fields. Invalid changes are rejected without changing the saved settings.
+
+Saving preserves your answers, errors, streaks, and scheduled review times. New intervals and repetition requirements apply to future answers. Training statuses, session completion indicators, and the progress bar update immediately: raising the trained threshold can return previously trained cards to the queue. Lowering it can mark more cards as trained.
+
+Click **Restore defaults**, then **Save settings**, to apply the original values. Resetting session or overall learning progress preserves your settings. Changing the interface language also preserves unsaved settings while the application remains open.
+
 ## Review Scheduling
+
+The values described below are the defaults; the **Settings** tab lets you customize them.
 
 Review intervals use the number of **other evaluated answers within the same session**, not minutes or calendar days. Studying another session does not advance the current session's review clock.
 
@@ -146,9 +173,9 @@ Review intervals use the number of **other evaluated answers within the same ses
 | 3 | 25–50 answers | 3 |
 | 4 | 50–100 answers | 4 |
 
-The interval is randomly selected within the current range. The final range remains **50–100** while the card is still in training.
+The interval is randomly selected within the current range. The final stage repeats while the card is still in training; its default range is **50–100**.
 
-Each historical mistake adds **one additional correct repetition to every stage's requirement**. After one mistake, the requirements become 2, 3, 4, and 5; after two mistakes, they become 3, 4, 5, and 6.
+By default, each historical mistake adds **one additional correct repetition to every stage's requirement**. After one mistake, the requirements become 2, 3, 4, and 5; after two mistakes, they become 3, 4, 5, and 6. Set the extra-repetition value to zero to disable this penalty.
 
 ### Incorrect Answers
 
@@ -158,7 +185,7 @@ An incorrect answer:
 - Resets the consecutive-correct streak and review stage.
 - Schedules a review after **3–7 other answers** in that session.
 
-A subsequent correct answer removes **one pending error**, down to zero. Historical errors remain recorded and continue to increase the reinforcement requirement until the session is reset.
+A subsequent correct answer removes **one pending error** by default, down to zero. This recovery amount is configurable. Historical errors remain recorded and contribute to the configured reinforcement requirement until the session is reset.
 
 ### Growing Priority for New Cards
 
@@ -169,7 +196,7 @@ When both new cards and due reviews are available, the application can choose a 
 - The chance is capped at **20%**.
 - Answering a new card for the first time resets the chance to **0%**, whether the answer is correct or incorrect.
 
-For example, five rounds without a newly attempted card produce a 5% chance; fifteen rounds produce 15%.
+With the defaults, five rounds without a newly attempted card produce a 5% chance; fifteen rounds produce 15%. The increase and cap are configurable from 0 to 100; setting either to zero disables this extra priority.
 
 Review intervals are soft scheduling targets. A new card can delay a due review without changing that review's stored due value. When no reviews are due, new cards already have priority. When neither new cards nor due reviews remain, an upcoming review may appear early.
 
@@ -183,16 +210,16 @@ Training index = consecutive correct answers − pending errors
 
 An incorrect answer restarts the consecutive-correct sequence at zero.
 
-| Index | Status | Behavior |
+| Default index | Status | Behavior |
 |---|---|---|
 | Below 1 | New / In training | New or still in training |
 | 1–4 | OK | Remains in the review queue |
 | 5–9 | Good | Remains in the review queue |
 | 10 or above | Trained | Leaves the review queue |
 
-Once every card in a session reaches the trained threshold, the session receives a **✓ Trained** indicator. The progress bar measures the percentage of trained cards, not merely cards that have appeared.
+Once every card in a session reaches the configured trained threshold (10 by default), the session receives a **✓ Trained** indicator. The progress bar measures the percentage of trained cards, not merely cards that have appeared.
 
-The training threshold takes precedence over scheduled reviews: a trained card no longer appears unless its progress is reset.
+The training threshold takes precedence over scheduled reviews: a trained card no longer appears unless its progress is reset or the trained threshold is raised above its current index.
 
 ## Statistics
 
@@ -210,7 +237,7 @@ The **Session progress** window lists each card's total correct answers, consecu
 
 ## Saving and Resetting Progress
 
-Progress is saved automatically in the current user's home directory:
+Progress, interface language, and applied training settings are saved in the current user's home directory:
 
 ```text
 .treino_pinyin_sessoes_progresso.json
@@ -224,7 +251,7 @@ On Windows, this is normally:
 
 The save file is separate from the script or executable. Moving the program does not remove progress when the same user profile and save file are retained.
 
-The current version preserves existing blocks when adding new ones and supports migration from earlier supported save formats. New blocks start with fresh progress.
+The current version preserves existing blocks when adding new ones and supports migration from earlier supported save formats. Saves without training settings receive the original defaults while keeping their learning history. New blocks start with fresh progress.
 
 ### Backups
 
@@ -245,11 +272,11 @@ Run the built-in checks without opening the study interface:
 py -X utf8 mandarin-pinyin-trainer.py --self-test
 ```
 
-The UTF-8 option allows Chinese test output to display correctly in compatible Windows terminals. The checks cover vocabulary structure, session sizes, tone normalization, review intervals, and progress migration.
+The UTF-8 option allows Chinese test output to display correctly in compatible Windows terminals. The checks cover vocabulary structure, English and Spanish translation coverage, session sizes, tone normalization, review intervals, and progress migration.
 
 ## Scope and Limitations
 
-- The interface supports Portuguese, English, Spanish, and Simplified Chinese; vocabulary and example translations remain in Brazilian Portuguese.
+- The interface supports Portuguese, English, Spanish, and Simplified Chinese. Study translations are in English, Spanish, or Brazilian Portuguese in their respective modes. Simplified Chinese mode hides translations while retaining Chinese text and Pinyin.
 - Vocabulary is bundled in the Python source; the application does not import PDFs automatically.
 - There is no microphone input, pronunciation scoring, audio playback, or speech recognition.
 - Review scheduling is based on answered cards rather than calendar time.
