@@ -6728,6 +6728,2839 @@ for _cid, _card in LESSON20_CARDS.items():
     if 'example_translation' in _card:
         EXAMPLE_TRANSLATIONS.setdefault(_card['examples'][0], _card['example_translation'])
 
+# Offline English study content. Card IDs and original Portuguese data stay stable.
+WORD_TRANSLATIONS_EN = {'我': 'I; me',
+ '喜欢': 'to like',
+ '游泳': 'to swim; swimming',
+ '他': 'he; him',
+ '打': 'to play (a ball sport)',
+ '篮球': 'basketball',
+ '你': 'you',
+ '骑车': 'to ride a bicycle',
+ '大家': 'everyone; everybody',
+ '踢': 'to kick; to play (soccer)',
+ '足球': 'soccer; football',
+ '她': 'she; her',
+ '跑步': 'to run; running',
+ '我们': 'we; us',
+ '乒乓球': 'table tennis',
+ '不': 'not (negation)',
+ '棒球': 'baseball',
+ '经常': 'often',
+ '不会': 'not to know how; to be unable to',
+ '网球': 'tennis',
+ '没': 'not (past action or absence)',
+ '去': 'to go',
+ '公园': 'park',
+ '不太': 'not very',
+ '吗': 'yes/no question particle',
+ '也': 'also; too',
+ '最': 'most (superlative)',
+ '每周': 'every week; weekly',
+ '健身房': 'gym',
+ '你们': 'you (plural)',
+ '会': 'to know how; can; to be able to',
+ '什么': 'what',
+ '运动': 'sport; physical activity',
+ '下课': 'to finish class; after class',
+ '以后': 'after; afterwards',
+ '做': 'to do; to make',
+ '想': 'to want; to feel like',
+ '学': 'to learn; to study',
+ '觉得': 'to think; to consider',
+ '好玩儿': 'fun; interesting',
+ '谁': 'who',
+ '和': 'and; with',
+ '一起': 'together',
+ '游泳馆': 'public swimming pool; swimming center',
+ '这': 'this',
+ '是': 'to be',
+ '的': 'possessive or attributive particle',
+ '哪儿': 'where',
+ '在': 'to be at; at; in',
+ '哪个': 'which (among alternatives)',
+ '散步': 'to walk; to take a stroll',
+ '他们': 'they; them',
+ '哪里': 'where',
+ '那个': 'that',
+ '篮球场': 'basketball court',
+ '什么时候': 'when',
+ '星期': 'week; day of the week',
+ '几': 'how many; which (small number)',
+ '明天': 'tomorrow',
+ '几点': 'what time',
+ '今天': 'today',
+ '早上': 'in the morning',
+ '周末': 'weekend',
+ '哪': 'which',
+ '种': 'kind; type',
+ '但是': 'but; however',
+ '更': 'more; even more',
+ '三': 'three',
+ '次': 'time; times (frequency)',
+ '两': 'two (before a classifier)',
+ '一周': 'one week; per week',
+ '每天': 'every day',
+ '一次': 'once',
+ '一般': 'usually; generally',
+ '一个': 'one (with a classifier)',
+ '月': 'month',
+ '每次': 'each time; every time',
+ '半': 'half',
+ '个': 'general classifier',
+ '小时': 'hour (duration)',
+ '多长': 'how long (time or length)',
+ '时间': 'time',
+ '两个': 'two (with a classifier)',
+ '健身': 'to exercise; to work out',
+ '多久': 'how long (duration)',
+ '十五': 'fifteen',
+ '分钟': 'minute(s)',
+ '足球场': 'soccer field; football pitch',
+ '星期六': 'Saturday',
+ '除了': 'besides; except',
+ '还': 'still; in addition; also',
+ '为什么': 'why',
+ '怎么': 'how; in what way',
+ '从': 'from',
+ '学校': 'school',
+ '到': 'to; to arrive at',
+ '走': 'to walk; to go',
+ '怎么样': 'how is it; what do you think of',
+ '这个': 'this',
+ '喜欢不喜欢': 'to like or not (question form)',
+ '会不会': 'to know how or not (question form)',
+ '去不去': 'to go or not (question form)',
+ '有': 'to have; there is; to exist',
+ '几个': 'how many (a small number)',
+ '票': 'ticket',
+ '多少': 'how much; how many',
+ '钱': 'money',
+ '岁': 'years old',
+ '开始': 'to begin; to start',
+ '离': 'to be a certain distance from',
+ '家': 'house; home; family',
+ '多远': 'how far',
+ '人': 'person; people',
+ '花': 'to spend (time or money)',
+ '电影院': 'movie theater; cinema',
+ '看': 'to see; to watch; to look',
+ '电影': 'movie; film',
+ '酒吧': 'bar',
+ '喝酒': 'to drink alcohol',
+ '唱': 'to sing',
+ '卡拉OK': 'karaoke',
+ '麻将': 'mahjong',
+ '跟': 'with; together with',
+ '朋友': 'friend',
+ '聊天': 'to chat; to talk',
+ '晚上': 'at night; in the evening',
+ '很多': 'many',
+ '兴趣': 'interest(s)',
+ '爱好': 'hobby; pastime',
+ '比如': 'for example',
+ '中国人': 'Chinese person; Chinese people',
+ '些': 'some',
+ '没有': 'not to have; there is no',
+ '只': 'only; just',
+ '别的': 'other; another',
+ '可以': 'can; may; to be allowed to',
+ '说': 'to say; to speak',
+ '三个': 'three (with a classifier)',
+ '现在': 'now; currently',
+ '一样': 'the same; in the same way',
+ '美国人': 'American; American people',
+ '都': 'all; both',
+ '可是': 'but; however',
+ '发现': 'to notice; to discover',
+ '大部分': 'most; the majority',
+ '美式': 'American-style',
+ '有趣': 'interesting; curious',
+ '棒球场': 'baseball field',
+ '中文': 'Chinese language',
+ '英语': 'English language',
+ '以外': 'besides; outside of; except',
+ '一天': 'one day; per day',
+ '一星期': 'one week; per week',
+ '一天一次': 'once a day',
+ '一周两次': 'twice a week',
+ '一星期两次': 'twice a week',
+ '每周两次': 'twice every week',
+ '更喜欢': 'to like even more; to prefer',
+ '最喜欢': 'to like best; favorite',
+ '知道': 'to know; to have knowledge of',
+ '美国': 'United States',
+ '但': 'but; however',
+ '唱歌': 'to sing',
+ '跳舞': 'to dance',
+ '体育馆': 'gymnasium; sports hall',
+ '市中心': 'city center; downtown',
+ '马克': 'Mark (given name)',
+ '李佳': 'Li Jia (personal name)',
+ '你好': 'hello',
+ '啊': 'exclamatory particle',
+ '来': 'to come',
+ '对': 'right; correct; yes',
+ '等等': 'etc.; and so on',
+ '游': 'to swim (verb component of 游泳)',
+ '泳': 'swimming (component of 游泳)',
+ '还是': 'still; nevertheless; or (in questions)',
+ '打球': 'to play ball',
+ '里': 'inside; in',
+ '图书馆': 'library',
+ '看书': 'to read (books)',
+ '海边': 'seaside; coast',
+ '超市': 'supermarket',
+ '买': 'to buy',
+ '东西': 'thing(s); objects',
+ '香蕉': 'banana',
+ '吃': 'to eat',
+ '日记': 'diary',
+ '告诉': 'to tell; to inform',
+ '年轻': 'young',
+ '不过': 'however; nevertheless',
+ '有时': 'sometimes',
+ '聚': 'to get together',
+ '了解': 'to understand; to get to know',
+ '生活': 'life; to live',
+ '中国': 'China',
+ '年轻人': 'young person',
+ '老师': 'teacher',
+ '汉语': 'Chinese; Mandarin',
+ '很': 'very',
+ '了': 'particle indicating completion or a change of state',
+ '一': 'one',
+ '件': 'classifier for clothing and objects',
+ '衣服': 'clothes; clothing',
+ '双': 'pair; classifier for pairs',
+ '鞋': 'shoe(s)',
+ '有点儿': 'a little',
+ '不一样': 'different; not the same',
+ '希望': 'to hope; to wish; hope',
+ '多': 'much; many; more',
+ '地': 'particle linking a modifier to a verb',
+ '苹果': 'apple',
+ '旅游': 'to travel; tourism',
+ '法语': 'French language',
+ '羽毛球': 'badminton',
+ '玩': 'to play; to have fun',
+ '电脑': 'computer',
+ '歌': 'song; music',
+ '四十': 'forty',
+ '那': 'that; then',
+ '瑜伽': 'yoga',
+ '中国菜': 'Chinese food',
+ '害怕': 'to be afraid of',
+ '语言': 'language',
+ '运': 'to transport; component of 运动 (sport)',
+ '动': 'to move; movement',
+ '部': 'part; section',
+ '足': 'foot; component of 足球 (soccer)',
+ '趣': 'interest; component of 有趣 (interesting)',
+ '除': 'to remove; to exclude; component of 除了',
+ '般': 'kind; type; component of 一般',
+ '园': 'garden; park',
+ '日': 'day; sun',
+ '告': 'to inform; component of 告诉',
+ '诉': 'to tell; component of 告诉 (neutral tone in this word)',
+ '17::书法': 'Chinese calligraphy',
+ '17::难': 'difficult',
+ '17::但是': 'but; however',
+ '17::经常': 'often; frequently',
+ '17::练': 'to practice; to train',
+ '17::真好': 'very good; how nice',
+ '17::做': 'to make; to prepare (food)',
+ '17::西餐': 'Western food',
+ '17::拍': 'to take (a photo); to pat',
+ '17::照片': 'photograph; photo',
+ '17::当时': 'at that moment; at that time',
+ '17::菜谱': 'recipe; cookbook',
+ '17::牛排': 'beef steak',
+ '17::肯定': 'certainly; definitely',
+ '17::开心': 'happy; pleased',
+ '17::尝尝': 'to taste; to try a little',
+ '17::手艺': 'craftsmanship; cooking skills',
+ '17::做客': 'to visit someone as a guest',
+ '17::电视': 'television',
+ '17::窗': 'window',
+ '17::开': 'to open; to turn on',
+ '17::墙': 'wall',
+ '17::张': 'classifier for photos, sheets, and flat objects',
+ '17::全家福': 'family photo',
+ '17::客厅': 'living room',
+ '17::摆': 'to place; to arrange',
+ '17::整整齐齐': 'neatly arranged; in perfect order',
+ '17::毛笔': 'calligraphy brush',
+ '17::正在': 'to be doing something right now',
+ '17::丈夫': 'husband',
+ '17::玩具': 'toy',
+ '17::音乐': 'music',
+ '17::狗': 'dog',
+ '17::窗台': 'windowsill',
+ '17::啃': 'to gnaw; to nibble',
+ '17::骨头': 'bone',
+ '17::报纸': 'newspaper',
+ '17::词典': 'dictionary',
+ '17::穿': 'to wear; to put on (clothes)',
+ '17::灯': 'light; lamp',
+ '17::幅': 'classifier for paintings and pictures',
+ '17::录音': 'audio recording; to record audio',
+ '17::小孩子': 'child',
+ '17::最近': 'recently; lately',
+ '17::门': 'door',
+ '17::桌子': 'table; desk',
+ '17::椅子': 'chair',
+ '17::沙发': 'sofa',
+ '17::地板': 'floor; ground',
+ '17::得': 'particle linking a verb to an evaluation of the action',
+ '17::着': 'particle indicating an ongoing action or state',
+ '17::听': 'to hear; to listen',
+ '17::呢': 'question particle; particle marking an ongoing action',
+ '17::好久不见': 'long time no see',
+ '17::好': 'good; well',
+ '17::还可以': 'all right; reasonably well',
+ '17::下次': 'next time',
+ '17::写': 'to write',
+ '17::干': 'to do; to engage in an activity',
+ '17::不错': 'good; not bad',
+ '17::给': 'to give; to; for',
+ '17::正': 'just; right in the middle of',
+ '17::嗨': 'hi; hello',
+ '17::哇': 'wow; oh (surprise)',
+ '17::好吃': 'tasty; delicious',
+ '17::吧': 'particle expressing a suggestion or supposition',
+ '17::挺': 'quite; rather (degree)',
+ '17::能': 'can; to be able to',
+ '17::睡觉': 'to sleep',
+ '17::早': 'early',
+ '17::晚': 'late (time)',
+ '17::少': 'little; few',
+ '17::挂': 'to hang; to be hanging',
+ '17::放': 'to put; to place',
+ '17::书': 'book',
+ '17::坐': 'to sit; to be seated',
+ '17::喝': 'to drink',
+ '17::茶': 'tea',
+ '17::咖啡': 'coffee',
+ '17::自己': "oneself; one's own",
+ '17::房间': 'room',
+ '17::小': 'small',
+ '17::上': 'on; on top of',
+ '17::您好': 'hello (polite form)',
+ '17::画': 'painting; picture; to draw',
+ '17::起': 'to get up; to rise',
+ '17::跑': 'to run',
+ '17::快': 'fast; quickly',
+ '17::汉字': 'Chinese characters',
+ '17::猫': 'cat',
+ '17::窗户': 'window',
+ '17::聊天儿': 'to chat (with erhua)',
+ '17::牛奶': 'milk',
+ '17::榴莲': 'durian (fruit)',
+ '17::忙': 'busy',
+ '17::非常': 'very; extremely',
+ '17::流利': 'fluent; fluently',
+ '17::做饭': 'to cook; to prepare a meal',
+ '17::王浩明': 'Wang Haoming (personal name)',
+ '17::艾米丽': 'Emily (given name)',
+ '17::杰克': 'Jack (given name)',
+ '17::丽莎': 'Lisa (given name)',
+ '17::近': 'near; recent; component of 最近',
+ '17::样': 'manner; appearance; component of 怎么样',
+ '17::法': 'method; component of 书法',
+ '17::经': 'component of 经常 (often)',
+ '17::常': 'frequent; component of 经常',
+ '17::音': 'sound; component of 音乐',
+ '17::乐': 'music (reading used in 音乐)',
+ '17::西': 'west; Western',
+ '17::餐': 'meal',
+ '17::学': 'to learn; to study',
+ '17::中文': 'Chinese language',
+ '17::汉语': 'Chinese; Mandarin',
+ '17::中国菜': 'Chinese food',
+ '17::怎么样': 'how; in what way; how are things',
+ '17::说': 'to speak; to say',
+ '17::游泳': 'to swim; swimming',
+ '17::游': 'to swim (verb in 游泳)',
+ '17::散步': 'to walk; to take a stroll',
+ '17::麻将': 'mahjong',
+ '17::打': 'to play (a sport or game)',
+ '17::跳舞': 'to dance',
+ '17::玩': 'to play',
+ '17::看书': 'to read (books)',
+ '17::唱': 'to sing',
+ '17::吃': 'to eat',
+ '17::多': 'much; many',
+ '17::里': 'inside; in',
+ '17::地': 'particle linking a modifier to a verb',
+ '17::一': 'one',
+ '17::和': 'and; with',
+ '17::在': 'to be at; to be doing',
+ '17::我': 'I; me',
+ '17::你': 'you',
+ '17::他': 'he; him',
+ '17::她': 'she; her',
+ '17::的': 'possessive or attributive particle',
+ '17::很': 'very',
+ '17::也': 'also; too',
+ '17::不': 'not',
+ '17::可以': 'can; to be possible',
+ '17::一起': 'together',
+ '17::我们': 'we; us',
+ '17::什么': 'what',
+ '17::是': 'to be',
+ '17::这': 'this',
+ '17::朋友': 'friend',
+ '17::什么时候': 'when',
+ '17::这个': 'this',
+ '17::周末': 'weekend',
+ '17::来': 'to come',
+ '17::家': 'house; home; family',
+ '17::会': 'to know how; to be able to',
+ '17::他们': 'they; them',
+ '17::马克': 'Mark (given name)',
+ '17::喜欢': 'to like',
+ '17::不好': 'not to be good; not to go well',
+ '17::看': 'to see; to look; to watch; to read',
+ '17::大家': 'everyone; everybody',
+ '17::不太': 'not very',
+ '17::歌': 'song; vocal music',
+ '17::篮球': 'basketball',
+ '17::弹': 'to play (a stringed or keyboard instrument)',
+ '17::钢琴': 'piano',
+ '17::吗': 'yes/no question particle',
+ '17::个': 'general classifier',
+ '18::食堂': 'dining hall; cafeteria',
+ '18::肉夹馍': 'roujiamo; Chinese meat-filled bread',
+ '18::中式': 'Chinese-style',
+ '18::汉堡包': 'hamburger',
+ '18::晚餐': 'dinner',
+ '18::外面': 'outside',
+ '18::外卖': 'takeout; food delivery',
+ '18::方便': 'practical; convenient',
+ '18::健康': 'healthy; health',
+ '18::离': 'to be a distance from',
+ '18::走路': 'to go on foot; to walk',
+ '18::年': 'year',
+ '18::天气': 'weather; climate',
+ '18::潮湿': 'humid; damp',
+ '18::待': 'to stay; to remain',
+ '18::想念': 'to miss; to long for',
+ '18::阳光': 'sunshine',
+ '18::娱乐': 'entertainment; leisure',
+ '18::丰富': 'rich; abundant; varied',
+ '18::逛街': 'to browse the shops; to go shopping',
+ '18::只能': 'can only; to have no choice but to',
+ '18::洛杉矶': 'Los Angeles',
+ '18::长': 'long',
+ '18::地方': 'place',
+ '18::气温': 'air temperature',
+ '18::火车': 'train',
+ '18::住': 'to live; to reside',
+ '18::下雨': 'to rain',
+ '18::下雪': 'to snow',
+ '18::刮风': 'to be windy',
+ '18::打雷': 'to thunder',
+ '18::晴天': 'sunny day',
+ '18::阴天': 'cloudy day',
+ '18::晴': 'sunny; clear weather',
+ '18::阴': 'cloudy; overcast',
+ '18::俄罗斯': 'Russia',
+ '18::哈尔滨': 'Harbin',
+ '18::热': 'hot; heat',
+ '18::冷': 'cold',
+ '18::夏天': 'summer',
+ '18::冬天': 'winter',
+ '18::开车': 'to drive; to go by car',
+ '18::比': 'than; compared with',
+ '18::没有': 'not to have; not as... as',
+ '18::那么': 'so; that way',
+ '18::高': 'tall; high',
+ '18::远': 'far; distant',
+ '18::学校': 'school',
+ '18::美国': 'United States',
+ '18::中国': 'China',
+ '18::上海': 'Shanghai',
+ '18::北京': 'Beijing',
+ '18::不过': 'but; however',
+ '18::哪里': 'where',
+ '18::有时候': 'sometimes',
+ '18::餐厅': 'restaurant',
+ '18::吃饭': 'to eat; to have a meal',
+ '18::饭': 'food; meal; cooked rice',
+ '18::叫': 'to call; to order (food)',
+ '18::没关系': 'no problem; all right',
+ '18::时间': 'time',
+ '18::请': 'please; to invite',
+ '18::到': 'to arrive; to; until',
+ '18::地铁站': 'subway station',
+ '18::这儿': 'here',
+ '18::百': 'one hundred',
+ '18::米': 'meter (unit of length)',
+ '18::飞机': 'airplane',
+ '18::大': 'big; large',
+ '18::头发': 'hair',
+ '18::小红': 'Xiaohong (personal name)',
+ '18::小丽': 'Xiaoli (personal name)',
+ '18::海南': 'Hainan',
+ '18::汽车': 'automobile; car',
+ '18::一点儿': 'a little',
+ '18::件': 'classifier for clothing and matters',
+ '18::毛衣': 'sweater',
+ '18::贵': 'expensive',
+ '18::日记': 'personal diary',
+ '18::半年': 'half a year',
+ '18::月': 'month; moon',
+ '18::广州': 'Guangzhou; Canton',
+ '18::年轻人': 'young person',
+ '18::老年人': 'elderly person',
+ '18::生活': 'life; to live',
+ '18::从': 'from',
+ '18::这里': 'here; this place',
+ '18::超市': 'supermarket',
+ '18::公交车': 'city bus',
+ '18::地铁': 'subway; metro',
+ '18::昨天': 'yesterday',
+ '18::今天': 'today',
+ '18::度': 'degree (temperature)',
+ '18::香蕉': 'banana',
+ '18::苹果': 'apple',
+ '18::块': 'yuan (colloquial); piece',
+ '18::钱': 'money',
+ '18::斤': 'jin; half a kilogram',
+ '18::认识': 'to know; to recognize',
+ '18::千': 'one thousand',
+ '18::国家': 'country',
+ '18::东西': 'thing; object',
+ '18::星期五': 'Friday',
+ '18::岁': 'year of age',
+ '18::便宜': 'cheap; inexpensive',
+ '18::水': 'water',
+ '18::可乐': 'cola',
+ '18::面条': 'noodles',
+ '18::饺子': 'jiaozi; Chinese dumplings',
+ '18::手机': 'cell phone; mobile phone',
+ '18::食': 'food; component of 食堂',
+ '18::堂': 'hall; component of 食堂',
+ '18::星': 'star; component of 星期',
+ '18::肉': 'meat',
+ '18::外': 'outside; exterior',
+ '18::卖': 'to sell',
+ '18::方': 'direction; component of 方便',
+ '18::便': 'convenient; component of 方便',
+ '18::太': 'too; too much; very',
+ '18::关': 'component of 关系 (relationship)',
+ '18::系': 'connection; component of 关系',
+ '18::路': 'street; road',
+ '18::通讯': 'communication; news report',
+ '18::通信': 'to correspond; communication',
+ '18::药片': 'tablet; pill',
+ '18::欠缺': 'to lack; to be short of',
+ '18::详细': 'detailed',
+ '18::求学': 'to pursue an education; to study',
+ '18::一知半解': 'superficial knowledge; partial understanding',
+ '18::一言为定': "agreed; it's settled",
+ '18::一致通过': 'to approve unanimously',
+ '18::看电影': 'to watch a movie; to go to the movies',
+ '18::学习': 'to study; to learn',
+ '18::常常': 'often; frequently',
+ '18::李佳': 'Li Jia (personal name)',
+ '18::姚明': 'Yao Ming (personal name)',
+ '18::哪个': 'which',
+ '18::做饭': 'to cook; to prepare a meal',
+ '18::健身房': 'gym',
+ '18::好吃': 'tasty; delicious',
+ '18::更': 'more; even more',
+ '18::觉得': 'to think; to consider',
+ '18::写': 'to write',
+ '18::书法': 'Chinese calligraphy',
+ '18::汉字': 'Chinese characters',
+ '18::难': 'difficult',
+ '18::多': 'much; many',
+ '18::了': 'particle indicating completion or a change of state',
+ '18::经常': 'often; frequently',
+ '18::有': 'to have; there is; to exist',
+ '18::什么时候': 'when',
+ '18::做客': 'to visit someone as a guest',
+ '18::一起': 'together',
+ '18::打': 'to play (a sport or game)',
+ '18::网球': 'tennis',
+ '18::快': 'fast; quickly',
+ '18::家': 'house; home; family',
+ '18::里': 'inside; in',
+ '18::和': 'and; with',
+ '18::我': 'I; me',
+ '18::你': 'you',
+ '18::他': 'he; him',
+ '18::她': 'she; her',
+ '18::我们': 'we; us',
+ '18::的': 'possessive or attributive particle',
+ '18::是': 'to be',
+ '18::不': 'not',
+ '18::也': 'also; too',
+ '18::很': 'very',
+ '18::去': 'to go',
+ '18::来': 'to come',
+ '18::可以': 'can; to be possible',
+ '18::喜欢': 'to like',
+ '18::吃': 'to eat',
+ '18::周末': 'weekend',
+ '18::看书': 'to read (books)',
+ '18::听': 'to hear; to listen',
+ '18::音乐': 'music',
+ '18::自己': "oneself; one's own",
+ '18::近': 'near; recent; component of 最近',
+ '18::每天': 'every day',
+ '18::汉语': 'Chinese; Mandarin',
+ '18::小时': 'hour (duration)',
+ '18::朋友': 'friend',
+ '18::你们': 'you (plural)',
+ '18::几': 'how many; which (small number)',
+ '18::什么': 'what',
+ '18::想': 'to want; to feel like',
+ '18::为什么': 'why',
+ '18::哪儿': 'where',
+ '18::坐': 'to sit; to be seated',
+ '18::还': 'still; in addition; also',
+ '18::不太': 'not very',
+ '18::会': 'to know how; to be able to',
+ '18::马克': 'Mark (given name)',
+ '18::艾米丽': 'Emily (given name)',
+ '18::王浩明': 'Wang Haoming (personal name)',
+ '19::倒霉': 'to have bad luck; unlucky',
+ '19::丢': 'to lose (an object)',
+ '19::不见': 'to disappear; to go missing',
+ '19::小偷': 'thief',
+ '19::偷走': 'to steal; to take secretly',
+ '19::应该': 'should; ought to',
+ '19::怎么办': 'what to do',
+ '19::自认倒霉': "to accept one's bad luck",
+ '19::即使': 'even if; even though',
+ '19::报警': 'to report to the police; to call the police',
+ '19::警察': 'police officer; police',
+ '19::骑': 'to ride; to ride a bicycle',
+ '19::出去': 'to go out',
+ '19::辆': 'classifier for vehicles',
+ '19::撞晕': 'to hit and knock unconscious',
+ '19::吓坏': 'to frighten badly; to terrify',
+ '19::路人': 'pedestrian; passerby',
+ '19::救护车': 'ambulance',
+ '19::醒来': 'to wake up; to regain consciousness',
+ '19::床': 'bed',
+ '19::躺': 'to lie down; to be lying down',
+ '19::腿': 'leg',
+ '19::受伤': 'to get hurt; to be injured',
+ '19::女': 'woman; female',
+ '19::司机': 'driver',
+ '19::带走': 'to take away',
+ '19::严重': 'serious; severe',
+ '19::愿意': 'to be willing to; to want',
+ '19::和解': 'to reconcile; to reach a settlement',
+ '19::华山路': 'Huashan Road',
+ '19::警察局': 'police station',
+ '19::派出所': 'local police station',
+ '19::消防队': 'fire department',
+ '19::消防员': 'firefighter',
+ '19::失物招领处': 'lost and found',
+ '19::急诊': 'emergency department; emergency care',
+ '19::门诊': 'outpatient care',
+ '19::比赛': 'match; competition',
+ '19::出发': 'to set off; to depart',
+ '19::迟到': 'to be late',
+ '19::认真': 'attentive; serious; dedicated',
+ '19::条': 'classifier for long objects, such as pants',
+ '19::南京': 'Nanjing',
+ '19::开始': 'to begin; to start',
+ '19::裤子': 'pants; trousers',
+ '19::图书馆': 'library',
+ '19::新': 'new; newly',
+ '19::买': 'to buy',
+ '19::商场': 'shopping mall',
+ '19::商店': 'shop; store',
+ '19::银行': 'bank (financial institution)',
+ '19::回来': 'to return; to go back',
+ '19::发现': 'to discover; to notice',
+ '19::时候': 'time; moment; occasion',
+ '19::交通事故': 'traffic accident',
+ '19::撞': 'to hit; to collide with',
+ '19::把': 'particle placing the object before the action',
+ '19::医院': 'hospital',
+ '19::医生': 'doctor',
+ '19::明天': 'tomorrow',
+ '19::上课': 'to have class; to attend class',
+ '19::打算': 'to plan; to intend',
+ '19::记得': 'to remember',
+ '19::怎么': 'how; in what way',
+ '19::一个人': 'one person; alone',
+ '19::打电话': 'to make a phone call',
+ '19::可能': 'perhaps; possible',
+ '19::现在': 'now',
+ '19::再': 'again; once more',
+ '19::知道': 'to know',
+ '19::帮': 'to help',
+ '19::复习': 'to review; to revise',
+ '19::旅行': 'to travel; trip',
+ '19::路口': 'crossroads; intersection',
+ '19::热心': 'helpful; willing to help',
+ '19::告诉': 'to say; to tell; to inform',
+ '19::听说': 'to hear that; to hear about',
+ '19::所以': 'therefore; so',
+ '19::书店': 'bookstore',
+ '19::本': 'classifier for books',
+ '19::大学': 'university',
+ '19::博物馆': 'museum',
+ '19::自行车': 'bicycle',
+ '19::害怕': 'to be afraid',
+ '19::蛇': 'snake',
+ '19::看到': 'to see; to catch sight of',
+ '19::偷': 'to steal; to take secretly',
+ '19::于是': 'then; consequently',
+ '19::马上': 'immediately',
+ '19::早上': 'morning; in the morning',
+ '19::中午': 'noon',
+ '19::午饭': 'lunch',
+ '19::取钱': 'to withdraw money',
+ '19::然后': 'afterwards; then',
+ '19::教室': 'classroom',
+ '19::钱包': 'wallet',
+ '19::幸亏': 'fortunately; luckily',
+ '19::麻烦': 'troublesome; inconvenient; trouble',
+ '19::岂有此理': "that's outrageous",
+ '19::彼此': 'each other; mutually',
+ '19::了解': 'to understand; to know',
+ '19::恋恋不舍': 'to be reluctant to part; not to want to leave',
+ '19::倒': 'to fall; component of 倒霉',
+ '19::霉': 'mold; component of 倒霉 (bad luck)',
+ '19::图': 'picture; component of 图书馆',
+ '19::馆': 'building or establishment; component of 图书馆',
+ '19::应': 'should; component of 应该',
+ '19::该': 'should; component of 应该',
+ '19::末': 'end; component of 周末',
+ '19::车': 'vehicle; car',
+ '19::自': 'own; component of 自己',
+ '19::己': 'oneself; component of 自己',
+ '19::只': 'only; just',
+ '19::护照': 'passport',
+ '19::银行卡': 'bank card',
+ '19::出租车': 'taxi',
+ '19::机场': 'airport',
+ '19::要': 'to want; to need; to be going to',
+ '19::真': 'really; indeed',
+ '19::就': 'then; soon; already',
+ '19::自己': "oneself; one's own",
+ '19::请': 'please; to invite',
+ '19::到': 'to arrive; to; until',
+ '19::忙': 'busy',
+ '19::手机': 'cell phone; mobile phone',
+ '19::地铁': 'subway; metro',
+ '19::从': 'from',
+ '19::公交车': 'city bus',
+ '19::东西': 'thing; object',
+ '19::今天': 'today',
+ '19::哪儿': 'where',
+ '19::什么': 'what',
+ '19::什么时候': 'when',
+ '19::谁': 'who',
+ '19::跟': 'with; together with',
+ '19::一起': 'together',
+ '19::朋友': 'friend',
+ '19::是': 'to be',
+ '19::的': 'possessive or attributive particle',
+ '19::在': 'to be at; to be doing',
+ '19::了': 'particle indicating completion or a change of state',
+ '19::我': 'I; me',
+ '19::你': 'you',
+ '19::他': 'he; him',
+ '19::她': 'she; her',
+ '19::我们': 'we; us',
+ '19::都': 'all; both',
+ '19::一': 'one',
+ '19::个': 'general classifier',
+ '19::人': 'person; people',
+ '19::不': 'not',
+ '19::也': 'also; too',
+ '19::很': 'very',
+ '19::太': 'too; too much; very',
+ '19::只能': 'can only; to have no choice but to',
+ '19::贵': 'expensive',
+ '19::下雨': 'to rain',
+ '19::去': 'to go',
+ '19::来': 'to come',
+ '19::吃饭': 'to eat; to have a meal',
+ '19::和': 'and; with',
+ '19::王浩明': 'Wang Haoming (personal name)',
+ '19::马克': 'Mark (given name)',
+ '19::想': 'to want; to feel like',
+ '19::上': 'on; on top of',
+ '19::周末': 'weekend',
+ '19::骑车': 'to ride a bicycle',
+ '19::玩': 'to play',
+ '19::当时': 'at that moment; at that time',
+ '19::说': 'to speak; to say',
+ '19::叫': 'to call; to order (food)',
+ '19::还': 'still; in addition; also',
+ '19::学': 'to learn; to study',
+ '19::汉语': 'Chinese; Mandarin',
+ '19::电影': 'movie; film',
+ '19::电影院': 'movie theater; cinema',
+ '19::北京': 'Beijing',
+ '19::飞机': 'airplane',
+ '19::火车': 'train',
+ '19::学校': 'school',
+ '19::走路': 'to go on foot; to walk',
+ '19::学习': 'to study; to learn',
+ '19::国家': 'country',
+ '19::哪个': 'which',
+ '19::昨天': 'yesterday',
+ '19::踢': 'to kick; to play (soccer)',
+ '19::足球': 'soccer; football',
+ '19::正在': 'to be doing something right now',
+ '19::以后': 'after; afterwards',
+ '19::但是': 'but; however',
+ '19::老师': 'teacher',
+ '19::没有': 'not to have; not as... as',
+ '19::李佳': 'Li Jia (personal name)',
+ '19::日记': 'personal diary',
+ '19::篮球': 'basketball',
+ '19::怎么样': 'how; in what way; how are things',
+ '20::面试': 'interview; to attend an interview',
+ '20::交流': 'to talk; to communicate; to exchange ideas',
+ '20::以前': 'before; in the past',
+ '20::教': 'to teach',
+ '20::发音': 'pronunciation; to pronounce',
+ '20::清楚': 'clear; clearly',
+ '20::慢': 'slow; slowly',
+ '20::懂': 'to understand',
+ '20::如果': 'if (condition)',
+ '20::讲': 'to speak; to explain; to tell',
+ '20::或者': 'or (in statements)',
+ '20::方法': 'method; way',
+ '20::优点': 'strength; strong point; advantage',
+ '20::幽默': 'humorous; humor',
+ '20::故事': 'story; tale',
+ '20::当然': 'of course; naturally',
+ '20::准备': 'to prepare; to get ready',
+ '20::已经': 'already',
+ '20::久': 'a long time; lasting',
+ '20::份': 'classifier for jobs, portions, and documents',
+ '20::兼职': 'part-time job; part-time work',
+ '20::曾经': 'previously; at some time in the past',
+ '20::对…来说': "for someone; from someone's point of view",
+ '20::容易': 'easy',
+ '20::信心': 'confidence',
+ '20::虽然': 'although; despite',
+ '20::紧': 'tight; limited (time)',
+ '20::有意思': 'interesting; fun',
+ '20::家人': 'family members; family',
+ '20::包容': 'tolerant; accepting of differences',
+ '20::体贴': 'considerate; thoughtful',
+ '20::孝心': "devotion and respect toward one's parents",
+ '20::真诚': 'sincere',
+ '20::善良': 'kind; kind-hearted',
+ '20::热情': 'warm; enthusiastic',
+ '20::勤奋': 'hardworking; diligent',
+ '20::责任心': 'sense of responsibility',
+ '20::渴': 'thirsty',
+ '20::累': 'tired',
+ '20::手表': 'wristwatch',
+ '20::重': 'heavy',
+ '20::简单': 'simple; easy',
+ '20::房子': 'house; property',
+ '20::找工作': 'to look for a job',
+ '20::工作': 'work; to work',
+ '20::找': 'to look for',
+ '20::当': 'to be; to work as',
+ '20::工程师': 'engineer',
+ '20::过': 'past-experience particle; to pass',
+ '20::学过': 'to have studied; to have learned before',
+ '20::教过': 'to have taught before',
+ '20::去过': 'to have been somewhere before',
+ '20::做过': 'to have done before; to have worked as',
+ '20::适合': 'to be suitable; to be suited for',
+ '20::小朋友': 'child; little friend',
+ '20::听懂': 'to understand what one hears',
+ '20::没听懂': 'not to have understood what one heard',
+ '20::准备好': 'to be ready; to prepare well',
+ '20::有信心': 'to have confidence',
+ '20::有孝心': "to be devoted to one's parents",
+ '20::有责任心': 'to be responsible',
+ '20::同事': 'coworker; colleague',
+ '20::考官': 'examiner; interviewer',
+ '20::谢谢': 'thank you',
+ '20::而且': 'in addition; also',
+ '20::学生': 'student',
+ '20::学生们': 'the students',
+ '20::遍': 'time (one complete action)',
+ '20::换': 'to exchange; to change',
+ '20::英文': 'English language; written English',
+ '20::希望': 'to hope',
+ '20::老板': 'boss; owner',
+ '20::让': 'to let; to allow; to ask someone to do something',
+ '20::上班': 'to go to work; to be at work',
+ '20::晚上': 'night; at night',
+ '20::第二': 'second (ordinal)',
+ '20::找到': 'to find; to locate successfully',
+ '20::还是': 'still; or (in alternative questions)',
+ '20::做好': 'to do well; to finish preparing',
+ '20::学好': 'to learn well; to master',
+ '20::教好': 'to teach well',
+ '20::送到': 'to deliver; to get something to its destination',
+ '20::送': 'to send; to deliver; to take',
+ '20::写得完': 'to be able to finish writing',
+ '20::写不完': 'to be unable to finish writing',
+ '20::写完': 'to finish writing',
+ '20::写对': 'to write correctly',
+ '20::写错': 'to write incorrectly',
+ '20::听得懂': 'to be able to understand by listening',
+ '20::听不懂': 'to be unable to understand by listening',
+ '20::听清楚': 'to hear clearly',
+ '20::听见': 'to hear; to hear a sound',
+ '20::卖完': 'to sell out',
+ '20::吃完': 'to finish eating',
+ '20::说完': 'to finish speaking',
+ '20::完': 'to finish (result complement)',
+ '20::对': 'correct; to; regarding',
+ '20::错': 'wrong; mistake',
+ '20::作业': 'homework; assignment',
+ '20::学会': 'to learn how; to master a skill',
+ '20::电话号码': 'phone number',
+ '20::记住': 'to memorize; to remember',
+ '20::滑': 'to slip; to slide',
+ '20::滑倒': 'to slip and fall',
+ '20::饱': 'full (after eating)',
+ '20::吃饱': "to eat one's fill",
+ '20::买到': 'to manage to buy',
+ '20::票': 'ticket',
+ '20::看懂': 'to understand by reading or watching',
+ '20::看见': 'to see; to catch sight of',
+ '20::借': 'to borrow; to lend',
+ '20::借到': 'to manage to borrow',
+ '20::舒服': 'comfortable; to feel well',
+ '20::不舒服': 'to feel unwell; uncomfortable',
+ '20::电脑': 'computer',
+ '20::水果店': 'fruit shop',
+ '20::水果': 'fruit',
+ '20::好看': 'good-looking; enjoyable to watch',
+ '20::看完': 'to finish reading or watching',
+ '20::部': 'classifier for movies and devices',
+ '20::山': 'mountain',
+ '20::介绍': 'to introduce',
+ '20::老': 'old; component of 老师 and 老板',
+ '20::师': 'master; teacher; component of 老师',
+ '20::考': 'to examine; to take a test; component of 考官',
+ '20::交': 'to exchange; to associate with; component of 交流',
+ '20::流': 'to flow; component of 交流',
+ '20::清': 'clear; clean; component of 清楚',
+ '20::楚': 'clear; component of 清楚',
+ '20::介': 'to mediate; component of 介绍',
+ '20::绍': 'component of 介绍 (to introduce)',
+ '20::字': 'character; letter',
+ '20::还有': 'to still have; in addition',
+ '20::英语': 'English language',
+ '20::听': 'to hear; to listen',
+ '20::会': 'to know how; to be able to',
+ '20::给': 'to give; to; for',
+ '20::认真': 'attentive; serious; dedicated',
+ '20::老师': 'teacher',
+ '20::警察': 'police officer; police',
+ '20::医生': 'doctor',
+ '20::中文': 'Chinese language',
+ '20::说': 'to speak; to say',
+ '20::得': 'particle linking a verb to an evaluation of the action',
+ '20::很': 'very',
+ '20::我': 'I; me',
+ '20::你': 'you',
+ '20::他': 'he; him',
+ '20::她': 'she; her',
+ '20::我们': 'we; us',
+ '20::什么': 'what',
+ '20::做': 'to make; to prepare (food)',
+ '20::书法': 'Chinese calligraphy',
+ '20::打': 'to play (a sport or game)',
+ '20::麻将': 'mahjong',
+ '20::汉语': 'Chinese; Mandarin',
+ '20::现在': 'now',
+ '20::中国': 'China',
+ '20::去': 'to go',
+ '20::能': 'can; to be able to',
+ '20::怎么办': 'what to do',
+ '20::再': 'again; once more',
+ '20::一': 'one',
+ '20::明天': 'tomorrow',
+ '20::外卖': 'takeout; food delivery',
+ '20::快': 'fast; quickly',
+ '20::时间': 'time',
+ '20::不过': 'but; however',
+ '20::一个': 'one (with a classifier)',
+ '20::就': 'then; soon; already',
+ '20::好': 'good; well',
+ '20::写': 'to write',
+ '20::汉字': 'Chinese characters',
+ '20::不': 'not',
+ '20::没': 'not (past action or absence)',
+ '20::了': 'particle indicating completion or a change of state',
+ '20::吃': 'to eat',
+ '20::卖': 'to sell',
+ '20::吗': 'yes/no question particle',
+ '20::钱': 'money',
+ '20::这': 'this',
+ '20::个': 'general classifier',
+ '20::来': 'to come',
+ '20::学校': 'school',
+ '20::学': 'to learn; to study',
+ '20::都': 'all; both',
+ '20::的': 'possessive or attributive particle',
+ '20::有': 'to have; there is; to exist',
+ '20::是': 'to be',
+ '20::自己': "oneself; one's own",
+ '20::喜欢': 'to like',
+ '20::为什么': 'why',
+ '20::觉得': 'to think; to consider',
+ '20::经常': 'often; frequently',
+ '20::跟': 'with; together with',
+ '20::他们': 'they; them',
+ '20::朋友': 'friend',
+ '20::真': 'really; indeed',
+ '20::不错': 'good; not bad',
+ '20::别的': 'other; another',
+ '20::想': 'to want; to feel like',
+ '20::打算': 'to plan; to intend',
+ '20::上课': 'to have class; to attend class',
+ '20::可以': 'can; to be possible',
+ '20::但是': 'but; however',
+ '20::不太': 'not very',
+ '20::和': 'and; with',
+ '20::也': 'also; too',
+ '20::把': 'particle placing the object before the action',
+ '20::马克': 'Mark (given name)',
+ '20::李佳': 'Li Jia (personal name)',
+ '20::日记': 'personal diary',
+ '20::到': 'to arrive; to; until',
+ '20::书': 'book',
+ '20::本': 'classifier for books'}
+
+EXAMPLE_TRANSLATIONS_EN = {'我喜欢游泳。': 'I like swimming.',
+ '他喜欢打篮球。': 'He likes playing basketball.',
+ '你喜欢骑车。': 'You like riding a bicycle.',
+ '大家喜欢踢足球。': 'Everyone likes playing soccer.',
+ '她喜欢跑步。': 'She likes running.',
+ '我们喜欢打乒乓球。': 'We like playing table tennis.',
+ '我不喜欢打棒球。': "I don't like playing baseball.",
+ '大家不经常跑步。': "People don't run very often.",
+ '她不会打网球。': "She doesn't know how to play tennis.",
+ '我没去公园跑步。': "I didn't go running in the park.",
+ '我不太喜欢踢足球。': "I don't like playing soccer very much.",
+ '你喜欢打网球吗？': 'Do you like playing tennis?',
+ '你也喜欢跑步吗？': 'Do you also like running?',
+ '他最喜欢游泳吗？': 'Is swimming his favorite activity?',
+ '你每周去健身房吗？': 'Do you go to the gym every week?',
+ '你们会打棒球吗？': 'Do you know how to play baseball?',
+ '你喜欢什么运动？': 'What sport do you like?',
+ '你下课以后做什么？': 'What do you do after class?',
+ '你想学什么运动？': 'What sport do you want to learn?',
+ '你觉得什么运动最好玩儿？': 'What sport do you think is the most fun?',
+ '谁最喜欢跑步？': 'Who likes running the most?',
+ '你和谁一起去公园？': 'Who do you go to the park with?',
+ '谁经常去游泳馆？': 'Who usually goes to the swimming pool?',
+ '这是谁的网球？': 'Whose tennis ball is this?',
+ '你去哪儿跑步？': 'Where are you going to run?',
+ '他在哪儿游泳？': 'Where does he swim?',
+ '你在哪个公园散步？': 'Which park do you walk in?',
+ '他们下课以后去哪里？': 'Where do they go after class?',
+ '那个篮球场在哪儿？': 'Where is that basketball court?',
+ '你什么时候去公园跑步？': 'When are you going running in the park?',
+ '你星期几打网球？': 'What day of the week do you play tennis?',
+ '你明天几点去健身房？': 'What time are you going to the gym tomorrow?',
+ '他今天游泳吗？': 'Is he going swimming today?',
+ '你早上喜欢跑步吗？': 'Do you like running in the morning?',
+ '大家周末去公园吗？': 'Does everyone go to the park on the weekend?',
+ '大家最喜欢哪种运动？': 'What kind of sport does everyone like best?',
+ '我喜欢跑步，但是更喜欢游泳。': 'I like running, but I like swimming even more.',
+ '我每周跑步三次。': 'I run three times a week.',
+ '他每周打网球两次。': 'He plays tennis twice a week.',
+ '你一周游泳几次？': 'How many times a week do you swim?',
+ '大家每天散步一次。': 'Everyone takes a walk once a day.',
+ '她一般每周骑车一次。': 'She usually rides a bicycle once a week.',
+ '你一个月打几次篮球？': 'How many times a month do you play basketball?',
+ '我每次跑步半个小时。': 'Every time I run, I run for half an hour.',
+ '你每次打篮球多长时间？': 'How long do you play basketball each time?',
+ '她每次骑车两个小时。': 'She rides a bicycle for two hours each time.',
+ '你每次去健身房健身多久？': 'How long do you work out at the gym each visit?',
+ '大家每次打乒乓球十五分钟。': 'Everyone plays table tennis for fifteen minutes each time.',
+ '我们每周去足球场踢足球。': 'We go to the field to play soccer every week.',
+ '她星期六去健身房健身。': 'She goes to the gym to work out on Saturday.',
+ '除了跑步，我还喜欢游泳。': 'Besides running, I also like swimming.',
+ '你为什么喜欢跑步？': 'Why do you like running?',
+ '你怎么去公园？': 'How do you get to the park?',
+ '从学校到公园怎么走？': 'How do you get from the school to the park?',
+ '你觉得打棒球怎么样？': 'What do you think of playing baseball?',
+ '你觉得这个健身房怎么样？': 'What do you think of this gym?',
+ '你喜欢不喜欢打网球？': 'Do you like playing tennis or not?',
+ '你会不会骑车？': 'Can you ride a bicycle?',
+ '你下课以后去不去公园？': 'Are you going to the park after class or not?',
+ '你有几个网球？': 'How many tennis balls do you have?',
+ '游泳馆的票多少钱？': 'How much is admission to the swimming pool?',
+ '你几岁开始游泳？': 'How old were you when you started swimming?',
+ '公园离你家多远？': 'How far is the park from your home?',
+ '篮球场有多少人？': 'How many people are on the basketball court?',
+ '你每周花多少时间运动？': 'How much time do you spend exercising each week?',
+ '我喜欢去电影院看电影。': 'I like going to the cinema to watch movies.',
+ '他喜欢去酒吧喝酒。': 'He likes going to a bar to drink.',
+ '你喜欢唱卡拉OK吗？': 'Do you like singing karaoke?',
+ '我不喜欢打麻将。': "I don't like playing mahjong.",
+ '你什么时候跟朋友聊天？': 'When do you chat with friends?',
+ '我晚上喜欢跟朋友聊天。': 'I like chatting with friends in the evening.',
+ '我有很多兴趣和爱好，比如游泳、跑步和打麻将。': 'I have many interests and hobbies, such as swimming, running, and playing '
+                           'mahjong.',
+ '中国人有很多兴趣和爱好，比如打麻将和唱卡拉OK。': 'Chinese people have many interests and hobbies, such as playing mahjong and '
+                             'singing karaoke.',
+ '你的爱好有哪些？': 'What are your hobbies?',
+ '我没有很多爱好，只喜欢游泳。': "I don't have many hobbies; I only like swimming.",
+ '你有别的兴趣和爱好吗？': 'Do you have any other interests or hobbies?',
+ '你可以说三个你的爱好吗？': 'Can you name three of your hobbies?',
+ '你现在最喜欢做什么？': 'What do you like doing best these days?',
+ '我的爱好和你的不一样。': 'My hobbies are different from yours.',
+ '中国人的爱好和美国人的一样吗？': "Are Chinese people's hobbies the same as Americans'?",
+ '我们的爱好不一样，但是我们都喜欢唱卡拉OK。': 'Our hobbies are different, but we all like singing karaoke.',
+ '我喜欢跑步，你喜欢游泳，可是我们都喜欢运动。': 'I like running and you like swimming, but we both like sports.',
+ '我发现我的爱好和你的不一样。': 'I noticed that my hobbies are different from yours.',
+ '大部分人喜欢运动。': 'Most people like playing sports.',
+ '美式足球很有趣。': 'American football is interesting.',
+ '游泳很有趣。': 'Swimming is interesting.',
+ '他在棒球场打棒球。': 'He plays baseball on the baseball field.',
+ '除了中文以外，我还会说英语。': 'Besides Chinese, I can also speak English.',
+ '我一天跑步一次。': 'I run once a day.',
+ '我一星期打两次网球。': 'I play tennis twice a week.',
+ '他一周打两次网球。': 'He plays tennis twice a week.',
+ '他每周打两次网球。': 'He plays tennis twice a week.',
+ '你最喜欢什么运动？': 'What sport do you like best?',
+ '你知道吗？': 'Do you know?',
+ '你们在美国喜欢什么运动？': 'What sports do you like in the United States?',
+ '我喜欢唱歌，但我更喜欢跳舞。': 'I like singing, but I like dancing even more.',
+ '我去学校的体育馆打球。': "I'm going to play ball in the school gym.",
+ '我去市中心的游泳馆游泳。': "I'm going swimming at the downtown pool.",
+ '马克喜欢打篮球。': 'Mark likes playing basketball.',
+ '李佳喜欢跑步。': 'Li Jia likes running.',
+ '你好，李佳！': 'Hello, Li Jia!',
+ '你也在跑步啊！': "You're running too!",
+ '我每天都来跑步。': 'I come here to run every day.',
+ '对，我喜欢运动。': 'Yes, I like sports.',
+ '我喜欢篮球、棒球等等。': 'I like basketball, baseball, and so on.',
+ '我每周游两次泳。': 'I swim twice a week.',
+ '我还是喜欢打篮球。': 'I still prefer playing basketball.',
+ '我在公园里跑步。': 'I run in the park.',
+ '我去图书馆看书。': "I'm going to read at the library.",
+ '我去海边游泳。': "I'm going swimming in the sea.",
+ '我去超市买东西。': "I'm going shopping at the supermarket.",
+ '我喜欢吃香蕉。': 'I like eating bananas.',
+ '这是马克的日记。': "This is Mark's diary.",
+ '老师告诉我，学汉语很有趣。': 'The teacher told me that learning Chinese is interesting.',
+ '我的朋友很年轻。': 'My friend is very young.',
+ '我喜欢跑步，不过我更喜欢游泳。': 'I like running, but I like swimming even more.',
+ '我们有时一起打麻将。': 'Sometimes we play mahjong together.',
+ '朋友们聚在一起聊天。': 'Friends get together to chat.',
+ '我想了解中国人的生活。': "I want to learn about Chinese people's lives.",
+ '中国的年轻人也喜欢运动。': 'Young people in China also like sports.',
+ '我买了两双鞋。': 'I bought two pairs of shoes.',
+ '我买了一件衣服。': 'I bought an item of clothing.',
+ '我们的爱好有点儿不一样。': 'Our hobbies are a little different.',
+ '我希望以后可以去中国。': 'I hope I can go to China in the future.',
+ '我想更多地了解中国。': 'I want to learn more about China.',
+ '除了苹果，我还喜欢吃香蕉。': 'Besides apples, I also like eating bananas.',
+ '我喜欢旅游。': 'I like traveling.',
+ '除了汉语，我还会说法语。': 'Besides Chinese, I can also speak French.',
+ '我每周打两个小时羽毛球。': 'I play badminton for two hours a week.',
+ '他喜欢玩电脑。': 'He likes playing on the computer.',
+ '我喜欢唱歌。': 'I like singing.',
+ '我每次跑步四十分钟。': 'I run for forty minutes each time.',
+ '那你喜欢什么运动？': 'So, what sport do you like?',
+ '我喜欢瑜伽。': 'I like yoga.',
+ '你最喜欢吃什么中国菜？': 'What Chinese dish do you like eating best?',
+ '你最害怕什么？': 'What are you most afraid of?',
+ '你还会说什么语言？': 'What other languages can you speak?',
+ '我喜欢运动。': 'I like sports.',
+ '我喜欢踢足球。': 'I like playing soccer.',
+ '我一般去公园跑步。': 'I usually go running in the park.',
+ '我去公园跑步。': "I'm going running in the park.",
+ '这是我的日记。': 'This is my diary.',
+ '我最近在学书法。': "I've been learning calligraphy lately.",
+ '书法很难，但是我学得还可以。': "Calligraphy is difficult, but I'm doing reasonably well at learning it.",
+ '我经常听着音乐练书法。': 'I often practice calligraphy while listening to music.',
+ '真好，我们下次可以一起写。': 'Great! Next time we can write together.',
+ '我在学做西餐，做得也不错。': "I'm learning to cook Western food, and I'm doing well.",
+ '这是朋友给我拍的照片。': 'This is the photo my friend took of me.',
+ '我当时正看着菜谱做牛排呢。': 'At that moment, I was cooking a steak while looking at the recipe.',
+ '哇，肯定很好吃吧？': 'Wow, it must be delicious, right?',
+ '挺好吃的，我们吃得很开心。': 'It was very tasty; we really enjoyed the meal.',
+ '什么时候能尝尝你的手艺？': 'When can we try your cooking?',
+ '这个周末来我家做客吧，我给大家做牛排。': "Come visit me at home this weekend; I'll cook steaks for everyone.",
+ '电视开着，窗也开着。': 'The television is on, and the window is open too.',
+ '墙上挂着一张全家福。': 'There is a family photo hanging on the wall.',
+ '客厅里摆着沙发和桌子。': 'There are a sofa and a table in the living room.',
+ '桌子上整整齐齐地放着书和毛笔。': 'The books and calligraphy brushes are neatly arranged on the table.',
+ '她在椅子上坐着，正在写书法。': 'She is sitting on the chair practicing calligraphy.',
+ '她的丈夫在客厅里喝着咖啡看电视。': 'Her husband is in the living room watching television while drinking coffee.',
+ '杰克在地板上坐着玩玩具。': 'Jack is sitting on the floor playing with toys.',
+ '小狗在窗台上啃着骨头。': 'The little dog is gnawing on a bone on the windowsill.',
+ '他在客厅喝着茶看报纸。': 'He is reading the newspaper in the living room while drinking tea.',
+ '桌子上放着汉语词典。': 'There is a Chinese dictionary on the table.',
+ '她穿得很少。': 'She is wearing very little clothing.',
+ '他开着灯睡觉。': 'He sleeps with the light on.',
+ '墙上挂着一幅画。': 'There is a painting hanging on the wall.',
+ '我听着录音学汉语。': 'I study Chinese by listening to a recording.',
+ '椅子上坐着一个小孩子。': 'There is a child sitting on the chair.',
+ '门开着。': 'The door is open.',
+ '你最近在干什么呢？': 'What have you been doing lately?',
+ '好久不见，你最近怎么样？': 'Long time no see! How have you been?',
+ '我很好。': "I'm fine.",
+ '嗨，艾米丽！': 'Hi, Emily!',
+ '他睡觉得早，她睡觉得晚。': 'He goes to bed early; she goes to bed late.',
+ '丽莎在自己的房间里听音乐。': 'Lisa is listening to music in her own room.',
+ '您好，老师！': 'Hello, teacher!',
+ '周末你起得早吗？': 'Do you get up early on the weekend?',
+ '我跑得不快。': "I don't run fast.",
+ '你汉字写得怎么样？': 'How well do you write Chinese characters?',
+ '猫在沙发上。': 'The cat is on the sofa.',
+ '窗户开着。': 'The window is open.',
+ '他们在客厅聊天儿。': 'They are chatting in the living room.',
+ '他喝着牛奶看书。': 'He reads while drinking milk.',
+ '我喜欢吃榴莲。': 'I like eating durian.',
+ '我最近非常忙。': "I've been very busy lately.",
+ '我说中文说得很流利。': 'I speak Chinese very fluently.',
+ '她看着菜谱做饭。': 'She cooks while looking at the recipe.',
+ '王浩明在学做西餐。': 'Wang Haoming is learning to cook Western food.',
+ '我最近在学做中国菜。': "I've been learning to cook Chinese food lately.",
+ '我会游泳，游得很好。': 'I can swim, and I swim very well.',
+ '他听着音乐散步。': 'He walks while listening to music.',
+ '你打麻将打得怎么样？': 'How well do you play mahjong?',
+ '她听着音乐跳舞。': 'She dances while listening to music.',
+ '我唱得不太好。': "I don't sing very well.",
+ '他吃得多，我吃得少。': 'He eats a lot; I eat little.',
+ '我学得不好。': "I'm not doing well at learning.",
+ '马克听着音乐。': 'Mark is listening to music.',
+ '你会唱中文歌吗？': 'Can you sing songs in Chinese?',
+ '你会打篮球吗？打得怎么样？': 'Can you play basketball? How well do you play?',
+ '你会弹钢琴吗？': 'Can you play the piano?',
+ '食堂的肉夹馍比汉堡包好吃。': "The cafeteria's roujiamo tastes better than its hamburger.",
+ '我觉得肉夹馍是中式汉堡包。': 'I think roujiamo is a Chinese-style hamburger.',
+ '你经常去哪里吃晚餐？': 'Where do you usually have dinner?',
+ '我有时候去外面的餐厅吃饭。': 'Sometimes I go out to eat at a restaurant.',
+ '在中国叫外卖很方便。': 'Ordering food delivery is very convenient in China.',
+ '家里的饭比外卖更健康。': 'Home-cooked food is healthier than delivered food.',
+ '我家离学校不远，可以走路去。': "My home isn't far from school; I can walk there.",
+ '我来上海半年多了。': 'I arrived in Shanghai more than half a year ago.',
+ '上海的天气比洛杉矶潮湿多了。': "Shanghai's climate is much more humid than Los Angeles's.",
+ '周末我只能待在家里。': 'I can only stay at home on the weekend.',
+ '我很想念洛杉矶的阳光。': 'I really miss the sunshine in Los Angeles.',
+ '年轻人的娱乐生活很丰富。': 'Young people enjoy a wide variety of leisure activities.',
+ '我喜欢逛街。': 'I like browsing the shops.',
+ '小红的头发比小丽的长。': "Xiaohong's hair is longer than Xiaoli's.",
+ '他住的地方离学校很近。': 'The place where he lives is close to the school.',
+ '哈尔滨的气温比海南低。': 'The temperature in Harbin is lower than in Hainan.',
+ '坐火车比坐汽车快一点儿。': 'Traveling by train is a little faster than traveling by car.',
+ '这里六月经常下雨。': 'It often rains here in June.',
+ '冬天经常下雪。': 'It often snows in winter.',
+ '今天刮风，还打雷。': "It's windy today, and it's thundering too.",
+ '昨天是阴天，今天是晴天。': "It was cloudy yesterday; it's sunny today.",
+ '俄罗斯比中国大。': 'Russia is bigger than China.',
+ '上海的夏天比北京的夏天热。': 'Summer in Shanghai is hotter than in Beijing.',
+ '上海没有北京那么冷。': "Shanghai isn't as cold as Beijing.",
+ '开车比走路快多了。': 'Going by car is much faster than walking.',
+ '我没有马克那么高。': "I'm not as tall as Mark.",
+ '在美国叫外卖没有在中国方便。': "Ordering food in the United States isn't as convenient as in China.",
+ '汉堡包很好吃，不过我更喜欢肉夹馍。': 'Hamburgers taste good, but I prefer roujiamo.',
+ '没关系，你有时间，我请你到我家吃饭。': "No problem; when you have time, I'll invite you to my home for a meal.",
+ '地铁站离这儿五百米。': 'The subway station is five hundred meters from here.',
+ '飞机比火车快。': 'A plane is faster than a train.',
+ '这件毛衣比那件贵一点儿。': 'This sweater is a little more expensive than that one.',
+ '马克每天写日记。': 'Mark writes in his diary every day.',
+ '六月和七月经常下雨。': 'It often rains in June and July.',
+ '广州比北京潮湿。': 'Guangzhou is more humid than Beijing.',
+ '老年人也喜欢娱乐。': 'Older people also enjoy leisure activities.',
+ '从这里到超市只能坐公交车。': 'You can only get from here to the supermarket by bus.',
+ '昨天十八度，今天二十度。': "It was eighteen degrees yesterday; it's twenty today.",
+ '香蕉三块钱一斤，苹果六块钱一斤。': 'Bananas cost three yuan per half kilogram; apples cost six.',
+ '我认识一千多个汉字。': 'I know more than a thousand Chinese characters.',
+ '你国家的东西贵吗？': 'Are things expensive in your country?',
+ '今天是星期五。': 'Today is Friday.',
+ '他十八岁。': 'He is eighteen years old.',
+ '这个比那个便宜。': 'This one is cheaper than that one.',
+ '水比可乐健康。': 'Water is healthier than cola.',
+ '我喜欢吃面条和饺子。': 'I like eating noodles and Chinese dumplings.',
+ '这部手机很贵。': 'This cell phone is expensive.',
+ '我喜欢吃肉。': 'I like eating meat.',
+ '这里卖水果。': 'Fruit is sold here.',
+ '今天太热了。': "It's too hot today.",
+ '这篇通讯很详细。': 'This news report is very detailed.',
+ '我们经常通信。': 'We often correspond with each other.',
+ '这是药片。': 'This is a pill.',
+ '他欠缺经验。': 'He lacks experience.',
+ '他去中国求学。': 'He is going to China to study.',
+ '我对书法一知半解。': 'I only have a superficial understanding of calligraphy.',
+ '我们一言为定。': "It's settled.",
+ '大家一致通过这个计划。': 'Everyone approved this plan unanimously.',
+ '我们一起去看电影。': "Let's go to the movies together.",
+ '你每天学习汉语多长时间？': 'How long do you study Chinese each day?',
+ '我常常自己做饭。': 'I often cook for myself.',
+ '李佳请马克吃饭。': 'Li Jia invites Mark to have a meal.',
+ '姚明比马克高。': 'Yao Ming is taller than Mark.',
+ '哪个更好吃？': 'Which one tastes better?',
+ '我今天真是太倒霉了。': 'I was really unlucky today.',
+ '我新买的手机丢了。': 'I lost the cell phone I recently bought.',
+ '我发现手机不见了。': 'I noticed that my cell phone had disappeared.',
+ '小偷偷走了我的手机。': 'The thief took my cell phone.',
+ '我现在应该怎么办？': 'What should I do now?',
+ '他只能自认倒霉。': 'He can only accept his bad luck.',
+ '即使明天下雨，我也要去上课。': "Even if it rains tomorrow, I'll go to class.",
+ '他报警以后，警察来了。': 'After he called the police, the officers arrived.',
+ '我骑自行车出去玩。': 'I went out for a bicycle ride.',
+ '一辆车把我撞晕了。': 'A car hit me and knocked me unconscious.',
+ '我的朋友当时吓坏了。': 'My friend was terrified at that moment.',
+ '热心的路人叫了救护车。': 'A helpful passerby called an ambulance.',
+ '我醒来的时候，在医院的床上躺着。': 'When I woke up, I was lying in a hospital bed.',
+ '我的腿受伤了。': 'My leg was injured.',
+ '警察把女司机带走了。': 'The police took the female driver away.',
+ '这次交通事故很严重。': 'This traffic accident was serious.',
+ '我愿意跟她和解。': "I'm willing to reconcile with her.",
+ '我们骑到华山路的路口。': 'We rode our bicycles to the intersection on Huashan Road.',
+ '警察局和派出所在哪里？': 'Where are the police station and the local police station?',
+ '消防队的消防员来了。': 'The firefighters from the fire department arrived.',
+ '我去失物招领处找手机。': "I'm going to the lost and found to look for my cell phone.",
+ '这家医院有急诊和门诊。': 'This hospital has emergency and outpatient services.',
+ '我们去看篮球比赛。': "We're going to watch a basketball game.",
+ '即使现在出发，你也会迟到。': "Even if you leave now, you'll be late.",
+ '即使很难，我也要认真学。': "Even if it's difficult, I'll study diligently.",
+ '这条裤子是在商店买的。': 'These pants were bought at the store.',
+ '我是坐火车去南京的。': 'I went to Nanjing by train.',
+ '你是什么时候开始学习汉语的？': 'When did you start learning Chinese?',
+ '我是从图书馆回来的时候发现的。': 'I noticed it when I was coming back from the library.',
+ '是在商场买东西的时候丢的。': 'I lost it while shopping at the mall.',
+ '我去银行取钱。': "I'm going to the bank to withdraw money.",
+ '医生在医院工作。': 'The doctor works at the hospital.',
+ '我打算再买一个手机。': 'I plan to buy another cell phone.',
+ '我不记得了。': "I don't remember anymore.",
+ '你是怎么去的？': 'How did you get there?',
+ '我是自己一个人去的。': 'I went alone.',
+ '我想打电话请朋友吃饭。': 'I want to call a friend to invite them for a meal.',
+ '小偷可能在地铁上偷走了手机。': 'Perhaps the thief took the cell phone on the subway.',
+ '我不知道是谁偷走的。': "I don't know who took it.",
+ '我愿意帮你复习。': "I'm willing to help you review.",
+ '我愿意跟你一起去旅行。': "I'm willing to travel with you.",
+ '路人告诉他应该怎么办。': 'The passerby told him what he should do.',
+ '听说她是新司机，所以我愿意和解。': "I heard that she is a new driver, so I'm willing to make peace with her.",
+ '这本书是在书店买的。': 'This book was bought at the bookstore.',
+ '我的汉语是在大学学的。': 'I learned Chinese at university.',
+ '我是坐地铁去博物馆的。': 'I went to the museum by subway.',
+ '我很害怕蛇。': "I'm very afraid of snakes.",
+ '他看到小偷，于是马上报警了。': 'He saw the thief and immediately called the police.',
+ '你今天早上是怎么来学校的？': 'How did you get to school this morning?',
+ '中午吃了午饭以后，他就去银行了。': 'After lunch at noon, he went to the bank.',
+ '然后他到了教室，发现钱包没有了。': 'Then he arrived at the classroom and noticed that his wallet was missing.',
+ '幸亏你来帮忙。': "It's a good thing you came to help.",
+ '这件事很麻烦。': 'This matter is complicated.',
+ '岂有此理！': "That's outrageous!",
+ '我们彼此了解。': 'We understand each other.',
+ '离开的时候，我恋恋不舍。': 'When it was time to leave, I was reluctant to go.',
+ '上个周末，我们骑车出去玩。': 'Last weekend we went out for a bicycle ride.',
+ '我的护照丢了。': 'I lost my passport.',
+ '我的银行卡不见了。': 'My bank card has disappeared.',
+ '我是坐出租车去机场的。': 'I went to the airport by taxi.',
+ '我明天去面试。': "I'm going to an interview tomorrow.",
+ '我经常跟中国朋友交流。': 'I often talk with Chinese friends.',
+ '你以前教过英语吗？': 'Have you taught English before?',
+ '我的发音很清楚，说得很慢。': 'My pronunciation is clear, and I speak slowly.',
+ '小朋友都能听懂。': 'All the children can understand what they hear.',
+ '如果你没听懂，我会再讲一遍。': "If you didn't understand, I'll explain it one more time.",
+ '我会再讲一遍，或者换一个方法。': "I'll explain it again or try a different method.",
+ '你还有别的优点吗？': 'Do you have any other strengths?',
+ '我很幽默，学生们都很喜欢我。': "I'm humorous, and all the students like me.",
+ '我会给学生讲英文故事。': "I'll tell the students stories in English.",
+ '当然，我能准备好明天的面试。': "Of course, I can prepare well for tomorrow's interview.",
+ '我来中国已经很久了。': "It's been a long time since I arrived in China.",
+ '我找到了一份兼职工作。': 'I found a part-time job.',
+ '我曾经教过中国学生。': "I've taught Chinese students before.",
+ '对我来说，这份工作不太容易。': "For me, this job isn't very easy.",
+ '我的老板对我很有信心。': 'My boss has a lot of confidence in me.',
+ '虽然时间很紧，不过我一个晚上就能准备好。': 'Although time is tight, I can get ready in one evening.',
+ '教英语很有意思。': 'Teaching English is very interesting.',
+ '我的家人很包容，也很体贴。': 'My family is tolerant and considerate.',
+ '他很有孝心。': 'He is very devoted to his parents.',
+ '我的朋友真诚、善良、热情。': 'My friend is sincere, kind, and warm.',
+ '我的同事认真、勤奋、有责任心。': 'My coworker is dedicated, hardworking, and responsible.',
+ '我很渴，想喝水。': "I'm very thirsty and want to drink water.",
+ '如果我很累，我会休息。': "If I'm very tired, I'll rest.",
+ '这块手表很重。': 'This wristwatch is heavy.',
+ '这个方法很简单。': 'This method is simple.',
+ '我看见山上的房子了。': 'I saw the house on the mountain.',
+ '我正在找工作。': "I'm looking for a job.",
+ '我以前当过工程师。': "I've worked as an engineer before.",
+ '我学过书法。': "I've studied calligraphy before.",
+ '我去过中国。': "I've been to China before.",
+ '考官问我以前做过什么工作。': "The interviewer asked what jobs I'd done before.",
+ '我很适合做老师。': "I'm suited to being a teacher.",
+ '谢谢，我很喜欢教英语。': 'Thank you. I really like teaching English.',
+ '我教过小朋友，而且很喜欢做老师。': "I've taught children before, and I also really enjoy being a teacher.",
+ '我希望可以做好这份工作。': 'I hope I can do this job well.',
+ '老板让我明天去上班。': 'The boss asked me to go to work tomorrow.',
+ '这是我找到的第二份兼职工作。': "This is the second part-time job I've found.",
+ '这份工作还是不太容易。': "This job still isn't very easy.",
+ '我能学好英语。': 'I can learn English well.',
+ '我会教好英语的。': "I'll teach English well.",
+ '外卖会很快送到的。': 'The food will arrive soon.',
+ '我今天写得完作业。': 'I can finish writing my homework today.',
+ '我今天写不完作业。': "I can't finish writing my homework today.",
+ '我的作业写完了。': "I've finished writing my homework.",
+ '这个字写对了。': 'This character was written correctly.',
+ '这个字写错了。': 'This character was written incorrectly.',
+ '他说的话我听得懂。': 'I can understand what he says.',
+ '他说的话我听不懂。': "I can't understand what he says.",
+ '我听清楚了。': 'I heard it clearly.',
+ '你听见了吗？': 'Did you hear it?',
+ '水果都卖完了。': 'All the fruit has been sold.',
+ '我吃完了。': "I've finished eating.",
+ '他说完了。': 'He has finished speaking.',
+ '这个汉字我学会了。': "I've learned this Chinese character.",
+ '这个电话号码你记住了吗？': 'Have you memorized this phone number?',
+ '他滑倒了。': 'He slipped and fell.',
+ '她吃饱了。': 'She ate until she was full.',
+ '他买到票了。': 'He managed to buy the ticket.',
+ '他看懂这本书了。': 'He understood this book.',
+ '我借到钱了。': 'I managed to borrow some money.',
+ '我今天不舒服。': "I'm not feeling well today.",
+ '我的电脑没找到。': "My computer wasn't found.",
+ '这家水果店的水果都卖完了。': 'The fruit at this fruit shop has sold out.',
+ '这部电影不好看，我没看完。': "This movie isn't good; I didn't finish watching it.",
+ '请介绍一下自己。': 'Please introduce yourself briefly.',
+ '我想当英语老师。': 'I want to be an English teacher.'}
+
+
+# Offline Spanish study content. Original card IDs remain unchanged.
+WORD_TRANSLATIONS_ES = {'我': 'yo',
+ '喜欢': 'gustar',
+ '游泳': 'nadar; natación',
+ '他': 'él',
+ '打': 'jugar (un deporte de pelota)',
+ '篮球': 'baloncesto',
+ '你': 'tú; usted',
+ '骑车': 'montar en bicicleta',
+ '大家': 'todos; todo el mundo',
+ '踢': 'patear; jugar (al fútbol)',
+ '足球': 'fútbol',
+ '她': 'ella',
+ '跑步': 'correr; carrera',
+ '我们': 'nosotros; nosotras',
+ '乒乓球': 'tenis de mesa',
+ '不': 'no (negación)',
+ '棒球': 'béisbol',
+ '经常': 'a menudo',
+ '不会': 'no saber; no poder (hacer algo)',
+ '网球': 'tenis',
+ '没': 'no (acción pasada o ausencia)',
+ '去': 'ir',
+ '公园': 'parque',
+ '不太': 'no muy; no mucho',
+ '吗': 'partícula de pregunta de sí o no',
+ '也': 'también',
+ '最': 'el más; lo más (superlativo)',
+ '每周': 'cada semana; semanalmente',
+ '健身房': 'gimnasio',
+ '你们': 'ustedes; vosotros',
+ '会': 'saber hacer; poder; ser capaz de',
+ '什么': 'qué',
+ '运动': 'deporte; actividad física',
+ '下课': 'terminar la clase; después de clase',
+ '以后': 'después; tras',
+ '做': 'hacer',
+ '想': 'querer; tener ganas de',
+ '学': 'aprender; estudiar',
+ '觉得': 'pensar; considerar',
+ '好玩儿': 'divertido; interesante',
+ '谁': 'quién',
+ '和': 'y; con',
+ '一起': 'juntos',
+ '游泳馆': 'piscina pública; centro de natación',
+ '这': 'este; esta; esto',
+ '是': 'ser; estar',
+ '的': 'partícula posesiva o atributiva',
+ '哪儿': 'dónde',
+ '在': 'estar en; en',
+ '哪个': 'cuál (entre varias opciones)',
+ '散步': 'caminar; pasear',
+ '他们': 'ellos; ellas',
+ '哪里': 'dónde',
+ '那个': 'ese; esa; aquel; aquella',
+ '篮球场': 'cancha de baloncesto',
+ '什么时候': 'cuándo',
+ '星期': 'semana; día de la semana',
+ '几': 'cuántos; cuál (número pequeño)',
+ '明天': 'mañana',
+ '几点': 'a qué hora',
+ '今天': 'hoy',
+ '早上': 'por la mañana',
+ '周末': 'fin de semana',
+ '哪': 'cuál',
+ '种': 'tipo; clase',
+ '但是': 'pero; sin embargo',
+ '更': 'más; aún más',
+ '三': 'tres',
+ '次': 'vez; veces',
+ '两': 'dos (antes de un clasificador)',
+ '一周': 'una semana; por semana',
+ '每天': 'todos los días',
+ '一次': 'una vez',
+ '一般': 'generalmente; por lo general',
+ '一个': 'uno; una (con clasificador)',
+ '月': 'mes',
+ '每次': 'cada vez; todas las veces',
+ '半': 'medio; mitad',
+ '个': 'clasificador general',
+ '小时': 'hora (duración)',
+ '多长': 'cuánto tiempo; qué longitud',
+ '时间': 'tiempo',
+ '两个': 'dos (con clasificador)',
+ '健身': 'hacer ejercicio; entrenar',
+ '多久': 'cuánto tiempo (duración)',
+ '十五': 'quince',
+ '分钟': 'minuto(s)',
+ '足球场': 'campo de fútbol',
+ '星期六': 'sábado',
+ '除了': 'además de; excepto',
+ '还': 'todavía; además; también',
+ '为什么': 'por qué',
+ '怎么': 'cómo; de qué manera',
+ '从': 'de; desde',
+ '学校': 'escuela',
+ '到': 'hasta; llegar a',
+ '走': 'andar; caminar; ir',
+ '怎么样': 'cómo es; qué te parece',
+ '这个': 'este; esta',
+ '喜欢不喜欢': 'gustar o no (forma interrogativa)',
+ '会不会': 'saber hacer o no (forma interrogativa)',
+ '去不去': 'ir o no (forma interrogativa)',
+ '有': 'tener; haber; existir',
+ '几个': 'cuántos (pocos)',
+ '票': 'entrada; billete',
+ '多少': 'cuánto; cuántos',
+ '钱': 'dinero',
+ '岁': 'años de edad',
+ '开始': 'empezar; comenzar',
+ '离': 'estar a cierta distancia de',
+ '家': 'casa; hogar; familia',
+ '多远': 'a qué distancia',
+ '人': 'persona(s)',
+ '花': 'gastar (tiempo o dinero)',
+ '电影院': 'cine',
+ '看': 'ver; mirar',
+ '电影': 'película',
+ '酒吧': 'bar',
+ '喝酒': 'beber alcohol',
+ '唱': 'cantar',
+ '卡拉OK': 'karaoke',
+ '麻将': 'mahjong',
+ '跟': 'con; junto con',
+ '朋友': 'amigo; amiga',
+ '聊天': 'conversar; charlar',
+ '晚上': 'por la noche',
+ '很多': 'muchos; muchas',
+ '兴趣': 'interés; intereses',
+ '爱好': 'afición; pasatiempo',
+ '比如': 'por ejemplo',
+ '中国人': 'persona china; chinos',
+ '些': 'algunos; algunas',
+ '没有': 'no tener; no haber',
+ '只': 'solo; solamente',
+ '别的': 'otro; otros',
+ '可以': 'poder; tener permiso para',
+ '说': 'decir; hablar',
+ '三个': 'tres (con clasificador)',
+ '现在': 'ahora; actualmente',
+ '一样': 'igual; de la misma manera',
+ '美国人': 'estadounidense(s)',
+ '都': 'todos; ambos',
+ '可是': 'pero; sin embargo',
+ '发现': 'darse cuenta de; descubrir',
+ '大部分': 'la mayor parte; la mayoría',
+ '美式': 'de estilo estadounidense',
+ '有趣': 'interesante; curioso',
+ '棒球场': 'campo de béisbol',
+ '中文': 'lengua china; chino',
+ '英语': 'lengua inglesa; inglés',
+ '以外': 'además de; fuera de; excepto',
+ '一天': 'un día; por día',
+ '一星期': 'una semana; por semana',
+ '一天一次': 'una vez al día',
+ '一周两次': 'dos veces por semana',
+ '一星期两次': 'dos veces por semana',
+ '每周两次': 'dos veces cada semana',
+ '更喜欢': 'gustar aún más; preferir',
+ '最喜欢': 'gustar más; favorito',
+ '知道': 'saber; tener conocimiento de',
+ '美国': 'Estados Unidos',
+ '但': 'pero; sin embargo',
+ '唱歌': 'cantar',
+ '跳舞': 'bailar',
+ '体育馆': 'pabellón deportivo; gimnasio',
+ '市中心': 'centro de la ciudad',
+ '马克': 'Mark (nombre propio)',
+ '李佳': 'Li Jia (nombre propio)',
+ '你好': 'hola',
+ '啊': 'partícula exclamativa',
+ '来': 'venir',
+ '对': 'correcto; sí',
+ '等等': 'etcétera; y así sucesivamente',
+ '游': 'nadar (componente verbal de 游泳)',
+ '泳': 'natación (componente de 游泳)',
+ '还是': 'todavía; aun así; o (en preguntas)',
+ '打球': 'jugar a la pelota',
+ '里': 'dentro; en',
+ '图书馆': 'biblioteca',
+ '看书': 'leer (libros)',
+ '海边': 'orilla del mar; costa',
+ '超市': 'supermercado',
+ '买': 'comprar',
+ '东西': 'cosa(s); objetos',
+ '香蕉': 'plátano; banana',
+ '吃': 'comer',
+ '日记': 'diario',
+ '告诉': 'contar; informar; decir a alguien',
+ '年轻': 'joven',
+ '不过': 'pero; sin embargo',
+ '有时': 'a veces',
+ '聚': 'reunirse',
+ '了解': 'conocer; comprender',
+ '生活': 'vida; vivir',
+ '中国': 'China',
+ '年轻人': 'joven; persona joven',
+ '老师': 'profesor; profesora',
+ '汉语': 'lengua china; mandarín',
+ '很': 'muy',
+ '了': 'partícula de acción completada o cambio de estado',
+ '一': 'uno',
+ '件': 'clasificador de prendas y objetos',
+ '衣服': 'ropa; prendas',
+ '双': 'par; clasificador de pares',
+ '鞋': 'zapato(s)',
+ '有点儿': 'un poco',
+ '不一样': 'diferente; no igual',
+ '希望': 'esperar; desear; esperanza',
+ '多': 'mucho; muchos; más',
+ '地': 'partícula que une un modificador al verbo',
+ '苹果': 'manzana',
+ '旅游': 'viajar; turismo',
+ '法语': 'lengua francesa; francés',
+ '羽毛球': 'bádminton',
+ '玩': 'jugar; divertirse',
+ '电脑': 'computadora; ordenador',
+ '歌': 'canción; música',
+ '四十': 'cuarenta',
+ '那': 'ese; aquel; entonces',
+ '瑜伽': 'yoga',
+ '中国菜': 'comida china',
+ '害怕': 'tener miedo de',
+ '语言': 'lengua; idioma',
+ '运': 'transportar; componente de 运动 (deporte)',
+ '动': 'mover; movimiento',
+ '部': 'parte; sección',
+ '足': 'pie; componente de 足球 (fútbol)',
+ '趣': 'interés; componente de 有趣 (interesante)',
+ '除': 'quitar; excluir; componente de 除了',
+ '般': 'tipo; clase; componente de 一般',
+ '园': 'jardín; parque',
+ '日': 'día; sol',
+ '告': 'informar; componente de 告诉',
+ '诉': 'contar; componente de 告诉 (tono neutro en esta palabra)',
+ '17::书法': 'caligrafía china',
+ '17::难': 'difícil',
+ '17::但是': 'pero; sin embargo',
+ '17::经常': 'a menudo; con frecuencia',
+ '17::练': 'practicar; entrenar',
+ '17::真好': 'muy bueno; qué bien',
+ '17::做': 'hacer; preparar (comida)',
+ '17::西餐': 'comida occidental',
+ '17::拍': 'tomar (una fotografía); dar palmaditas',
+ '17::照片': 'fotografía; foto',
+ '17::当时': 'en aquel momento; en aquella época',
+ '17::菜谱': 'receta; libro de recetas',
+ '17::牛排': 'filete de ternera',
+ '17::肯定': 'seguramente; sin duda',
+ '17::开心': 'feliz; contento',
+ '17::尝尝': 'probar; probar un poco',
+ '17::手艺': 'habilidad manual; habilidad culinaria',
+ '17::做客': 'visitar a alguien como invitado',
+ '17::电视': 'televisión',
+ '17::窗': 'ventana',
+ '17::开': 'abrir; encender',
+ '17::墙': 'pared',
+ '17::张': 'clasificador de fotos, hojas y objetos planos',
+ '17::全家福': 'foto de familia',
+ '17::客厅': 'sala de estar',
+ '17::摆': 'colocar; disponer; ordenar',
+ '17::整整齐齐': 'bien ordenado; en perfecto orden',
+ '17::毛笔': 'pincel de caligrafía',
+ '17::正在': 'estar haciendo algo en este momento',
+ '17::丈夫': 'marido; esposo',
+ '17::玩具': 'juguete',
+ '17::音乐': 'música',
+ '17::狗': 'perro',
+ '17::窗台': 'alféizar de la ventana',
+ '17::啃': 'roer; mordisquear',
+ '17::骨头': 'hueso',
+ '17::报纸': 'periódico',
+ '17::词典': 'diccionario',
+ '17::穿': 'vestir; llevar puesto',
+ '17::灯': 'luz; lámpara',
+ '17::幅': 'clasificador de pinturas y cuadros',
+ '17::录音': 'grabación de audio; grabar audio',
+ '17::小孩子': 'niño; niña',
+ '17::最近': 'recientemente; últimamente',
+ '17::门': 'puerta',
+ '17::桌子': 'mesa; escritorio',
+ '17::椅子': 'silla',
+ '17::沙发': 'sofá',
+ '17::地板': 'suelo; piso',
+ '17::得': 'partícula que une el verbo a la valoración de la acción',
+ '17::着': 'partícula de acción o estado en curso',
+ '17::听': 'oír; escuchar',
+ '17::呢': 'partícula de pregunta o de acción en curso',
+ '17::好久不见': '¡cuánto tiempo sin verte!',
+ '17::好': 'bueno; bien',
+ '17::还可以': 'aceptable; bastante bien',
+ '17::下次': 'la próxima vez',
+ '17::写': 'escribir',
+ '17::干': 'hacer; dedicarse a una actividad',
+ '17::不错': 'bueno; nada mal',
+ '17::给': 'dar; a; para',
+ '17::正': 'justo; estar en pleno acto de',
+ '17::嗨': 'hola',
+ '17::哇': '¡guau!; ¡vaya! (sorpresa)',
+ '17::好吃': 'rico; delicioso',
+ '17::吧': 'partícula de sugerencia o suposición',
+ '17::挺': 'bastante; muy (intensidad)',
+ '17::能': 'poder; ser capaz de',
+ '17::睡觉': 'dormir',
+ '17::早': 'temprano',
+ '17::晚': 'tarde (hora)',
+ '17::少': 'poco; pocos',
+ '17::挂': 'colgar; estar colgado',
+ '17::放': 'poner; colocar',
+ '17::书': 'libro',
+ '17::坐': 'sentarse; estar sentado',
+ '17::喝': 'beber',
+ '17::茶': 'té',
+ '17::咖啡': 'café',
+ '17::自己': 'uno mismo; propio',
+ '17::房间': 'habitación; cuarto',
+ '17::小': 'pequeño',
+ '17::上': 'sobre; encima de',
+ '17::您好': 'hola (forma respetuosa)',
+ '17::画': 'pintura; cuadro; dibujar',
+ '17::起': 'levantarse; alzarse',
+ '17::跑': 'correr',
+ '17::快': 'rápido; deprisa',
+ '17::汉字': 'caracteres chinos',
+ '17::猫': 'gato',
+ '17::窗户': 'ventana',
+ '17::聊天儿': 'charlar (con erhua)',
+ '17::牛奶': 'leche',
+ '17::榴莲': 'durián (fruta)',
+ '17::忙': 'ocupado',
+ '17::非常': 'muy; extremadamente',
+ '17::流利': 'fluido; con fluidez',
+ '17::做饭': 'cocinar; preparar una comida',
+ '17::王浩明': 'Wang Haoming (nombre propio)',
+ '17::艾米丽': 'Emily (nombre propio)',
+ '17::杰克': 'Jack (nombre propio)',
+ '17::丽莎': 'Lisa (nombre propio)',
+ '17::近': 'cerca; reciente; componente de 最近',
+ '17::样': 'modo; aspecto; componente de 怎么样',
+ '17::法': 'método; componente de 书法',
+ '17::经': 'componente de 经常 (a menudo)',
+ '17::常': 'frecuente; componente de 经常',
+ '17::音': 'sonido; componente de 音乐',
+ '17::乐': 'música (lectura usada en 音乐)',
+ '17::西': 'oeste; occidental',
+ '17::餐': 'comida',
+ '17::学': 'aprender; estudiar',
+ '17::中文': 'lengua china; chino',
+ '17::汉语': 'lengua china; mandarín',
+ '17::中国菜': 'comida china',
+ '17::怎么样': 'cómo; de qué manera; qué tal',
+ '17::说': 'hablar; decir',
+ '17::游泳': 'nadar; natación',
+ '17::游': 'nadar (verbo en 游泳)',
+ '17::散步': 'caminar; pasear',
+ '17::麻将': 'mahjong',
+ '17::打': 'jugar; practicar (un deporte o juego)',
+ '17::跳舞': 'bailar',
+ '17::玩': 'jugar',
+ '17::看书': 'leer (libros)',
+ '17::唱': 'cantar',
+ '17::吃': 'comer',
+ '17::多': 'mucho; muchos',
+ '17::里': 'dentro; en',
+ '17::地': 'partícula que une un modificador al verbo',
+ '17::一': 'uno; una',
+ '17::和': 'y; con',
+ '17::在': 'estar en; estar haciendo',
+ '17::我': 'yo',
+ '17::你': 'tú; usted',
+ '17::他': 'él',
+ '17::她': 'ella',
+ '17::的': 'partícula posesiva o atributiva',
+ '17::很': 'muy',
+ '17::也': 'también',
+ '17::不': 'no',
+ '17::可以': 'poder; ser posible',
+ '17::一起': 'juntos',
+ '17::我们': 'nosotros; nosotras',
+ '17::什么': 'qué',
+ '17::是': 'ser; estar',
+ '17::这': 'esto; este; esta',
+ '17::朋友': 'amigo; amiga',
+ '17::什么时候': 'cuándo',
+ '17::这个': 'este; esta',
+ '17::周末': 'fin de semana',
+ '17::来': 'venir',
+ '17::家': 'casa; hogar; familia',
+ '17::会': 'saber hacer; poder',
+ '17::他们': 'ellos; ellas',
+ '17::马克': 'Mark (nombre propio)',
+ '17::喜欢': 'gustar',
+ '17::不好': 'no ser bueno; no ir bien',
+ '17::看': 'ver; mirar; leer',
+ '17::大家': 'todos; todo el mundo',
+ '17::不太': 'no muy; no mucho',
+ '17::歌': 'canción; música vocal',
+ '17::篮球': 'baloncesto',
+ '17::弹': 'tocar (instrumentos de cuerda o teclado)',
+ '17::钢琴': 'piano',
+ '17::吗': 'partícula de pregunta de sí o no',
+ '17::个': 'clasificador general',
+ '18::食堂': 'comedor; cafetería',
+ '18::肉夹馍': 'roujiamo; pan chino relleno de carne',
+ '18::中式': 'al estilo chino',
+ '18::汉堡包': 'hamburguesa',
+ '18::晚餐': 'cena',
+ '18::外面': 'fuera; afuera',
+ '18::外卖': 'comida para llevar o a domicilio',
+ '18::方便': 'práctico; cómodo',
+ '18::健康': 'saludable; salud',
+ '18::离': 'estar a una distancia de',
+ '18::走路': 'ir a pie; caminar',
+ '18::年': 'año',
+ '18::天气': 'tiempo; clima',
+ '18::潮湿': 'húmedo',
+ '18::待': 'quedarse; permanecer',
+ '18::想念': 'extrañar; echar de menos',
+ '18::阳光': 'luz del sol',
+ '18::娱乐': 'entretenimiento; ocio',
+ '18::丰富': 'rico; abundante; variado',
+ '18::逛街': 'pasear por las tiendas; ir de compras',
+ '18::只能': 'solo poder; no tener más remedio que',
+ '18::洛杉矶': 'Los Ángeles',
+ '18::长': 'largo',
+ '18::地方': 'lugar',
+ '18::气温': 'temperatura del aire',
+ '18::火车': 'tren',
+ '18::住': 'vivir; residir',
+ '18::下雨': 'llover',
+ '18::下雪': 'nevar',
+ '18::刮风': 'hacer viento',
+ '18::打雷': 'tronar',
+ '18::晴天': 'día soleado',
+ '18::阴天': 'día nublado',
+ '18::晴': 'soleado; despejado',
+ '18::阴': 'nublado',
+ '18::俄罗斯': 'Rusia',
+ '18::哈尔滨': 'Harbin',
+ '18::热': 'caliente; calor',
+ '18::冷': 'frío',
+ '18::夏天': 'verano',
+ '18::冬天': 'invierno',
+ '18::开车': 'conducir; ir en coche',
+ '18::比': 'que; en comparación con',
+ '18::没有': 'no tener; no ser tan... como',
+ '18::那么': 'tan; de esa manera',
+ '18::高': 'alto',
+ '18::远': 'lejos; distante',
+ '18::学校': 'escuela',
+ '18::美国': 'Estados Unidos',
+ '18::中国': 'China',
+ '18::上海': 'Shanghái',
+ '18::北京': 'Pekín',
+ '18::不过': 'pero; sin embargo',
+ '18::哪里': 'dónde',
+ '18::有时候': 'a veces',
+ '18::餐厅': 'restaurante',
+ '18::吃饭': 'comer; tomar una comida',
+ '18::饭': 'comida; arroz cocido',
+ '18::叫': 'llamar; pedir (comida)',
+ '18::没关系': 'no pasa nada; no hay problema',
+ '18::时间': 'tiempo; horario',
+ '18::请': 'por favor; invitar',
+ '18::到': 'llegar; hasta; a',
+ '18::地铁站': 'estación de metro',
+ '18::这儿': 'aquí',
+ '18::百': 'cien',
+ '18::米': 'metro (unidad de longitud)',
+ '18::飞机': 'avión',
+ '18::大': 'grande',
+ '18::头发': 'pelo; cabello',
+ '18::小红': 'Xiaohong (nombre propio)',
+ '18::小丽': 'Xiaoli (nombre propio)',
+ '18::海南': 'Hainan',
+ '18::汽车': 'automóvil; coche',
+ '18::一点儿': 'un poco',
+ '18::件': 'clasificador de prendas y asuntos',
+ '18::毛衣': 'suéter; jersey',
+ '18::贵': 'caro',
+ '18::日记': 'diario personal',
+ '18::半年': 'medio año',
+ '18::月': 'mes; luna',
+ '18::广州': 'Guangzhou; Cantón',
+ '18::年轻人': 'joven; persona joven',
+ '18::老年人': 'persona mayor; anciano',
+ '18::生活': 'vida; vivir',
+ '18::从': 'de; desde',
+ '18::这里': 'aquí; este lugar',
+ '18::超市': 'supermercado',
+ '18::公交车': 'autobús urbano',
+ '18::地铁': 'metro',
+ '18::昨天': 'ayer',
+ '18::今天': 'hoy',
+ '18::度': 'grado (temperatura)',
+ '18::香蕉': 'plátano; banana',
+ '18::苹果': 'manzana',
+ '18::块': 'yuan (coloquial); trozo',
+ '18::钱': 'dinero',
+ '18::斤': 'jin; medio kilo',
+ '18::认识': 'conocer; reconocer',
+ '18::千': 'mil',
+ '18::国家': 'país',
+ '18::东西': 'cosa; objeto',
+ '18::星期五': 'viernes',
+ '18::岁': 'año de edad',
+ '18::便宜': 'barato',
+ '18::水': 'agua',
+ '18::可乐': 'refresco de cola',
+ '18::面条': 'fideos',
+ '18::饺子': 'jiaozi; empanadillas chinas',
+ '18::手机': 'teléfono móvil; celular',
+ '18::食': 'comida; componente de 食堂',
+ '18::堂': 'sala; componente de 食堂',
+ '18::星': 'estrella; componente de 星期',
+ '18::肉': 'carne',
+ '18::外': 'fuera; exterior',
+ '18::卖': 'vender',
+ '18::方': 'dirección; componente de 方便',
+ '18::便': 'cómodo; componente de 方便',
+ '18::太': 'demasiado; muy',
+ '18::关': 'componente de 关系 (relación)',
+ '18::系': 'conexión; componente de 关系',
+ '18::路': 'calle; camino',
+ '18::通讯': 'comunicación; reportaje',
+ '18::通信': 'mantener correspondencia; comunicación',
+ '18::药片': 'pastilla; comprimido',
+ '18::欠缺': 'faltar; carecer de',
+ '18::详细': 'detallado',
+ '18::求学': 'formarse; estudiar',
+ '18::一知半解': 'conocimiento superficial; comprensión parcial',
+ '18::一言为定': 'de acuerdo; queda decidido',
+ '18::一致通过': 'aprobar por unanimidad',
+ '18::看电影': 'ver una película; ir al cine',
+ '18::学习': 'estudiar; aprender',
+ '18::常常': 'a menudo; con frecuencia',
+ '18::李佳': 'Li Jia (nombre propio)',
+ '18::姚明': 'Yao Ming (nombre propio)',
+ '18::哪个': 'cuál',
+ '18::做饭': 'cocinar; preparar una comida',
+ '18::健身房': 'gimnasio',
+ '18::好吃': 'rico; delicioso',
+ '18::更': 'más; aún más',
+ '18::觉得': 'pensar; considerar',
+ '18::写': 'escribir',
+ '18::书法': 'caligrafía china',
+ '18::汉字': 'caracteres chinos',
+ '18::难': 'difícil',
+ '18::多': 'mucho; muchos',
+ '18::了': 'partícula de acción completada o cambio de estado',
+ '18::经常': 'a menudo; con frecuencia',
+ '18::有': 'tener; haber; existir',
+ '18::什么时候': 'cuándo',
+ '18::做客': 'visitar a alguien como invitado',
+ '18::一起': 'juntos',
+ '18::打': 'jugar; practicar (un deporte o juego)',
+ '18::网球': 'tenis',
+ '18::快': 'rápido; deprisa',
+ '18::家': 'casa; hogar; familia',
+ '18::里': 'dentro; en',
+ '18::和': 'y; con',
+ '18::我': 'yo',
+ '18::你': 'tú; usted',
+ '18::他': 'él',
+ '18::她': 'ella',
+ '18::我们': 'nosotros; nosotras',
+ '18::的': 'partícula posesiva o atributiva',
+ '18::是': 'ser; estar',
+ '18::不': 'no',
+ '18::也': 'también',
+ '18::很': 'muy',
+ '18::去': 'ir',
+ '18::来': 'venir',
+ '18::可以': 'poder; ser posible',
+ '18::喜欢': 'gustar',
+ '18::吃': 'comer',
+ '18::周末': 'fin de semana',
+ '18::看书': 'leer (libros)',
+ '18::听': 'oír; escuchar',
+ '18::音乐': 'música',
+ '18::自己': 'uno mismo; propio',
+ '18::近': 'cerca; reciente; componente de 最近',
+ '18::每天': 'todos los días',
+ '18::汉语': 'lengua china; mandarín',
+ '18::小时': 'hora (duración)',
+ '18::朋友': 'amigo; amiga',
+ '18::你们': 'ustedes; vosotros',
+ '18::几': 'cuántos; cuál (número pequeño)',
+ '18::什么': 'qué',
+ '18::想': 'querer; tener ganas de',
+ '18::为什么': 'por qué',
+ '18::哪儿': 'dónde',
+ '18::坐': 'sentarse; estar sentado',
+ '18::还': 'todavía; además; también',
+ '18::不太': 'no muy; no mucho',
+ '18::会': 'saber hacer; poder',
+ '18::马克': 'Mark (nombre propio)',
+ '18::艾米丽': 'Emily (nombre propio)',
+ '18::王浩明': 'Wang Haoming (nombre propio)',
+ '19::倒霉': 'tener mala suerte; desafortunado',
+ '19::丢': 'perder (un objeto)',
+ '19::不见': 'desaparecer',
+ '19::小偷': 'ladrón',
+ '19::偷走': 'robar; llevarse a escondidas',
+ '19::应该': 'deber; ser recomendable',
+ '19::怎么办': 'qué hacer',
+ '19::自认倒霉': 'resignarse a la mala suerte',
+ '19::即使': 'incluso si; aunque',
+ '19::报警': 'avisar a la policía; llamar a la policía',
+ '19::警察': 'policía; agente de policía',
+ '19::骑': 'montar; ir en bicicleta',
+ '19::出去': 'salir; ir afuera',
+ '19::辆': 'clasificador de vehículos',
+ '19::撞晕': 'golpear y dejar inconsciente',
+ '19::吓坏': 'asustar mucho; aterrorizar',
+ '19::路人': 'peatón; transeúnte',
+ '19::救护车': 'ambulancia',
+ '19::醒来': 'despertarse; recobrar el conocimiento',
+ '19::床': 'cama',
+ '19::躺': 'acostarse; estar acostado',
+ '19::腿': 'pierna',
+ '19::受伤': 'lesionarse; resultar herido',
+ '19::女': 'mujer; femenino',
+ '19::司机': 'conductor; conductora',
+ '19::带走': 'llevarse',
+ '19::严重': 'grave; serio',
+ '19::愿意': 'estar dispuesto a; querer',
+ '19::和解': 'reconciliarse; llegar a un acuerdo',
+ '19::华山路': 'calle Huashan',
+ '19::警察局': 'comisaría de policía',
+ '19::派出所': 'puesto de policía; comisaría local',
+ '19::消防队': 'cuerpo de bomberos',
+ '19::消防员': 'bombero',
+ '19::失物招领处': 'oficina de objetos perdidos',
+ '19::急诊': 'urgencias; atención de urgencia',
+ '19::门诊': 'atención ambulatoria; consultas externas',
+ '19::比赛': 'partido; competición',
+ '19::出发': 'partir; salir de viaje',
+ '19::迟到': 'llegar tarde',
+ '19::认真': 'atento; serio; dedicado',
+ '19::条': 'clasificador de objetos largos, como pantalones',
+ '19::南京': 'Nankín',
+ '19::开始': 'empezar; comenzar',
+ '19::裤子': 'pantalones',
+ '19::图书馆': 'biblioteca',
+ '19::新': 'nuevo; recientemente',
+ '19::买': 'comprar',
+ '19::商场': 'centro comercial',
+ '19::商店': 'tienda',
+ '19::银行': 'banco (institución financiera)',
+ '19::回来': 'volver; regresar',
+ '19::发现': 'descubrir; darse cuenta de',
+ '19::时候': 'momento; ocasión',
+ '19::交通事故': 'accidente de tráfico',
+ '19::撞': 'golpear; chocar; atropellar',
+ '19::把': 'partícula que coloca el objeto antes de la acción',
+ '19::医院': 'hospital',
+ '19::医生': 'médico; médica',
+ '19::明天': 'mañana',
+ '19::上课': 'tener clase; asistir a clase',
+ '19::打算': 'planear; tener intención de',
+ '19::记得': 'recordar; acordarse',
+ '19::怎么': 'cómo; de qué manera',
+ '19::一个人': 'una persona; solo',
+ '19::打电话': 'llamar por teléfono',
+ '19::可能': 'quizá; posible',
+ '19::现在': 'ahora',
+ '19::再': 'de nuevo; otra vez',
+ '19::知道': 'saber',
+ '19::帮': 'ayudar',
+ '19::复习': 'repasar',
+ '19::旅行': 'viajar; viaje',
+ '19::路口': 'cruce; intersección',
+ '19::热心': 'servicial; dispuesto a ayudar',
+ '19::告诉': 'decir; contar; informar',
+ '19::听说': 'oír decir; enterarse de',
+ '19::所以': 'por eso; por lo tanto',
+ '19::书店': 'librería',
+ '19::本': 'clasificador de libros',
+ '19::大学': 'universidad',
+ '19::博物馆': 'museo',
+ '19::自行车': 'bicicleta',
+ '19::害怕': 'tener miedo',
+ '19::蛇': 'serpiente',
+ '19::看到': 'ver; divisar',
+ '19::偷': 'robar a escondidas',
+ '19::于是': 'entonces; en consecuencia',
+ '19::马上': 'inmediatamente',
+ '19::早上': 'mañana; por la mañana',
+ '19::中午': 'mediodía',
+ '19::午饭': 'almuerzo',
+ '19::取钱': 'sacar dinero',
+ '19::然后': 'después; a continuación',
+ '19::教室': 'aula',
+ '19::钱包': 'cartera',
+ '19::幸亏': 'menos mal que; afortunadamente',
+ '19::麻烦': 'complicado; molesto; problema',
+ '19::岂有此理': 'eso es un disparate',
+ '19::彼此': 'uno al otro; mutuamente',
+ '19::了解': 'entender; conocer',
+ '19::恋恋不舍': 'resistirse a separarse; no querer irse',
+ '19::倒': 'caer; componente de 倒霉',
+ '19::霉': 'moho; componente de 倒霉 (mala suerte)',
+ '19::图': 'imagen; componente de 图书馆',
+ '19::馆': 'edificio o establecimiento; componente de 图书馆',
+ '19::应': 'deber; componente de 应该',
+ '19::该': 'deber; componente de 应该',
+ '19::末': 'fin; componente de 周末',
+ '19::车': 'vehículo; coche',
+ '19::自': 'propio; componente de 自己',
+ '19::己': 'uno mismo; componente de 自己',
+ '19::只': 'solo; solamente',
+ '19::护照': 'pasaporte',
+ '19::银行卡': 'tarjeta bancaria',
+ '19::出租车': 'taxi',
+ '19::机场': 'aeropuerto',
+ '19::要': 'querer; necesitar; ir a hacer',
+ '19::真': 'realmente; de verdad',
+ '19::就': 'entonces; pronto; ya',
+ '19::自己': 'uno mismo; propio',
+ '19::请': 'por favor; invitar',
+ '19::到': 'llegar; hasta; a',
+ '19::忙': 'ocupado',
+ '19::手机': 'teléfono móvil; celular',
+ '19::地铁': 'metro',
+ '19::从': 'de; desde',
+ '19::公交车': 'autobús urbano',
+ '19::东西': 'cosa; objeto',
+ '19::今天': 'hoy',
+ '19::哪儿': 'dónde',
+ '19::什么': 'qué',
+ '19::什么时候': 'cuándo',
+ '19::谁': 'quién',
+ '19::跟': 'con; junto con',
+ '19::一起': 'juntos',
+ '19::朋友': 'amigo; amiga',
+ '19::是': 'ser; estar',
+ '19::的': 'partícula posesiva o atributiva',
+ '19::在': 'estar en; estar haciendo',
+ '19::了': 'partícula de acción completada o cambio de estado',
+ '19::我': 'yo',
+ '19::你': 'tú; usted',
+ '19::他': 'él',
+ '19::她': 'ella',
+ '19::我们': 'nosotros; nosotras',
+ '19::都': 'todos; ambos',
+ '19::一': 'uno; una',
+ '19::个': 'clasificador general',
+ '19::人': 'persona(s)',
+ '19::不': 'no',
+ '19::也': 'también',
+ '19::很': 'muy',
+ '19::太': 'demasiado; muy',
+ '19::只能': 'solo poder; no tener más remedio que',
+ '19::贵': 'caro',
+ '19::下雨': 'llover',
+ '19::去': 'ir',
+ '19::来': 'venir',
+ '19::吃饭': 'comer; tomar una comida',
+ '19::和': 'y; con',
+ '19::王浩明': 'Wang Haoming (nombre propio)',
+ '19::马克': 'Mark (nombre propio)',
+ '19::想': 'querer; tener ganas de',
+ '19::上': 'sobre; encima de',
+ '19::周末': 'fin de semana',
+ '19::骑车': 'montar en bicicleta',
+ '19::玩': 'jugar',
+ '19::当时': 'en aquel momento; en aquella época',
+ '19::说': 'hablar; decir',
+ '19::叫': 'llamar; pedir (comida)',
+ '19::还': 'todavía; además; también',
+ '19::学': 'aprender; estudiar',
+ '19::汉语': 'lengua china; mandarín',
+ '19::电影': 'película',
+ '19::电影院': 'cine',
+ '19::北京': 'Pekín',
+ '19::飞机': 'avión',
+ '19::火车': 'tren',
+ '19::学校': 'escuela',
+ '19::走路': 'ir a pie; caminar',
+ '19::学习': 'estudiar; aprender',
+ '19::国家': 'país',
+ '19::哪个': 'cuál',
+ '19::昨天': 'ayer',
+ '19::踢': 'patear; jugar (al fútbol)',
+ '19::足球': 'fútbol',
+ '19::正在': 'estar haciendo algo en este momento',
+ '19::以后': 'después; tras',
+ '19::但是': 'pero; sin embargo',
+ '19::老师': 'profesor; profesora',
+ '19::没有': 'no tener; no ser tan... como',
+ '19::李佳': 'Li Jia (nombre propio)',
+ '19::日记': 'diario personal',
+ '19::篮球': 'baloncesto',
+ '19::怎么样': 'cómo; de qué manera; qué tal',
+ '20::面试': 'entrevista; acudir a una entrevista',
+ '20::交流': 'conversar; comunicarse; intercambiar ideas',
+ '20::以前': 'antes; antiguamente',
+ '20::教': 'enseñar',
+ '20::发音': 'pronunciación; pronunciar',
+ '20::清楚': 'claro; con claridad',
+ '20::慢': 'despacio; lento',
+ '20::懂': 'entender; comprender',
+ '20::如果': 'si (condición)',
+ '20::讲': 'hablar; explicar; contar',
+ '20::或者': 'o (en afirmaciones)',
+ '20::方法': 'método; manera',
+ '20::优点': 'cualidad; punto fuerte; ventaja',
+ '20::幽默': 'con sentido del humor; humor',
+ '20::故事': 'historia; cuento',
+ '20::当然': 'por supuesto; naturalmente',
+ '20::准备': 'preparar; prepararse',
+ '20::已经': 'ya',
+ '20::久': 'mucho tiempo; duradero',
+ '20::份': 'clasificador de empleos, porciones y documentos',
+ '20::兼职': 'empleo a tiempo parcial',
+ '20::曾经': 'anteriormente; en algún momento del pasado',
+ '20::对…来说': 'para alguien; desde el punto de vista de alguien',
+ '20::容易': 'fácil',
+ '20::信心': 'confianza',
+ '20::虽然': 'aunque; a pesar de',
+ '20::紧': 'justo; escaso (tiempo)',
+ '20::有意思': 'interesante; divertido',
+ '20::家人': 'familiares; familia',
+ '20::包容': 'tolerante; aceptar las diferencias',
+ '20::体贴': 'considerado; atento con los demás',
+ '20::孝心': 'dedicación y respeto hacia los padres',
+ '20::真诚': 'sincero',
+ '20::善良': 'bondadoso',
+ '20::热情': 'cordial; entusiasta',
+ '20::勤奋': 'trabajador; diligente',
+ '20::责任心': 'sentido de la responsabilidad',
+ '20::渴': 'sediento; tener sed',
+ '20::累': 'cansado',
+ '20::手表': 'reloj de pulsera',
+ '20::重': 'pesado',
+ '20::简单': 'sencillo; fácil',
+ '20::房子': 'casa; vivienda',
+ '20::找工作': 'buscar empleo',
+ '20::工作': 'trabajo; trabajar',
+ '20::找': 'buscar',
+ '20::当': 'ser; trabajar como',
+ '20::工程师': 'ingeniero; ingeniera',
+ '20::过': 'partícula de experiencia pasada; pasar',
+ '20::学过': 'haber estudiado; haber aprendido antes',
+ '20::教过': 'haber enseñado antes',
+ '20::去过': 'haber ido antes',
+ '20::做过': 'haber hecho antes; haber trabajado como',
+ '20::适合': 'ser adecuado; ser apto para',
+ '20::小朋友': 'niño; pequeño amigo',
+ '20::听懂': 'entender lo que se oye',
+ '20::没听懂': 'no haber entendido lo que se oyó',
+ '20::准备好': 'estar listo; preparar bien',
+ '20::有信心': 'tener confianza',
+ '20::有孝心': 'ser dedicado a los padres',
+ '20::有责任心': 'ser responsable',
+ '20::同事': 'compañero de trabajo',
+ '20::考官': 'examinador; entrevistador',
+ '20::谢谢': 'gracias',
+ '20::而且': 'además; y también',
+ '20::学生': 'alumno; estudiante',
+ '20::学生们': 'los alumnos',
+ '20::遍': 'vez (una acción completa)',
+ '20::换': 'cambiar; intercambiar',
+ '20::英文': 'lengua inglesa; inglés escrito',
+ '20::希望': 'esperar; tener esperanza',
+ '20::老板': 'jefe; propietario',
+ '20::让': 'dejar; permitir; pedir a alguien que haga algo',
+ '20::上班': 'ir a trabajar; estar en el trabajo',
+ '20::晚上': 'noche; por la noche',
+ '20::第二': 'segundo (ordinal)',
+ '20::找到': 'encontrar; conseguir localizar',
+ '20::还是': 'todavía; o (en preguntas alternativas)',
+ '20::做好': 'hacer bien; dejar listo',
+ '20::学好': 'aprender bien; dominar',
+ '20::教好': 'enseñar bien',
+ '20::送到': 'entregar; hacer llegar',
+ '20::送': 'enviar; entregar; llevar',
+ '20::写得完': 'poder terminar de escribir',
+ '20::写不完': 'no poder terminar de escribir',
+ '20::写完': 'terminar de escribir',
+ '20::写对': 'escribir correctamente',
+ '20::写错': 'escribir mal',
+ '20::听得懂': 'poder entender al escuchar',
+ '20::听不懂': 'no poder entender al escuchar',
+ '20::听清楚': 'oír con claridad',
+ '20::听见': 'oír; escuchar un sonido',
+ '20::卖完': 'vender todo; agotar las existencias',
+ '20::吃完': 'terminar de comer',
+ '20::说完': 'terminar de hablar',
+ '20::完': 'terminar; acabar (complemento de resultado)',
+ '20::对': 'correcto; a; con respecto a',
+ '20::错': 'incorrecto; error',
+ '20::作业': 'deberes; tarea',
+ '20::学会': 'aprender a hacer; dominar una habilidad',
+ '20::电话号码': 'número de teléfono',
+ '20::记住': 'memorizar; recordar',
+ '20::滑': 'resbalar; deslizarse',
+ '20::滑倒': 'resbalar y caerse',
+ '20::饱': 'lleno; satisfecho (después de comer)',
+ '20::吃饱': 'comer hasta quedar satisfecho',
+ '20::买到': 'conseguir comprar',
+ '20::票': 'pasaje; entrada; billete',
+ '20::看懂': 'entender al leer o ver',
+ '20::看见': 'ver; divisar',
+ '20::借': 'pedir prestado; prestar',
+ '20::借到': 'conseguir prestado',
+ '20::舒服': 'cómodo; sentirse bien',
+ '20::不舒服': 'sentirse mal; incómodo',
+ '20::电脑': 'computadora; ordenador',
+ '20::水果店': 'frutería',
+ '20::水果': 'fruta',
+ '20::好看': 'bonito; entretenido de ver',
+ '20::看完': 'terminar de leer o ver',
+ '20::部': 'clasificador de películas y aparatos',
+ '20::山': 'montaña',
+ '20::介绍': 'presentar',
+ '20::老': 'viejo; componente de 老师 y 老板',
+ '20::师': 'maestro; profesor; componente de 老师',
+ '20::考': 'examinar; hacer un examen; componente de 考官',
+ '20::交': 'intercambiar; relacionarse; componente de 交流',
+ '20::流': 'fluir; componente de 交流',
+ '20::清': 'claro; limpio; componente de 清楚',
+ '20::楚': 'claro; componente de 清楚',
+ '20::介': 'mediar; componente de 介绍',
+ '20::绍': 'componente de 介绍 (presentar)',
+ '20::字': 'carácter; letra',
+ '20::还有': 'tener todavía; además',
+ '20::英语': 'lengua inglesa; inglés',
+ '20::听': 'oír; escuchar',
+ '20::会': 'saber hacer; poder',
+ '20::给': 'dar; a; para',
+ '20::认真': 'atento; serio; dedicado',
+ '20::老师': 'profesor; profesora',
+ '20::警察': 'policía; agente de policía',
+ '20::医生': 'médico; médica',
+ '20::中文': 'lengua china; chino',
+ '20::说': 'hablar; decir',
+ '20::得': 'partícula que une el verbo a la valoración de la acción',
+ '20::很': 'muy',
+ '20::我': 'yo',
+ '20::你': 'tú; usted',
+ '20::他': 'él',
+ '20::她': 'ella',
+ '20::我们': 'nosotros; nosotras',
+ '20::什么': 'qué',
+ '20::做': 'hacer; preparar (comida)',
+ '20::书法': 'caligrafía china',
+ '20::打': 'jugar; practicar (un deporte o juego)',
+ '20::麻将': 'mahjong',
+ '20::汉语': 'lengua china; mandarín',
+ '20::现在': 'ahora',
+ '20::中国': 'China',
+ '20::去': 'ir',
+ '20::能': 'poder; ser capaz de',
+ '20::怎么办': 'qué hacer',
+ '20::再': 'de nuevo; otra vez',
+ '20::一': 'uno; una',
+ '20::明天': 'mañana',
+ '20::外卖': 'comida para llevar o a domicilio',
+ '20::快': 'rápido; deprisa',
+ '20::时间': 'tiempo; horario',
+ '20::不过': 'pero; sin embargo',
+ '20::一个': 'uno; una (con clasificador)',
+ '20::就': 'entonces; pronto; ya',
+ '20::好': 'bueno; bien',
+ '20::写': 'escribir',
+ '20::汉字': 'caracteres chinos',
+ '20::不': 'no',
+ '20::没': 'no (acción pasada o ausencia)',
+ '20::了': 'partícula de acción completada o cambio de estado',
+ '20::吃': 'comer',
+ '20::卖': 'vender',
+ '20::吗': 'partícula de pregunta de sí o no',
+ '20::钱': 'dinero',
+ '20::这': 'esto; este; esta',
+ '20::个': 'clasificador general',
+ '20::来': 'venir',
+ '20::学校': 'escuela',
+ '20::学': 'aprender; estudiar',
+ '20::都': 'todos; ambos',
+ '20::的': 'partícula posesiva o atributiva',
+ '20::有': 'tener; haber; existir',
+ '20::是': 'ser; estar',
+ '20::自己': 'uno mismo; propio',
+ '20::喜欢': 'gustar',
+ '20::为什么': 'por qué',
+ '20::觉得': 'pensar; considerar',
+ '20::经常': 'a menudo; con frecuencia',
+ '20::跟': 'con; junto con',
+ '20::他们': 'ellos; ellas',
+ '20::朋友': 'amigo; amiga',
+ '20::真': 'realmente; de verdad',
+ '20::不错': 'bueno; nada mal',
+ '20::别的': 'otro; otros',
+ '20::想': 'querer; tener ganas de',
+ '20::打算': 'planear; tener intención de',
+ '20::上课': 'tener clase; asistir a clase',
+ '20::可以': 'poder; ser posible',
+ '20::但是': 'pero; sin embargo',
+ '20::不太': 'no muy; no mucho',
+ '20::和': 'y; con',
+ '20::也': 'también',
+ '20::把': 'partícula que coloca el objeto antes de la acción',
+ '20::马克': 'Mark (nombre propio)',
+ '20::李佳': 'Li Jia (nombre propio)',
+ '20::日记': 'diario personal',
+ '20::到': 'llegar; hasta; a',
+ '20::书': 'libro',
+ '20::本': 'clasificador de libros'}
+
+EXAMPLE_TRANSLATIONS_ES = {'我喜欢游泳。': 'Me gusta nadar.',
+ '他喜欢打篮球。': 'A él le gusta jugar al baloncesto.',
+ '你喜欢骑车。': 'Te gusta montar en bicicleta.',
+ '大家喜欢踢足球。': 'A todo el mundo le gusta jugar al fútbol.',
+ '她喜欢跑步。': 'A ella le gusta correr.',
+ '我们喜欢打乒乓球。': 'Nos gusta jugar al tenis de mesa.',
+ '我不喜欢打棒球。': 'No me gusta jugar al béisbol.',
+ '大家不经常跑步。': 'La gente no corre con frecuencia.',
+ '她不会打网球。': 'Ella no sabe jugar al tenis.',
+ '我没去公园跑步。': 'No fui a correr al parque.',
+ '我不太喜欢踢足球。': 'No me gusta mucho jugar al fútbol.',
+ '你喜欢打网球吗？': '¿Te gusta jugar al tenis?',
+ '你也喜欢跑步吗？': '¿También te gusta correr?',
+ '他最喜欢游泳吗？': '¿Nadar es lo que más le gusta hacer?',
+ '你每周去健身房吗？': '¿Vas al gimnasio todas las semanas?',
+ '你们会打棒球吗？': '¿Saben jugar al béisbol?',
+ '你喜欢什么运动？': '¿Qué deporte te gusta?',
+ '你下课以后做什么？': '¿Qué haces después de clase?',
+ '你想学什么运动？': '¿Qué deporte quieres aprender?',
+ '你觉得什么运动最好玩儿？': '¿Qué deporte te parece más divertido?',
+ '谁最喜欢跑步？': '¿A quién le gusta más correr?',
+ '你和谁一起去公园？': '¿Con quién vas al parque?',
+ '谁经常去游泳馆？': '¿Quién suele ir a la piscina?',
+ '这是谁的网球？': '¿De quién es esta pelota de tenis?',
+ '你去哪儿跑步？': '¿Adónde vas a correr?',
+ '他在哪儿游泳？': '¿Dónde nada él?',
+ '你在哪个公园散步？': '¿En qué parque paseas?',
+ '他们下课以后去哪里？': '¿Adónde van después de clase?',
+ '那个篮球场在哪儿？': '¿Dónde está aquella cancha de baloncesto?',
+ '你什么时候去公园跑步？': '¿Cuándo vas a correr al parque?',
+ '你星期几打网球？': '¿Qué día de la semana juegas al tenis?',
+ '你明天几点去健身房？': '¿A qué hora vas al gimnasio mañana?',
+ '他今天游泳吗？': '¿Va a nadar hoy?',
+ '你早上喜欢跑步吗？': '¿Te gusta correr por la mañana?',
+ '大家周末去公园吗？': '¿Todos van al parque el fin de semana?',
+ '大家最喜欢哪种运动？': '¿Qué tipo de deporte le gusta más a todo el mundo?',
+ '我喜欢跑步，但是更喜欢游泳。': 'Me gusta correr, pero me gusta aún más nadar.',
+ '我每周跑步三次。': 'Corro tres veces por semana.',
+ '他每周打网球两次。': 'Él juega al tenis dos veces por semana.',
+ '你一周游泳几次？': '¿Cuántas veces por semana nadas?',
+ '大家每天散步一次。': 'Todos pasean una vez al día.',
+ '她一般每周骑车一次。': 'Ella suele montar en bicicleta una vez por semana.',
+ '你一个月打几次篮球？': '¿Cuántas veces al mes juegas al baloncesto?',
+ '我每次跑步半个小时。': 'Cada vez que corro, corro durante media hora.',
+ '你每次打篮球多长时间？': '¿Cuánto tiempo juegas al baloncesto cada vez?',
+ '她每次骑车两个小时。': 'Ella monta en bicicleta durante dos horas cada vez.',
+ '你每次去健身房健身多久？': '¿Cuánto tiempo haces ejercicio en el gimnasio en cada visita?',
+ '大家每次打乒乓球十五分钟。': 'Todos juegan al tenis de mesa durante quince minutos cada vez.',
+ '我们每周去足球场踢足球。': 'Vamos al campo a jugar al fútbol todas las semanas.',
+ '她星期六去健身房健身。': 'Ella va al gimnasio a hacer ejercicio el sábado.',
+ '除了跑步，我还喜欢游泳。': 'Además de correr, también me gusta nadar.',
+ '你为什么喜欢跑步？': '¿Por qué te gusta correr?',
+ '你怎么去公园？': '¿Cómo vas al parque?',
+ '从学校到公园怎么走？': '¿Cómo se va de la escuela al parque?',
+ '你觉得打棒球怎么样？': '¿Qué te parece jugar al béisbol?',
+ '你觉得这个健身房怎么样？': '¿Qué te parece este gimnasio?',
+ '你喜欢不喜欢打网球？': '¿Te gusta jugar al tenis o no?',
+ '你会不会骑车？': '¿Sabes montar en bicicleta?',
+ '你下课以后去不去公园？': '¿Vas al parque después de clase o no?',
+ '你有几个网球？': '¿Cuántas pelotas de tenis tienes?',
+ '游泳馆的票多少钱？': '¿Cuánto cuesta la entrada a la piscina?',
+ '你几岁开始游泳？': '¿A qué edad empezaste a nadar?',
+ '公园离你家多远？': '¿A qué distancia de tu casa está el parque?',
+ '篮球场有多少人？': '¿Cuántas personas hay en la cancha de baloncesto?',
+ '你每周花多少时间运动？': '¿Cuánto tiempo dedicas al ejercicio físico cada semana?',
+ '我喜欢去电影院看电影。': 'Me gusta ir al cine a ver películas.',
+ '他喜欢去酒吧喝酒。': 'A él le gusta ir al bar a beber.',
+ '你喜欢唱卡拉OK吗？': '¿Te gusta cantar karaoke?',
+ '我不喜欢打麻将。': 'No me gusta jugar al mahjong.',
+ '你什么时候跟朋友聊天？': '¿Cuándo charlas con tus amigos?',
+ '我晚上喜欢跟朋友聊天。': 'Me gusta charlar con mis amigos por la noche.',
+ '我有很多兴趣和爱好，比如游泳、跑步和打麻将。': 'Tengo muchos intereses y aficiones, como nadar, correr y jugar al mahjong.',
+ '中国人有很多兴趣和爱好，比如打麻将和唱卡拉OK。': 'Los chinos tienen muchos intereses y aficiones, como jugar al mahjong y cantar '
+                             'karaoke.',
+ '你的爱好有哪些？': '¿Cuáles son tus aficiones?',
+ '我没有很多爱好，只喜欢游泳。': 'No tengo muchas aficiones; solo me gusta nadar.',
+ '你有别的兴趣和爱好吗？': '¿Tienes otros intereses o aficiones?',
+ '你可以说三个你的爱好吗？': '¿Puedes nombrar tres de tus aficiones?',
+ '你现在最喜欢做什么？': '¿Qué es lo que más te gusta hacer actualmente?',
+ '我的爱好和你的不一样。': 'Mis aficiones son diferentes de las tuyas.',
+ '中国人的爱好和美国人的一样吗？': '¿Las aficiones de los chinos son iguales a las de los estadounidenses?',
+ '我们的爱好不一样，但是我们都喜欢唱卡拉OK。': 'Nuestras aficiones son diferentes, pero a todos nos gusta cantar karaoke.',
+ '我喜欢跑步，你喜欢游泳，可是我们都喜欢运动。': 'A mí me gusta correr y a ti te gusta nadar, pero a los dos nos gustan los '
+                           'deportes.',
+ '我发现我的爱好和你的不一样。': 'Me di cuenta de que mis aficiones son diferentes de las tuyas.',
+ '大部分人喜欢运动。': 'A la mayoría de la gente le gusta practicar deportes.',
+ '美式足球很有趣。': 'El fútbol americano es interesante.',
+ '游泳很有趣。': 'Nadar es interesante.',
+ '他在棒球场打棒球。': 'Él juega al béisbol en el campo de béisbol.',
+ '除了中文以外，我还会说英语。': 'Además de chino, también sé hablar inglés.',
+ '我一天跑步一次。': 'Corro una vez al día.',
+ '我一星期打两次网球。': 'Juego al tenis dos veces por semana.',
+ '他一周打两次网球。': 'Él juega al tenis dos veces por semana.',
+ '他每周打两次网球。': 'Él juega al tenis dos veces por semana.',
+ '你最喜欢什么运动？': '¿Qué deporte te gusta más?',
+ '你知道吗？': '¿Lo sabes?',
+ '你们在美国喜欢什么运动？': '¿Qué deportes les gustan en Estados Unidos?',
+ '我喜欢唱歌，但我更喜欢跳舞。': 'Me gusta cantar, pero me gusta aún más bailar.',
+ '我去学校的体育馆打球。': 'Voy a jugar a la pelota en el gimnasio de la escuela.',
+ '我去市中心的游泳馆游泳。': 'Voy a nadar a la piscina del centro de la ciudad.',
+ '马克喜欢打篮球。': 'A Mark le gusta jugar al baloncesto.',
+ '李佳喜欢跑步。': 'A Li Jia le gusta correr.',
+ '你好，李佳！': '¡Hola, Li Jia!',
+ '你也在跑步啊！': '¡Tú también estás corriendo!',
+ '我每天都来跑步。': 'Vengo a correr todos los días.',
+ '对，我喜欢运动。': 'Sí, me gustan los deportes.',
+ '我喜欢篮球、棒球等等。': 'Me gustan el baloncesto, el béisbol, etcétera.',
+ '我每周游两次泳。': 'Nado dos veces por semana.',
+ '我还是喜欢打篮球。': 'Sigo prefiriendo jugar al baloncesto.',
+ '我在公园里跑步。': 'Corro en el parque.',
+ '我去图书馆看书。': 'Voy a leer a la biblioteca.',
+ '我去海边游泳。': 'Voy a nadar al mar.',
+ '我去超市买东西。': 'Voy a comprar al supermercado.',
+ '我喜欢吃香蕉。': 'Me gusta comer plátanos.',
+ '这是马克的日记。': 'Este es el diario de Mark.',
+ '老师告诉我，学汉语很有趣。': 'El profesor me dijo que aprender chino es interesante.',
+ '我的朋友很年轻。': 'Mi amigo es muy joven.',
+ '我喜欢跑步，不过我更喜欢游泳。': 'Me gusta correr, pero me gusta aún más nadar.',
+ '我们有时一起打麻将。': 'A veces jugamos juntos al mahjong.',
+ '朋友们聚在一起聊天。': 'Los amigos se reúnen para charlar.',
+ '我想了解中国人的生活。': 'Quiero conocer la vida de los chinos.',
+ '中国的年轻人也喜欢运动。': 'A los jóvenes de China también les gustan los deportes.',
+ '我买了两双鞋。': 'Compré dos pares de zapatos.',
+ '我买了一件衣服。': 'Compré una prenda de ropa.',
+ '我们的爱好有点儿不一样。': 'Nuestras aficiones son un poco diferentes.',
+ '我希望以后可以去中国。': 'Espero poder ir a China en el futuro.',
+ '我想更多地了解中国。': 'Quiero conocer mejor China.',
+ '除了苹果，我还喜欢吃香蕉。': 'Además de manzanas, también me gusta comer plátanos.',
+ '我喜欢旅游。': 'Me gusta viajar.',
+ '除了汉语，我还会说法语。': 'Además de chino, también sé hablar francés.',
+ '我每周打两个小时羽毛球。': 'Juego al bádminton dos horas por semana.',
+ '他喜欢玩电脑。': 'A él le gusta jugar en la computadora.',
+ '我喜欢唱歌。': 'Me gusta cantar.',
+ '我每次跑步四十分钟。': 'Corro durante cuarenta minutos cada vez.',
+ '那你喜欢什么运动？': 'Entonces, ¿qué deporte te gusta?',
+ '我喜欢瑜伽。': 'Me gusta el yoga.',
+ '你最喜欢吃什么中国菜？': '¿Qué plato chino te gusta más comer?',
+ '你最害怕什么？': '¿A qué le tienes más miedo?',
+ '你还会说什么语言？': '¿Qué otros idiomas sabes hablar?',
+ '我喜欢运动。': 'Me gustan los deportes.',
+ '我喜欢踢足球。': 'Me gusta jugar al fútbol.',
+ '我一般去公园跑步。': 'Generalmente voy a correr al parque.',
+ '我去公园跑步。': 'Voy a correr al parque.',
+ '这是我的日记。': 'Este es mi diario.',
+ '我最近在学书法。': 'Últimamente estoy aprendiendo caligrafía.',
+ '书法很难，但是我学得还可以。': 'La caligrafía es difícil, pero la estoy aprendiendo bastante bien.',
+ '我经常听着音乐练书法。': 'Suelo practicar caligrafía mientras escucho música.',
+ '真好，我们下次可以一起写。': '¡Qué bien! La próxima vez podemos escribir juntos.',
+ '我在学做西餐，做得也不错。': 'Estoy aprendiendo a preparar comida occidental y me está saliendo bien.',
+ '这是朋友给我拍的照片。': 'Esta es la foto que me tomó mi amigo.',
+ '我当时正看着菜谱做牛排呢。': 'En aquel momento estaba preparando un filete mientras consultaba la receta.',
+ '哇，肯定很好吃吧？': '¡Vaya! Debe de estar muy rico, ¿no?',
+ '挺好吃的，我们吃得很开心。': 'Estaba bastante rico; disfrutamos mucho de la comida.',
+ '什么时候能尝尝你的手艺？': '¿Cuándo podremos probar tu comida?',
+ '这个周末来我家做客吧，我给大家做牛排。': 'Vengan a visitarme a casa este fin de semana; prepararé filetes para todos.',
+ '电视开着，窗也开着。': 'La televisión está encendida y la ventana también está abierta.',
+ '墙上挂着一张全家福。': 'Hay una foto de familia colgada en la pared.',
+ '客厅里摆着沙发和桌子。': 'Hay un sofá y una mesa en la sala de estar.',
+ '桌子上整整齐齐地放着书和毛笔。': 'Los libros y los pinceles de caligrafía están bien ordenados sobre la mesa.',
+ '她在椅子上坐着，正在写书法。': 'Ella está sentada en la silla practicando caligrafía.',
+ '她的丈夫在客厅里喝着咖啡看电视。': 'Su marido está en la sala viendo la televisión mientras toma café.',
+ '杰克在地板上坐着玩玩具。': 'Jack está sentado en el suelo jugando con juguetes.',
+ '小狗在窗台上啃着骨头。': 'El perrito está royendo un hueso en el alféizar de la ventana.',
+ '他在客厅喝着茶看报纸。': 'Él está leyendo el periódico en la sala mientras toma té.',
+ '桌子上放着汉语词典。': 'Hay un diccionario de chino sobre la mesa.',
+ '她穿得很少。': 'Ella lleva poca ropa.',
+ '他开着灯睡觉。': 'Él duerme con la luz encendida.',
+ '墙上挂着一幅画。': 'Hay un cuadro colgado en la pared.',
+ '我听着录音学汉语。': 'Estudio chino escuchando una grabación.',
+ '椅子上坐着一个小孩子。': 'Hay un niño sentado en la silla.',
+ '门开着。': 'La puerta está abierta.',
+ '你最近在干什么呢？': '¿Qué has estado haciendo últimamente?',
+ '好久不见，你最近怎么样？': '¡Cuánto tiempo sin verte! ¿Cómo has estado?',
+ '我很好。': 'Estoy bien.',
+ '嗨，艾米丽！': '¡Hola, Emily!',
+ '他睡觉得早，她睡觉得晚。': 'Él se acuesta temprano; ella se acuesta tarde.',
+ '丽莎在自己的房间里听音乐。': 'Lisa está escuchando música en su propia habitación.',
+ '您好，老师！': '¡Hola, profesor!',
+ '周末你起得早吗？': '¿Te levantas temprano el fin de semana?',
+ '我跑得不快。': 'No corro rápido.',
+ '你汉字写得怎么样？': '¿Qué tal escribes los caracteres chinos?',
+ '猫在沙发上。': 'El gato está en el sofá.',
+ '窗户开着。': 'La ventana está abierta.',
+ '他们在客厅聊天儿。': 'Están charlando en la sala.',
+ '他喝着牛奶看书。': 'Él lee mientras toma leche.',
+ '我喜欢吃榴莲。': 'Me gusta comer durián.',
+ '我最近非常忙。': 'Últimamente estoy muy ocupado.',
+ '我说中文说得很流利。': 'Hablo chino con mucha fluidez.',
+ '她看着菜谱做饭。': 'Ella cocina mientras consulta la receta.',
+ '王浩明在学做西餐。': 'Wang Haoming está aprendiendo a preparar comida occidental.',
+ '我最近在学做中国菜。': 'Últimamente estoy aprendiendo a preparar comida china.',
+ '我会游泳，游得很好。': 'Sé nadar y nado muy bien.',
+ '他听着音乐散步。': 'Él pasea mientras escucha música.',
+ '你打麻将打得怎么样？': '¿Qué tal juegas al mahjong?',
+ '她听着音乐跳舞。': 'Ella baila mientras escucha música.',
+ '我唱得不太好。': 'No canto muy bien.',
+ '他吃得多，我吃得少。': 'Él come mucho; yo como poco.',
+ '我学得不好。': 'No estoy aprendiendo bien.',
+ '马克听着音乐。': 'Mark está escuchando música.',
+ '你会唱中文歌吗？': '¿Sabes cantar canciones en chino?',
+ '你会打篮球吗？打得怎么样？': '¿Sabes jugar al baloncesto? ¿Qué tal juegas?',
+ '你会弹钢琴吗？': '¿Sabes tocar el piano?',
+ '食堂的肉夹馍比汉堡包好吃。': 'El roujiamo del comedor está más rico que la hamburguesa.',
+ '我觉得肉夹馍是中式汉堡包。': 'Creo que el roujiamo es una hamburguesa al estilo chino.',
+ '你经常去哪里吃晚餐？': '¿Dónde sueles cenar?',
+ '我有时候去外面的餐厅吃饭。': 'A veces salgo a comer a un restaurante.',
+ '在中国叫外卖很方便。': 'Es muy práctico pedir comida a domicilio en China.',
+ '家里的饭比外卖更健康。': 'La comida casera es más saludable que la comida a domicilio.',
+ '我家离学校不远，可以走路去。': 'Mi casa no está lejos de la escuela; puedo ir a pie.',
+ '我来上海半年多了。': 'Llegué a Shanghái hace más de medio año.',
+ '上海的天气比洛杉矶潮湿多了。': 'El clima de Shanghái es mucho más húmedo que el de Los Ángeles.',
+ '周末我只能待在家里。': 'El fin de semana solo puedo quedarme en casa.',
+ '我很想念洛杉矶的阳光。': 'Echo mucho de menos el sol de Los Ángeles.',
+ '年轻人的娱乐生活很丰富。': 'Los jóvenes tienen una vida de ocio muy variada.',
+ '我喜欢逛街。': 'Me gusta pasear por las tiendas.',
+ '小红的头发比小丽的长。': 'El pelo de Xiaohong es más largo que el de Xiaoli.',
+ '他住的地方离学校很近。': 'El lugar donde vive está cerca de la escuela.',
+ '哈尔滨的气温比海南低。': 'La temperatura de Harbin es más baja que la de Hainan.',
+ '坐火车比坐汽车快一点儿。': 'Viajar en tren es un poco más rápido que viajar en coche.',
+ '这里六月经常下雨。': 'Aquí llueve a menudo en junio.',
+ '冬天经常下雪。': 'En invierno nieva con frecuencia.',
+ '今天刮风，还打雷。': 'Hoy hace viento y también está tronando.',
+ '昨天是阴天，今天是晴天。': 'Ayer estaba nublado; hoy está soleado.',
+ '俄罗斯比中国大。': 'Rusia es más grande que China.',
+ '上海的夏天比北京的夏天热。': 'El verano de Shanghái es más caluroso que el de Pekín.',
+ '上海没有北京那么冷。': 'Shanghái no es tan fría como Pekín.',
+ '开车比走路快多了。': 'Ir en coche es mucho más rápido que ir a pie.',
+ '我没有马克那么高。': 'No soy tan alto como Mark.',
+ '在美国叫外卖没有在中国方便。': 'Pedir comida a domicilio en Estados Unidos no es tan práctico como en China.',
+ '汉堡包很好吃，不过我更喜欢肉夹馍。': 'La hamburguesa está rica, pero prefiero el roujiamo.',
+ '没关系，你有时间，我请你到我家吃饭。': 'No pasa nada; cuando tengas tiempo, te invitaré a comer a mi casa.',
+ '地铁站离这儿五百米。': 'La estación de metro está a quinientos metros de aquí.',
+ '飞机比火车快。': 'El avión es más rápido que el tren.',
+ '这件毛衣比那件贵一点儿。': 'Este suéter es un poco más caro que aquel.',
+ '马克每天写日记。': 'Mark escribe en su diario todos los días.',
+ '六月和七月经常下雨。': 'Llueve con frecuencia en junio y julio.',
+ '广州比北京潮湿。': 'Guangzhou es más húmeda que Pekín.',
+ '老年人也喜欢娱乐。': 'A las personas mayores también les gusta el ocio.',
+ '从这里到超市只能坐公交车。': 'De aquí al supermercado solo se puede ir en autobús.',
+ '昨天十八度，今天二十度。': 'Ayer hizo dieciocho grados; hoy hace veinte.',
+ '香蕉三块钱一斤，苹果六块钱一斤。': 'Los plátanos cuestan tres yuanes por medio kilo; las manzanas cuestan seis.',
+ '我认识一千多个汉字。': 'Conozco más de mil caracteres chinos.',
+ '你国家的东西贵吗？': '¿Las cosas son caras en tu país?',
+ '今天是星期五。': 'Hoy es viernes.',
+ '他十八岁。': 'Él tiene dieciocho años.',
+ '这个比那个便宜。': 'Este es más barato que aquel.',
+ '水比可乐健康。': 'El agua es más saludable que el refresco de cola.',
+ '我喜欢吃面条和饺子。': 'Me gusta comer fideos y empanadillas chinas.',
+ '这部手机很贵。': 'Este teléfono móvil es caro.',
+ '我喜欢吃肉。': 'Me gusta comer carne.',
+ '这里卖水果。': 'Aquí se vende fruta.',
+ '今天太热了。': 'Hoy hace demasiado calor.',
+ '这篇通讯很详细。': 'Este reportaje es muy detallado.',
+ '我们经常通信。': 'Nos escribimos con frecuencia.',
+ '这是药片。': 'Esto es una pastilla.',
+ '他欠缺经验。': 'A él le falta experiencia.',
+ '他去中国求学。': 'Él va a China a estudiar.',
+ '我对书法一知半解。': 'Solo tengo un conocimiento superficial de la caligrafía.',
+ '我们一言为定。': 'Queda acordado.',
+ '大家一致通过这个计划。': 'Todos aprobaron este plan por unanimidad.',
+ '我们一起去看电影。': 'Vamos juntos al cine.',
+ '你每天学习汉语多长时间？': '¿Cuánto tiempo estudias chino al día?',
+ '我常常自己做饭。': 'Suelo cocinar por mi cuenta.',
+ '李佳请马克吃饭。': 'Li Jia invita a Mark a comer.',
+ '姚明比马克高。': 'Yao Ming es más alto que Mark.',
+ '哪个更好吃？': '¿Cuál está más rico?',
+ '我今天真是太倒霉了。': 'Hoy he tenido muy mala suerte.',
+ '我新买的手机丢了。': 'Perdí el teléfono móvil que compré recientemente.',
+ '我发现手机不见了。': 'Me di cuenta de que mi móvil había desaparecido.',
+ '小偷偷走了我的手机。': 'El ladrón se llevó mi móvil.',
+ '我现在应该怎么办？': '¿Qué debo hacer ahora?',
+ '他只能自认倒霉。': 'Solo puede resignarse a su mala suerte.',
+ '即使明天下雨，我也要去上课。': 'Aunque llueva mañana, iré a clase.',
+ '他报警以后，警察来了。': 'Después de que llamó a la policía, llegaron los agentes.',
+ '我骑自行车出去玩。': 'Salí a pasear en bicicleta.',
+ '一辆车把我撞晕了。': 'Un coche me atropelló y me dejó inconsciente.',
+ '我的朋友当时吓坏了。': 'Mi amigo se asustó muchísimo en aquel momento.',
+ '热心的路人叫了救护车。': 'Un transeúnte servicial llamó a una ambulancia.',
+ '我醒来的时候，在医院的床上躺着。': 'Cuando desperté, estaba acostado en una cama del hospital.',
+ '我的腿受伤了。': 'Me lesioné la pierna.',
+ '警察把女司机带走了。': 'La policía se llevó a la conductora.',
+ '这次交通事故很严重。': 'Este accidente de tráfico fue grave.',
+ '我愿意跟她和解。': 'Estoy dispuesto a reconciliarme con ella.',
+ '我们骑到华山路的路口。': 'Fuimos en bicicleta hasta el cruce de la calle Huashan.',
+ '警察局和派出所在哪里？': '¿Dónde están la comisaría y el puesto de policía?',
+ '消防队的消防员来了。': 'Llegaron los bomberos del cuerpo de bomberos.',
+ '我去失物招领处找手机。': 'Voy a la oficina de objetos perdidos a buscar mi móvil.',
+ '这家医院有急诊和门诊。': 'Este hospital tiene urgencias y consultas externas.',
+ '我们去看篮球比赛。': 'Vamos a ver un partido de baloncesto.',
+ '即使现在出发，你也会迟到。': 'Aunque salgas ahora, llegarás tarde.',
+ '即使很难，我也要认真学。': 'Aunque sea difícil, estudiaré con dedicación.',
+ '这条裤子是在商店买的。': 'Estos pantalones se compraron en la tienda.',
+ '我是坐火车去南京的。': 'Fui a Nankín en tren.',
+ '你是什么时候开始学习汉语的？': '¿Cuándo empezaste a estudiar chino?',
+ '我是从图书馆回来的时候发现的。': 'Me di cuenta cuando volvía de la biblioteca.',
+ '是在商场买东西的时候丢的。': 'Lo perdí mientras compraba en el centro comercial.',
+ '我去银行取钱。': 'Voy al banco a sacar dinero.',
+ '医生在医院工作。': 'El médico trabaja en el hospital.',
+ '我打算再买一个手机。': 'Pienso comprar otro móvil.',
+ '我不记得了。': 'Ya no me acuerdo.',
+ '你是怎么去的？': '¿Cómo fuiste?',
+ '我是自己一个人去的。': 'Fui solo.',
+ '我想打电话请朋友吃饭。': 'Quiero llamar a un amigo para invitarlo a comer.',
+ '小偷可能在地铁上偷走了手机。': 'Quizá el ladrón se llevó el móvil en el metro.',
+ '我不知道是谁偷走的。': 'No sé quién se lo llevó.',
+ '我愿意帮你复习。': 'Estoy dispuesto a ayudarte a repasar.',
+ '我愿意跟你一起去旅行。': 'Estoy dispuesto a viajar contigo.',
+ '路人告诉他应该怎么办。': 'El transeúnte le dijo lo que debía hacer.',
+ '听说她是新司机，所以我愿意和解。': 'He oído que ella es una conductora principiante, así que estoy dispuesto a llegar a un '
+                     'acuerdo.',
+ '这本书是在书店买的。': 'Este libro se compró en la librería.',
+ '我的汉语是在大学学的。': 'Aprendí chino en la universidad.',
+ '我是坐地铁去博物馆的。': 'Fui al museo en metro.',
+ '我很害怕蛇。': 'Tengo mucho miedo a las serpientes.',
+ '他看到小偷，于是马上报警了。': 'Vio al ladrón y avisó inmediatamente a la policía.',
+ '你今天早上是怎么来学校的？': '¿Cómo viniste a la escuela esta mañana?',
+ '中午吃了午饭以后，他就去银行了。': 'Después de almorzar al mediodía, fue al banco.',
+ '然后他到了教室，发现钱包没有了。': 'Después llegó al aula y se dio cuenta de que la cartera había desaparecido.',
+ '幸亏你来帮忙。': 'Menos mal que viniste a ayudar.',
+ '这件事很麻烦。': 'Este asunto es complicado.',
+ '岂有此理！': '¡Eso es un disparate!',
+ '我们彼此了解。': 'Nos entendemos mutuamente.',
+ '离开的时候，我恋恋不舍。': 'A la hora de partir, me resistía a irme.',
+ '上个周末，我们骑车出去玩。': 'El fin de semana pasado salimos a pasear en bicicleta.',
+ '我的护照丢了。': 'Perdí mi pasaporte.',
+ '我的银行卡不见了。': 'Mi tarjeta bancaria ha desaparecido.',
+ '我是坐出租车去机场的。': 'Fui al aeropuerto en taxi.',
+ '我明天去面试。': 'Mañana voy a una entrevista.',
+ '我经常跟中国朋友交流。': 'Suelo conversar con amigos chinos.',
+ '你以前教过英语吗？': '¿Has enseñado inglés antes?',
+ '我的发音很清楚，说得很慢。': 'Mi pronunciación es clara y hablo despacio.',
+ '小朋友都能听懂。': 'Todos los niños pueden entender lo que oyen.',
+ '如果你没听懂，我会再讲一遍。': 'Si no entendiste, lo explicaré una vez más.',
+ '我会再讲一遍，或者换一个方法。': 'Lo explicaré otra vez o cambiaré de método.',
+ '你还有别的优点吗？': '¿Tienes otras cualidades?',
+ '我很幽默，学生们都很喜欢我。': 'Tengo sentido del humor y les caigo bien a todos los alumnos.',
+ '我会给学生讲英文故事。': 'Les contaré historias en inglés a los alumnos.',
+ '当然，我能准备好明天的面试。': 'Por supuesto, puedo prepararme bien para la entrevista de mañana.',
+ '我来中国已经很久了。': 'Hace mucho tiempo que llegué a China.',
+ '我找到了一份兼职工作。': 'Conseguí un empleo a tiempo parcial.',
+ '我曾经教过中国学生。': 'Ya he enseñado a estudiantes chinos.',
+ '对我来说，这份工作不太容易。': 'Para mí, este trabajo no es muy fácil.',
+ '我的老板对我很有信心。': 'Mi jefe tiene mucha confianza en mí.',
+ '虽然时间很紧，不过我一个晚上就能准备好。': 'Aunque el tiempo es escaso, puedo prepararme en una noche.',
+ '教英语很有意思。': 'Enseñar inglés es muy interesante.',
+ '我的家人很包容，也很体贴。': 'Mi familia es tolerante y considerada.',
+ '他很有孝心。': 'Él es muy dedicado a sus padres.',
+ '我的朋友真诚、善良、热情。': 'Mi amigo es sincero, bondadoso y cordial.',
+ '我的同事认真、勤奋、有责任心。': 'Mi compañero de trabajo es dedicado, trabajador y responsable.',
+ '我很渴，想喝水。': 'Tengo mucha sed y quiero beber agua.',
+ '如果我很累，我会休息。': 'Si estoy muy cansado, descansaré.',
+ '这块手表很重。': 'Este reloj de pulsera es pesado.',
+ '这个方法很简单。': 'Este método es sencillo.',
+ '我看见山上的房子了。': 'Vi la casa que está en la montaña.',
+ '我正在找工作。': 'Estoy buscando empleo.',
+ '我以前当过工程师。': 'Ya he trabajado como ingeniero.',
+ '我学过书法。': 'Ya he estudiado caligrafía.',
+ '我去过中国。': 'Ya he estado en China.',
+ '考官问我以前做过什么工作。': 'El entrevistador me preguntó qué trabajos había hecho antes.',
+ '我很适合做老师。': 'Soy apto para ser profesor.',
+ '谢谢，我很喜欢教英语。': 'Gracias, me gusta mucho enseñar inglés.',
+ '我教过小朋友，而且很喜欢做老师。': 'Ya he enseñado a niños y, además, me gusta mucho ser profesor.',
+ '我希望可以做好这份工作。': 'Espero poder hacer bien este trabajo.',
+ '老板让我明天去上班。': 'El jefe me pidió que fuera a trabajar mañana.',
+ '这是我找到的第二份兼职工作。': 'Este es el segundo empleo a tiempo parcial que he conseguido.',
+ '这份工作还是不太容易。': 'Este trabajo todavía no es muy fácil.',
+ '我能学好英语。': 'Puedo aprender bien el inglés.',
+ '我会教好英语的。': 'Enseñaré bien el inglés.',
+ '外卖会很快送到的。': 'La comida a domicilio llegará pronto.',
+ '我今天写得完作业。': 'Hoy puedo terminar de escribir los deberes.',
+ '我今天写不完作业。': 'Hoy no puedo terminar de escribir los deberes.',
+ '我的作业写完了。': 'He terminado de escribir mis deberes.',
+ '这个字写对了。': 'Este carácter se escribió correctamente.',
+ '这个字写错了。': 'Este carácter se escribió mal.',
+ '他说的话我听得懂。': 'Puedo entender lo que dice.',
+ '他说的话我听不懂。': 'No puedo entender lo que dice.',
+ '我听清楚了。': 'Lo oí con claridad.',
+ '你听见了吗？': '¿Lo oíste?',
+ '水果都卖完了。': 'Se ha vendido toda la fruta.',
+ '我吃完了。': 'He terminado de comer.',
+ '他说完了。': 'Él terminó de hablar.',
+ '这个汉字我学会了。': 'He aprendido este carácter chino.',
+ '这个电话号码你记住了吗？': '¿Has memorizado este número de teléfono?',
+ '他滑倒了。': 'Él resbaló y se cayó.',
+ '她吃饱了。': 'Ella comió hasta quedar satisfecha.',
+ '他买到票了。': 'Él consiguió comprar el billete.',
+ '他看懂这本书了。': 'Él entendió este libro.',
+ '我借到钱了。': 'Conseguí dinero prestado.',
+ '我今天不舒服。': 'Hoy no me siento bien.',
+ '我的电脑没找到。': 'No se encontró mi computadora.',
+ '这家水果店的水果都卖完了。': 'Se ha agotado toda la fruta de esta frutería.',
+ '这部电影不好看，我没看完。': 'Esta película no es buena; no terminé de verla.',
+ '请介绍一下自己。': 'Por favor, preséntate brevemente.',
+ '我想当英语老师。': 'Quiero ser profesor de inglés.'}
+
+
+def word_translation(card_id, language='pt'):
+    """Return the meaning for the selected language without changing card data."""
+    if language == 'en':
+        return WORD_TRANSLATIONS_EN[card_id]
+    if language == 'es':
+        return WORD_TRANSLATIONS_ES[card_id]
+    return WORD_TRANSLATIONS[card_id]
+
+
+def example_translation(card_id, language='pt'):
+    """Translate the displayed example, preserving card-specific Portuguese wording."""
+    card = CARDS[card_id]
+    sentence = card['examples'][0]
+    if language == 'en':
+        return EXAMPLE_TRANSLATIONS_EN[sentence]
+    if language == 'es':
+        return EXAMPLE_TRANSLATIONS_ES[sentence]
+    return card.get('example_translation') or EXAMPLE_TRANSLATIONS[sentence]
+
+
 BLOCK_WORDS = {"16": BLOCK16_WORDS, "17": BLOCK17_WORDS, "18": BLOCK18_WORDS, "19": BLOCK19_WORDS, "20": BLOCK20_WORDS}
 BLOCK_LABELS = {"16": "Bloco 16", "17": "Bloco 17", "18": "Bloco 18", "19": "Bloco 19", "20": "Bloco 20"}
 BLOCKS = {}
@@ -6753,7 +9586,7 @@ CORRECT_INTERVALS = ((5, 10), (15, 20), (25, 50), (50, 100))
 # Cada erro histórico aumenta a exigência de TODAS as etapas seguintes.
 # A última faixa é de manutenção: não volta ao início após acertos.
 BASE_REPETITIONS = (1, 2, 3, 4)
-STATE_VERSION = 5
+STATE_VERSION = 6
 NEW_PRESSURE_CAP = 20
 TRAINED_INDEX = 10
 ERROR_INTERVAL = (3, 7)
@@ -6928,9 +9761,195 @@ def fresh_record() -> dict:
             "due": 0, "last_interval": None}
 
 
+# Interface labels. English and Spanish study translations are handled separately above.
+LANGUAGE_NAMES = {'pt': 'Português', 'en': 'English', 'zh': '简体中文', 'es': 'Español'}
+UI_TEXT = {}
+def entry(pt, en, zh, es):
+    UI_TEXT[pt] = {'en': en, 'zh': zh, 'es': es}
+
+entry('Treino de Pinyin · Blocos e sessões', 'Pinyin Trainer · Blocks and sessions', '拼音练习 · 单元与练习组', 'Práctica de pinyin · Bloques y sesiones')
+entry('Idioma:', 'Language:', '界面语言：', 'Idioma:')
+entry('Escolha o bloco e a sessão (até 100 caracteres). Use os tons: xi3huan, xue2xi2.', 'Choose a block and session (up to 100 characters). Include tones: xi3huan, xue2xi2.', '选择单元和练习组（每组最多100个汉字）。请输入声调，例如：xi3huan、xue2xi2。', 'Elige el bloque y la sesión (hasta 100 caracteres). Incluye los tonos: xi3huan, xue2xi2.')
+entry('PALAVRAS', 'WORDS', '词条', 'PALABRAS')
+entry('ESTUDADAS', 'STUDIED', '已练习', 'ESTUDIADAS')
+entry('ACERTOS', 'CORRECT', '答对次数', 'ACIERTOS')
+entry('ERROS PENDENTES', 'PENDING ERRORS', '待纠正错误', 'ERRORES PENDIENTES')
+entry('TAXA DE ACERTO', 'ACCURACY', '正确率', 'TASA DE ACIERTOS')
+entry('Bloco:', 'Block:', '单元：', 'Bloque:')
+entry('Bloco {v0}', 'Block {v0}', '第{v0}单元', 'Bloque {v0}')
+entry('Sessão:', 'Session:', '练习组：', 'Sesión:')
+entry('Sessão {v0} · {v1} caracteres · {v2} cartões', 'Session {v0} · {v1} characters · {v2} cards', '第{v0}组 · {v1}个汉字 · {v2}张卡片', 'Sesión {v0} · {v1} caracteres · {v2} tarjetas')
+entry(' · ✓ Treinada', ' · ✓ Trained', ' · ✓ 已完成', ' · ✓ Entrenada')
+entry('Zerar tudo', 'Reset all', '重置全部', 'Reiniciar todo')
+entry('Progresso da sessão', 'Session progress', '本组进度', 'Progreso de la sesión')
+entry('Zerar esta sessão', 'Reset this session', '重置本组', 'Reiniciar esta sesión')
+entry('Digite o pinyin NUMÉRICO (incluindo cada tom):', 'Enter NUMERICAL Pinyin (include every tone):', '请输入数字标调拼音（包括每个声调）：', 'Escribe el pinyin NUMÉRICO (incluye todos los tonos):')
+entry('EXEMPLO DE USO', 'USAGE EXAMPLE', '例句', 'EJEMPLO DE USO')
+entry('Verificar  ↵', 'Check  ↵', '检查  ↵', 'Comprobar  ↵')
+entry('Não sei (erro)', "I don't know (incorrect)", '不知道（记为错误）', 'No lo sé (error)')
+entry('Próxima palavra  →', 'Next word  →', '下一个词  →', 'Siguiente palabra  →')
+entry('Concluir sessão  ✓', 'Finish session  ✓', '完成本组  ✓', 'Finalizar sesión  ✓')
+entry('{v0} cartões · {v1} bloco(s) · {v2} sessões', '{v0} cards · {v1} blocks · {v2} sessions', '{v0}张卡片 · {v1}个单元 · {v2}个练习组', '{v0} tarjetas · {v1} bloques · {v2} sesiones')
+entry('✓ Sessão treinada · {v0}/{v1} cartões com índice 10', '✓ Session trained · {v0}/{v1} cards at index 10', '✓ 本组已完成 · {v0}/{v1}张卡片达到训练指数10', '✓ Sesión entrenada · {v0}/{v1} tarjetas con índice 10')
+entry('Treinamento: {v0}/{v1} cartões treinados', 'Training: {v0}/{v1} cards trained', '训练进度：{v0}/{v1}张卡片已完成', 'Entrenamiento: {v0}/{v1} tarjetas entrenadas')
+entry('Esta sessão: {v0} caracteres chineses · {v1} vistos · {v2} cartões novos · {v3} revisões pendentes · {v4} respostas locais\nGeral: {v5}/{v6} cartões vistos · {v7} respostas em {v8} sessões', 'This session: {v0} Chinese characters · {v1} seen · {v2} new cards · {v3} reviews due · {v4} answers\nOverall: {v5}/{v6} cards seen · {v7} answers across {v8} sessions', '本组：{v0}个汉字 · 已见{v1}个 · {v2}张新卡片 · {v3}项待复习 · 已作答{v4}次\n总计：已见{v5}/{v6}张卡片 · {v8}个练习组共作答{v7}次', 'Esta sesión: {v0} caracteres chinos · {v1} vistos · {v2} tarjetas nuevas · {v3} repasos pendientes · {v4} respuestas\nTotal: {v5}/{v6} tarjetas vistas · {v7} respuestas en {v8} sesiones')
+entry(' · Chance de novo: {v0}%', ' · New-card chance: {v0}%', ' · 新卡片优先概率：{v0}%', ' · Probabilidad de tarjeta nueva: {v0}%')
+entry('Sessão treinada ✓', 'Session trained ✓', '本组已完成 ✓', 'Sesión entrenada ✓')
+entry('Sem palavras nesta sessão', 'No words in this session', '本组没有词条', 'No hay palabras en esta sesión')
+entry('Todos os cartões chegaram ao índice 10. Escolha outra sessão ou zere esta sessão.', 'All cards reached index 10. Choose another session or reset this one.', '所有卡片均已达到训练指数10。请选择其他练习组，或重置本组。', 'Todas las tarjetas han alcanzado el índice 10. Elige otra sesión o reinicia esta.')
+entry('Escolha outra sessão', 'Choose another session', '请选择其他练习组', 'Elige otra sesión')
+entry(' · Revisão antecipada (sem itens disponíveis)', ' · Early review (no other cards available)', ' · 提前复习（暂无其他可用卡片）', ' · Repaso anticipado (sin otras tarjetas disponibles)')
+entry('{v0} acerto(s) no total · {v1} consecutivo(s) · {v2} erro(s) pendente(s)\nÍndice de treinamento: {v3}/10 · {v4}', '{v0} correct answers in total · {v1} consecutive · {v2} pending errors\nTraining index: {v3}/10 · {v4}', '累计答对{v0}次 · 连续答对{v1}次 · 待纠正错误{v2}次\n训练指数：{v3}/10 · {v4}', '{v0} aciertos en total · {v1} consecutivos · {v2} errores pendientes\nÍndice de entrenamiento: {v3}/10 · {v4}')
+entry('Resposta: {v0}    ({v1})', 'Answer: {v0}    ({v1})', '答案：{v0}    （{v1}）', 'Respuesta: {v0}    ({v1})')
+entry('Tradução: {v0}', 'Translation: {v0}', '译文：{v0}', 'Traducción: {v0}')
+entry('Pinyin: {v0}', 'Pinyin: {v0}', '拼音：{v0}', 'Pinyin: {v0}')
+entry('✓ Correto!', '✓ Correct!', '✓ 正确！', '✓ ¡Correcto!')
+entry('✗ Incorreto! Revise o pinyin e os tons.', '✗ Incorrect! Review the Pinyin and tones.', '✗ 错误！请检查拼音和声调。', '✗ ¡Incorrecto! Revisa el pinyin y los tonos.')
+entry('Resposta vazia', 'Empty answer', '答案为空', 'Respuesta vacía')
+entry("Digite o pinyin numérico ou clique em 'Não sei'.", "Enter numerical Pinyin or click 'I don't know'.", '请输入数字标调拼音，或点击“不知道”。', "Escribe el pinyin numérico o pulsa 'No lo sé'.")
+entry('Entrada inválida', 'Invalid input', '输入无效', 'Entrada no válida')
+entry('Use pinyin com letras e números 1–4 (5 opcional para neutro).', 'Use Pinyin letters and tone numbers 1–4 (optional 5 for a neutral tone).', '请使用拼音字母和声调数字1–4（轻声可用5）。', 'Usa pinyin con letras y números del 1 al 4 (5 opcional para el tono neutro).')
+entry('Índice = acertos consecutivos − erros pendentes. Um erro reinicia a sequência.', 'Index = consecutive correct answers − pending errors. A mistake resets the streak.', '训练指数 = 连续答对次数 − 待纠正错误次数。答错后连续答对次数归零。', 'Índice = aciertos consecutivos − errores pendientes. Un error reinicia la racha.')
+entry('1–4: OK     5–9: Bom     10: Treinado (sai da fila)', '1–4: OK     5–9: Good     10: Trained (leaves the queue)', '1–4：合格     5–9：良好     10：已完成（退出练习队列）', '1–4: Aceptable     5–9: Bien     10: Entrenada (sale de la cola)')
+entry('Cartão', 'Card', '卡片', 'Tarjeta')
+entry('Acertos totais', 'Total correct', '累计答对', 'Aciertos totales')
+entry('Consecutivos', 'Consecutive', '连续答对', 'Consecutivos')
+entry('Erros pendentes', 'Pending errors', '待纠正错误', 'Errores pendientes')
+entry('Índice', 'Index', '训练指数', 'Índice')
+entry('Estado', 'Status', '状态', 'Estado')
+entry('Fechar', 'Close', '关闭', 'Cerrar')
+entry('Treinado', 'Trained', '已完成', 'Entrenada')
+entry('Bom', 'Good', '良好', 'Bien')
+entry('OK', 'OK', '合格', 'Aceptable')
+entry('Em treino', 'In training', '练习中', 'En práctica')
+entry('Novo', 'New', '新卡片', 'Nueva')
+entry('{v0} · {v1}\n{v2}/{v3} cartões treinados', '{v0} · {v1}\n{v2}/{v3} cards trained', '{v0} · {v1}\n{v2}/{v3}张卡片已完成', '{v0} · {v1}\n{v2}/{v3} tarjetas entrenadas')
+entry(' · ✓ Sessão treinada', ' · ✓ Session trained', ' · ✓ 本组已完成', ' · ✓ Sesión entrenada')
+entry('Apagar o progresso de {v0}?\nAs outras sessões serão preservadas.', 'Reset the progress of {v0}?\nOther sessions will be preserved.', '确定重置{v0}的进度吗？\n其他练习组的进度将保留。', '¿Reiniciar el progreso de {v0}?\nSe conservarán las demás sesiones.')
+entry('Zerar progresso', 'Reset progress', '重置进度', 'Reiniciar progreso')
+entry('Apagar o histórico de acertos, erros e revisões de TODAS as sessões?', 'Delete correct-answer, error and review history for ALL sessions?', '确定删除所有练习组的答对、错误和复习记录吗？', '¿Borrar el historial de aciertos, errores y repasos de TODAS las sesiones?')
+
+entry('Treinar', 'Practice', '练习', 'Practicar')
+entry('Configurações', 'Settings', '设置', 'Configuración')
+entry('Configurações de treinamento', 'Training settings', '训练设置', 'Configuración del entrenamiento')
+entry('Valem para todas as sessões. Salvar não apaga o progresso. Novos intervalos valem nas próximas respostas; revisões já marcadas mantêm seus prazos. Os índices são atualizados imediatamente.', 'Applies to all sessions. Saving preserves progress. New intervals apply to future answers; scheduled reviews keep their due times. Training statuses update immediately.', '适用于所有练习组。保存不会清除进度。新间隔适用于之后的作答；已安排的复习保留原定时间。训练状态立即更新。', 'Se aplica a todas las sesiones. Guardar conserva el progreso. Los nuevos intervalos se aplican a las próximas respuestas; las revisiones programadas mantienen sus plazos. Los estados se actualizan de inmediato.')
+entry('Acertos: intervalos e repetições', 'Correct answers: intervals and repetitions', '答对：间隔与重复次数', 'Aciertos: intervalos y repeticiones')
+entry('Intervalos em outras respostas: 1–10000. Repetições por etapa: 1–1000. A última etapa se repete até o cartão ficar treinado.', 'Intervals in other answers: 1–10000. Repetitions per stage: 1–1000. The final stage repeats until the card is trained.', '间隔以其他作答次数计：1–10000。每阶段重复次数：1–1000。最后阶段持续重复，直到卡片完成训练。', 'Intervalos en otras respuestas: 1–10000. Repeticiones por etapa: 1–1000. La última etapa se repite hasta que la tarjeta esté entrenada.')
+entry('Etapa', 'Stage', '阶段', 'Etapa')
+entry('Mínimo', 'Minimum', '最小值', 'Mínimo')
+entry('Máximo', 'Maximum', '最大值', 'Máximo')
+entry('Repetições', 'Repetitions', '重复次数', 'Repeticiones')
+entry('Erros e recuperação', 'Errors and recovery', '错误与纠正', 'Errores y recuperación')
+entry('Intervalo após erro: mínimo (1–10000)', 'Interval after an error: minimum (1–10000)', '答错后间隔：最小值（1–10000）', 'Intervalo tras un error: mínimo (1–10000)')
+entry('Intervalo após erro: máximo (1–10000)', 'Interval after an error: maximum (1–10000)', '答错后间隔：最大值（1–10000）', 'Intervalo tras un error: máximo (1–10000)')
+entry('Repetições extras por erro histórico, em cada etapa (0–100)', 'Extra repetitions per historical error, at each stage (0–100)', '每次历史错误为每阶段增加的重复次数（0–100）', 'Repeticiones extra por error histórico, en cada etapa (0–100)')
+entry('Erros pendentes removidos por acerto (1–100)', 'Pending errors cleared per correct answer (1–100)', '每次答对消除的待纠正错误数（1–100）', 'Errores pendientes eliminados por acierto (1–100)')
+entry('Índices de treinamento', 'Training thresholds', '训练指数门槛', 'Umbrales de entrenamiento')
+entry('Use OK < Bom < Treinado (1–10000). Aumentar a meta pode trazer cartões treinados de volta à fila.', 'Use OK < Good < Trained (1–10000). Raising the target can return trained cards to the queue.', '请设置：合格 < 良好 < 已完成（1–10000）。提高目标可能让已完成的卡片重新进入练习队列。', 'Usa Aceptable < Bien < Entrenada (1–10000). Subir la meta puede devolver tarjetas entrenadas a la cola.')
+entry('Índice mínimo: OK', 'Minimum index: OK', '最低指数：合格', 'Índice mínimo: Aceptable')
+entry('Índice mínimo: Bom', 'Minimum index: Good', '最低指数：良好', 'Índice mínimo: Bien')
+entry('Índice mínimo: Treinado', 'Minimum index: Trained', '最低指数：已完成', 'Índice mínimo: Entrenada')
+entry('Prioridade de cartões novos', 'New-card priority', '新卡片优先概率', 'Prioridad de tarjetas nuevas')
+entry('A chance começa em 0% e zera após a primeira resposta a um cartão novo. Use 0 no aumento ou no teto para desativar essa prioridade extra.', 'The chance starts at 0% and resets after the first answer to a new card. Set the increase or cap to 0 to disable this extra priority.', '概率从0%开始，首次回答新卡片后归零。将增幅或上限设为0即可关闭额外优先机制。', 'La probabilidad empieza en 0% y se reinicia tras la primera respuesta a una tarjeta nueva. Pon el aumento o el límite en 0 para desactivar esta prioridad extra.')
+entry('Aumento por rodada sem cartão novo (pontos percentuais, 0–100)', 'Increase per round without a new card (percentage points, 0–100)', '每轮未出现新卡片时的增幅（百分点，0–100）', 'Aumento por ronda sin tarjeta nueva (puntos porcentuales, 0–100)')
+entry('Chance máxima de antecipar um cartão novo (%, 0–100)', 'Maximum chance of prioritizing a new card (%, 0–100)', '新卡片提前出现的最大概率（%，0–100）', 'Probabilidad máxima de adelantar una tarjeta nueva (%, 0–100)')
+entry('Salvar configurações', 'Save settings', '保存设置', 'Guardar configuración')
+entry('Restaurar padrões', 'Restore defaults', '恢复默认值', 'Restaurar valores predeterminados')
+entry('Padrões carregados. Clique em Salvar configurações para aplicar.', 'Defaults loaded. Click Save settings to apply.', '已载入默认值。点击“保存设置”应用。', 'Valores predeterminados cargados. Pulsa Guardar configuración para aplicarlos.')
+entry('Configurações salvas. Progresso preservado.', 'Settings saved. Progress preserved.', '设置已保存，进度已保留。', 'Configuración guardada. Progreso conservado.')
+entry('Configurações inválidas', 'Invalid settings', '设置无效', 'Configuración no válida')
+entry('Use números inteiros nos campos.', 'Enter whole numbers in the fields.', '请在各字段中输入整数。', 'Introduce números enteros en los campos.')
+entry('Valores fora dos limites indicados.', 'Values are outside the indicated limits.', '数值超出标明的范围。', 'Los valores están fuera de los límites indicados.')
+entry('Configuração de etapas inválida.', 'Invalid stage configuration.', '阶段配置无效。', 'Configuración de etapas no válida.')
+entry('O mínimo de um intervalo não pode superar o máximo.', 'An interval minimum cannot exceed its maximum.', '间隔的最小值不能大于最大值。', 'El mínimo de un intervalo no puede superar el máximo.')
+entry('Os intervalos de acerto devem crescer ou permanecer iguais entre etapas.', 'Correct-answer intervals must increase or stay the same between stages.', '答对间隔必须随阶段递增或保持不变。', 'Los intervalos de acierto deben aumentar o mantenerse entre etapas.')
+entry('Os índices devem seguir a ordem: OK < Bom < Treinado.', 'Thresholds must follow: OK < Good < Trained.', '指数门槛须按以下顺序：合格 < 良好 < 已完成。', 'Los umbrales deben seguir: Aceptable < Bien < Entrenada.')
+entry('Não foi possível salvar as configurações.', 'Could not save settings.', '无法保存设置。', 'No se pudo guardar la configuración.')
+entry('OK: ≥{ok}     Bom: ≥{good}     Treinado: ≥{trained} (sai da fila)', 'OK: ≥{ok}     Good: ≥{good}     Trained: ≥{trained} (leaves the queue)', '合格：≥{ok}     良好：≥{good}     已完成：≥{trained}（退出队列）', 'Aceptable: ≥{ok}     Bien: ≥{good}     Entrenada: ≥{trained} (sale de la cola)')
+
+entry('✓ Sessão treinada · {v0}/{v1} cartões com índice {target}', '✓ Session trained · {v0}/{v1} cards at index {target}', '✓ 本组已完成 · {v0}/{v1}张卡片达到训练指数{target}', '✓ Sesión entrenada · {v0}/{v1} tarjetas con índice {target}')
+entry('Todos os cartões chegaram ao índice {target}. Escolha outra sessão ou zere esta sessão.', 'All cards reached index {target}. Choose another session or reset this one.', '所有卡片均已达到训练指数{target}。请选择其他练习组，或重置本组。', 'Todas las tarjetas han alcanzado el índice {target}. Elige otra sesión o reinicia esta.')
+entry('{v0} acerto(s) no total · {v1} consecutivo(s) · {v2} erro(s) pendente(s)\nÍndice de treinamento: {v3}/{target} · {v4}', '{v0} correct answers in total · {v1} consecutive · {v2} pending errors\nTraining index: {v3}/{target} · {v4}', '累计答对{v0}次 · 连续答对{v1}次 · 待纠正错误{v2}次\n训练指数：{v3}/{target} · {v4}', '{v0} aciertos en total · {v1} consecutivos · {v2} errores pendientes\nÍndice de entrenamiento: {v3}/{target} · {v4}')
+
+def ui_text(message, language='pt', **values):
+    return UI_TEXT.get(message, {}).get(language, message).format(**values)
+
+def block_display(block_id, language='pt'):
+    return ui_text('Bloco {v0}', language, v0=block_id)
+
+def session_label(session_id, language='pt'):
+    if language == 'pt':
+        return SESSION_LABELS[session_id]
+    words = SESSIONS[session_id]
+    return ui_text('Sessão {v0} · {v1} caracteres · {v2} cartões', language,
+                   v0=session_id.split(':')[1],
+                   v1=sum(hanzi_count(CARDS[w]['word']) for w in words), v2=len(words))
+
+
+def default_settings() -> dict:
+    return {
+        'correct_intervals': [list(interval) for interval in CORRECT_INTERVALS],
+        'base_repetitions': list(BASE_REPETITIONS),
+        'error_interval': list(ERROR_INTERVAL),
+        'error_extra_repetitions': 1,
+        'pending_error_recovery': 1,
+        'ok_index': 1,
+        'good_index': 5,
+        'trained_index': TRAINED_INDEX,
+        'new_pressure_step': 1,
+        'new_pressure_cap': NEW_PRESSURE_CAP,
+    }
+
+
+def validate_settings(values: dict) -> dict:
+    """Validate a complete configuration before applying any of it."""
+    if not isinstance(values, dict):
+        raise ValueError('Use números inteiros nos campos.')
+    settings = default_settings()
+    settings.update({key: values[key] for key in settings if key in values})
+
+    def integer(value, low, high):
+        if type(value) is not int or not low <= value <= high:
+            raise ValueError('Valores fora dos limites indicados.')
+        return value
+
+    intervals = settings['correct_intervals']
+    repetitions = settings['base_repetitions']
+    error = settings['error_interval']
+    if (not isinstance(intervals, (list, tuple)) or len(intervals) != 4
+            or not isinstance(repetitions, (list, tuple)) or len(repetitions) != 4
+            or not isinstance(error, (list, tuple)) or len(error) != 2):
+        raise ValueError('Configuração de etapas inválida.')
+    clean = []
+    for interval in [*intervals, error]:
+        if not isinstance(interval, (list, tuple)) or len(interval) != 2:
+            raise ValueError('Configuração de etapas inválida.')
+        low, high = [integer(n, 1, 10000) for n in interval]
+        if low > high:
+            raise ValueError('O mínimo de um intervalo não pode superar o máximo.')
+        clean.append([low, high])
+    if any(clean[i][0] > clean[i + 1][0] or clean[i][1] > clean[i + 1][1] for i in range(3)):
+        raise ValueError('Os intervalos de acerto devem crescer ou permanecer iguais entre etapas.')
+    settings['correct_intervals'], settings['error_interval'] = clean[:4], clean[4]
+    settings['base_repetitions'] = [integer(n, 1, 1000) for n in repetitions]
+    for key in ('ok_index', 'good_index', 'trained_index'):
+        settings[key] = integer(settings[key], 1, 10000)
+    if not settings['ok_index'] < settings['good_index'] < settings['trained_index']:
+        raise ValueError('Os índices devem seguir a ordem: OK < Bom < Treinado.')
+    settings['error_extra_repetitions'] = integer(settings['error_extra_repetitions'], 0, 100)
+    settings['pending_error_recovery'] = integer(settings['pending_error_recovery'], 1, 100)
+    for key in ('new_pressure_step', 'new_pressure_cap'):
+        settings[key] = integer(settings[key], 0, 100)
+    return settings
+
+
+def training_settings(state: dict) -> dict:
+    return state.get('settings') or default_settings()
+
+
 def initial_state() -> dict:
     default = next(iter(SESSIONS))
-    return {"version": STATE_VERSION, "completed": 0,
+    return {"version": STATE_VERSION, "ui_language": "pt", "settings": default_settings(), "completed": 0,
             "session_counts": {sid: 0 for sid in SESSIONS},
             "rounds_without_new": {sid: 0 for sid in SESSIONS},
             "cards": {w: fresh_record() for w in CARDS},
@@ -6943,19 +9962,20 @@ def training_index(record: dict) -> int:
     return record["correct_streak"] - record["misses"]
 
 
-def is_trained(record: dict) -> bool:
-    return training_index(record) >= TRAINED_INDEX
+def is_trained(record: dict, settings: dict | None = None) -> bool:
+    return training_index(record) >= (settings or default_settings())['trained_index']
 
 
-def training_label(record: dict) -> str:
+def training_label(record: dict, settings: dict | None = None) -> str:
+    settings = settings or default_settings()
     index = training_index(record)
-    if index >= TRAINED_INDEX:
-        return "Treinado"
-    if index >= 5:
-        return "Bom"
-    if index >= 1:
-        return "OK"
-    return "Em treino" if record["hits"] or record["total_misses"] else "Novo"
+    if index >= settings['trained_index']:
+        return 'Treinado'
+    if index >= settings['good_index']:
+        return 'Bom'
+    if index >= settings['ok_index']:
+        return 'OK'
+    return 'Em treino' if record['hits'] or record['total_misses'] else 'Novo'
 
 
 def is_new(record: dict) -> bool:
@@ -6963,13 +9983,15 @@ def is_new(record: dict) -> bool:
 
 
 def new_card_pressure(state: dict, session_id: str) -> int:
-    """Chance percentual de um novo cartão passar à frente de uma revisão."""
-    return min(NEW_PRESSURE_CAP, state["rounds_without_new"][session_id])
+    settings = training_settings(state)
+    return min(settings['new_pressure_cap'],
+               state['rounds_without_new'][session_id] * settings['new_pressure_step'])
 
 
 def session_training(state: dict, session_id: str) -> tuple[int, int]:
     words = SESSIONS[session_id]
-    return sum(is_trained(state["cards"][word]) for word in words), len(words)
+    settings = training_settings(state)
+    return sum(is_trained(state['cards'][word], settings) for word in words), len(words)
 
 
 def session_is_trained(state: dict, session_id: str) -> bool:
@@ -6977,24 +9999,26 @@ def session_is_trained(state: dict, session_id: str) -> bool:
     return total > 0 and trained == total
 
 
-def session_display(state: dict, session_id: str) -> str:
-    suffix = " · ✓ Treinada" if session_is_trained(state, session_id) else ""
-    return SESSION_LABELS[session_id] + suffix
+def session_display(state: dict, session_id: str, language: str = 'pt') -> str:
+    suffix = ui_text(" · ✓ Treinada", language) if session_is_trained(state, session_id) else ""
+    return session_label(session_id, language) + suffix
 
 
-def repetitions_required(record: dict) -> int:
-    return BASE_REPETITIONS[record["stage"]] + record["total_misses"]
+def repetitions_required(record: dict, settings: dict | None = None) -> int:
+    settings = settings or default_settings()
+    return (settings['base_repetitions'][record['stage']]
+            + record['total_misses'] * settings['error_extra_repetitions'])
 
 
-def advance_stage(record: dict):
-    record["stage_repetitions"] += 1
-    if record["stage_repetitions"] >= repetitions_required(record):
-        record["stage_repetitions"] = 0
-        record["stage"] = min(record["stage"] + 1, len(CORRECT_INTERVALS) - 1)
+def advance_stage(record: dict, settings: dict | None = None):
+    record['stage_repetitions'] += 1
+    if record['stage_repetitions'] >= repetitions_required(record, settings):
+        record['stage_repetitions'] = 0
+        record['stage'] = min(record['stage'] + 1, 3)
 
 
 def migrate_state(data: dict) -> dict:
-    """Preserva os dados das versões 2–5, incluindo os relógios de revisão.
+    """Preserva os dados das versões 2–6, incluindo os relógios de revisão.
 
     Antes da v5, não havia registro explícito de acertos consecutivos. Sem
     erros históricos, todos os acertos são consecutivos. Com erros, usamos
@@ -7003,8 +10027,14 @@ def migrate_state(data: dict) -> dict:
     A pressão inicia em zero quando não havia esse registro.
     """
     state = initial_state()
+    language = data.get("ui_language", "pt")
+    state["ui_language"] = language if isinstance(language, str) and language in LANGUAGE_NAMES else "pt"
+    try:
+        state['settings'] = validate_settings(data.get('settings', {}))
+    except (ValueError, TypeError):
+        state['settings'] = default_settings()
     version = data.get("version")
-    if version not in (2, 3, 4, STATE_VERSION):
+    if version not in (2, 3, 4, 5, STATE_VERSION):
         return state
     state["completed"] = max(0, int(data.get("completed", 0)))
     old_counts = data.get("session_counts", {})
@@ -7014,10 +10044,10 @@ def migrate_state(data: dict) -> dict:
         sid = old_sid if version >= 4 else legacy_ids.get(old_sid)
         if sid in SESSIONS:
             state["session_counts"][sid] = max(0, int(count))
-    if version == STATE_VERSION:
+    if version >= 5:
         for sid in SESSIONS:
-            state["rounds_without_new"][sid] = min(NEW_PRESSURE_CAP, max(0, int(
-                data.get("rounds_without_new", {}).get(sid, 0))))
+            state["rounds_without_new"][sid] = max(0, int(
+                data.get("rounds_without_new", {}).get(sid, 0)))
     for word, rec in state["cards"].items():
         old = old_cards.get(word)
         if not isinstance(old, dict):
@@ -7027,15 +10057,14 @@ def migrate_state(data: dict) -> dict:
         rec["total_misses"] = max(rec["misses"], int(old.get("total_misses", rec["misses"])))
         if version >= 4:
             rec["stage"] = max(0, min(len(CORRECT_INTERVALS)-1, int(old.get("stage", 0))))
-            rec["stage_repetitions"] = max(0, min(repetitions_required(rec)-1,
-                                                   int(old.get("stage_repetitions", 0))))
+            rec["stage_repetitions"] = max(0, int(old.get("stage_repetitions", 0)))
             old_clock = int(old_counts.get(WORD_SESSION[word], 0))
         else:
             for _ in range(min(6, rec["hits"], max(0, int(old.get("stage", 0))))):
                 advance_stage(rec)
             old_clock = (int(old_counts.get(LEGACY_WORD_SESSION.get(word), 0))
                          if version == 3 else state["completed"])
-        if version == STATE_VERSION:
+        if version >= 5:
             streak = max(0, int(old.get("correct_streak", 0)))
         elif rec["total_misses"] == 0:
             streak = rec["hits"]
@@ -7045,10 +10074,10 @@ def migrate_state(data: dict) -> dict:
         else:
             streak = min(6, max(0, int(old.get("stage", 0))))
         rec["correct_streak"] = min(rec["hits"], streak)
-        remaining = min(CORRECT_INTERVALS[-1][1], int(old.get("due", 0)) - old_clock)
+        remaining = int(old.get("due", 0)) - old_clock
         rec["due"] = max(0, state["session_counts"][WORD_SESSION[word]] + remaining)
         last = old.get("last_interval")
-        rec["last_interval"] = min(100, max(0, int(last))) if last is not None else None
+        rec["last_interval"] = max(0, int(last)) if last is not None else None
     old_sid = data.get("session")
     sid = old_sid if version >= 4 else legacy_ids.get(old_sid)
     if sid in SESSIONS:
@@ -7056,7 +10085,7 @@ def migrate_state(data: dict) -> dict:
     current = data.get("current")
     if current in CARDS:
         state["session"] = WORD_SESSION[current]
-        if data.get("graded") or not is_trained(state["cards"][current]):
+        if data.get("graded") or not is_trained(state["cards"][current], training_settings(state)):
             for key in ("current", "graded", "was_correct", "early"):
                 if key in data:
                     state[key] = data[key]
@@ -7085,14 +10114,14 @@ def save_state(state: dict):
 
 
 def choose_word(state: dict, candidates: list[str], previous: str | None = None):
-    """Revisões vencidas cedem a novos cartões com chance de 0–20%.
+    """Revisões vencidas cedem a novos cartões com chance configurável.
 
     O sorteio só ocorre quando novos e vencidos disputam a próxima rodada.
     Não altera prazos nem intervalos: uma revisão adiada continua vencida.
     Sem vencidos, os novos mantêm a prioridade que já tinham.
     """
     recs = state["cards"]
-    candidates = [w for w in candidates if not is_trained(recs[w])]
+    candidates = [w for w in candidates if not is_trained(recs[w], training_settings(state))]
     if not candidates:
         return None, False
     session_id = state["session"]
@@ -7121,30 +10150,29 @@ def choose_word(state: dict, candidates: list[str], previous: str | None = None)
 
 
 def record_answer(state: dict, word: str, correct: bool) -> int:
-    rec = state["cards"][word]
+    settings = training_settings(state)
+    rec = state['cards'][word]
     was_new = is_new(rec)
-    state["completed"] += 1
-    session_name = WORD_SESSION[word]
-    state["session_counts"][session_name] += 1
-    state["rounds_without_new"][session_name] = (
-        0 if was_new else min(NEW_PRESSURE_CAP,
-                             state["rounds_without_new"][session_name] + 1))
+    state['completed'] += 1
+    sid = WORD_SESSION[word]
+    state['session_counts'][sid] += 1
+    state['rounds_without_new'][sid] = 0 if was_new else state['rounds_without_new'][sid] + 1
     if correct:
-        low, high = CORRECT_INTERVALS[rec["stage"]]
-        rec["hits"] += 1
-        rec["correct_streak"] += 1
-        rec["misses"] = max(0, rec["misses"] - 1)
-        advance_stage(rec)
+        low, high = settings['correct_intervals'][rec['stage']]
+        rec['hits'] += 1
+        rec['correct_streak'] += 1
+        rec['misses'] = max(0, rec['misses'] - settings['pending_error_recovery'])
+        advance_stage(rec, settings)
     else:
-        low, high = ERROR_INTERVAL
-        rec["misses"] += 1
-        rec["total_misses"] += 1
-        rec["correct_streak"] = 0
-        rec["stage"] = 0
-        rec["stage_repetitions"] = 0
+        low, high = settings['error_interval']
+        rec['misses'] += 1
+        rec['total_misses'] += 1
+        rec['correct_streak'] = 0
+        rec['stage'] = 0
+        rec['stage_repetitions'] = 0
     delay = random.randint(low, high)
-    rec["due"] = state["session_counts"][session_name] + delay
-    rec["last_interval"] = delay
+    rec['due'] = state['session_counts'][sid] + delay
+    rec['last_interval'] = delay
     return delay
 
 
@@ -7161,16 +10189,19 @@ def reset_session(state: dict, session_id: str):
 
 
 class PinyinTrainer(tk.Tk):
+
     def __init__(self):
         super().__init__()
-        self.title("Treino de Pinyin · Blocos e sessões")
-        self.geometry("1000x810")
+        self.geometry('1000x810')
         self.minsize(780, 680)
-        self.configure(bg="#eff3f9")
+        self.configure(bg='#eff3f9')
         self.data = load_state()
-        self.block_var = tk.StringVar(value=BLOCK_LABELS[self.data["block"]])
-        self.sessions = list(BLOCKS[self.data["block"]])
-        self.session_var = tk.StringVar(value=SESSION_LABELS[self.data["session"]])
+        self.data.setdefault('ui_language', 'pt')
+        self.title(self._t('Treino de Pinyin · Blocos e sessões'))
+        self.language_var = tk.StringVar(value=LANGUAGE_NAMES[self.data['ui_language']])
+        self.block_var = tk.StringVar(value=block_display(self.data['block'], self.data['ui_language']))
+        self.sessions = list(BLOCKS[self.data['block']])
+        self.session_var = tk.StringVar(value=SESSION_LABELS[self.data['session']])
         self.input_var = tk.StringVar()
         self.feedback_var = tk.StringVar()
         self.answer_var = tk.StringVar()
@@ -7182,170 +10213,318 @@ class PinyinTrainer(tk.Tk):
         self.footer_var = tk.StringVar()
         self.training_var = tk.StringVar()
         self.training_window = None
-        self.current = self.data["current"]
+        self.current = self.data['current']
         self._build_ui()
-        if (self.current is None or self.current not in self._filtered()
-                or (is_trained(self.data["cards"][self.current]) and not self.data["graded"])):
-            self.data["graded"] = True
+        if self.current is None or self.current not in self._filtered() or (is_trained(self.data['cards'][self.current], training_settings(self.data)) and (not self.data['graded'])):
+            self.data['graded'] = True
             self._next_card()
         else:
             self._render()
-        self.bind("<Return>", self._on_enter)
-        self.protocol("WM_DELETE_WINDOW", self._close)
+        self.bind('<Return>', self._on_enter)
+        self.protocol('WM_DELETE_WINDOW', self._close)
+
+
+    def _t(self, message, **values):
+        return ui_text(message, self.data.get('ui_language', 'pt'), **values)
+
+    def _language_changed(self, _event=None):
+        language = next(code for code, label in LANGUAGE_NAMES.items()
+                        if label == self.language_var.get())
+        if language == self.data.get('ui_language', 'pt'):
+            return
+        selected_tab = self.notebook.index(self.notebook.select())
+        draft = {key: var.get() for key, var in self.setting_vars.items()}
+        settings_scroll = self.settings_canvas.yview()[0]
+        show_training = self.training_window is not None and self.training_window.winfo_exists()
+        scroll_position = self.scroll_canvas.yview()[0]
+        cursor = self.entry.index('insert')
+        self.data['ui_language'] = language
+        self.title(self._t('Treino de Pinyin · Blocos e sessões'))
+        self.block_var.set(block_display(self.data['block'], language))
+        # Rebuild only widgets; learning state, typed input and scheduling are retained.
+        for widget in self.winfo_children():
+            widget.destroy()
+        self.training_window = None
+        self._build_ui()
+        self.notebook.select(selected_tab)
+        for key, value in draft.items():
+            self.setting_vars[key].set(value)
+        self._render()
+        self.entry.icursor(cursor)
+        self.update_idletasks()
+        self.scroll_canvas.yview_moveto(scroll_position)
+        self.settings_canvas.yview_moveto(settings_scroll)
+        if show_training:
+            self._show_training()
+        save_state(self.data)
 
     def _build_ui(self):
         style = ttk.Style(self)
-        if "clam" in style.theme_names():
-            style.theme_use("clam")
-        style.configure("TCombobox", padding=6, font=("Arial", 10))
-        style.configure("Horizontal.TProgressbar", troughcolor="#dce5f0",
-                        background="#276ed1")
-        style.configure("Training.Treeview", font=("Microsoft YaHei", 10), rowheight=30)
-        style.configure("Training.Treeview.Heading", font=("Arial", 10, "bold"))
-        # O conteúdo pode ser rolado em telas menores, sem ocultar os botões.
-        scroll_shell = tk.Frame(self, bg="#eff3f9")
-        scroll_shell.pack(expand=True, fill="both")
-        canvas = tk.Canvas(scroll_shell, bg="#eff3f9", highlightthickness=0,
-                           borderwidth=0)
-        scrollbar = ttk.Scrollbar(scroll_shell, orient="vertical", command=canvas.yview)
+        if 'clam' in style.theme_names():
+            style.theme_use('clam')
+        style.configure('TCombobox', padding=6, font=('Arial', 10))
+        style.configure('Horizontal.TProgressbar', troughcolor='#dce5f0', background='#276ed1')
+        style.configure('Training.Treeview', font=('Microsoft YaHei', 10), rowheight=30)
+        style.configure('Training.Treeview.Heading', font=('Arial', 10, 'bold'))
+        self.notebook = ttk.Notebook(self)
+        self.notebook.pack(fill='both', expand=True)
+        self.training_tab = tk.Frame(self.notebook, bg='#eff3f9')
+        self.settings_tab = tk.Frame(self.notebook, bg='#eff3f9')
+        self.notebook.add(self.training_tab, text=self._t('Treinar'))
+        self.notebook.add(self.settings_tab, text=self._t('Configurações'))
+        self._build_settings()
+        scroll_shell = tk.Frame(self.training_tab, bg='#eff3f9')
+        scroll_shell.pack(expand=True, fill='both')
+        canvas = tk.Canvas(scroll_shell, bg='#eff3f9', highlightthickness=0, borderwidth=0)
+        scrollbar = ttk.Scrollbar(scroll_shell, orient='vertical', command=canvas.yview)
         canvas.configure(yscrollcommand=scrollbar.set)
-        scrollbar.pack(side="right", fill="y")
-        canvas.pack(side="left", fill="both", expand=True)
-        root = tk.Frame(canvas, bg="#eff3f9", padx=24, pady=19)
-        window_id = canvas.create_window((0, 0), window=root, anchor="nw")
-        root.bind("<Configure>",
-                  lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
+        scrollbar.pack(side='right', fill='y')
+        canvas.pack(side='left', fill='both', expand=True)
+        root = tk.Frame(canvas, bg='#eff3f9', padx=24, pady=19)
+        self.scroll_canvas = canvas
+        window_id = canvas.create_window((0, 0), window=root, anchor='nw')
+        root.bind('<Configure>', lambda e: canvas.configure(scrollregion=canvas.bbox('all')))
         self._responsive_labels = []
-        canvas.bind("<Configure>",
-                    lambda e: self._resize_text(canvas, window_id, e.width))
-        tk.Label(root, text="Treino de Pinyin · Blocos e sessões", font=("Arial", 22, "bold"),
-                 fg="#14273d", bg="#eff3f9").pack(anchor="w")
-        tk.Label(root, text="Escolha o bloco e a sessão (até 100 caracteres). Use os tons: xi3huan, xue2xi2.",
-                 fg="#55677f", bg="#eff3f9", font=("Arial", 11)).pack(anchor="w", pady=(3, 14))
-
-        row = tk.Frame(root, bg="#eff3f9")
-        row.pack(fill="x")
+        canvas.bind('<Configure>', lambda e: self._resize_text(canvas, window_id, e.width))
+        tk.Label(root, text=self._t('Treino de Pinyin · Blocos e sessões'), font=('Arial', 22, 'bold'), fg='#14273d', bg='#eff3f9').pack(anchor='w')
+        tk.Label(root, text=self._t('Escolha o bloco e a sessão (até 100 caracteres). Use os tons: xi3huan, xue2xi2.'), fg='#55677f', bg='#eff3f9', font=('Arial', 11), wraplength=680, justify='left').pack(anchor='w', pady=(3, 14))
+        language_row = tk.Frame(root, bg='#eff3f9')
+        language_row.pack(fill='x', pady=(0, 12))
+        tk.Label(language_row, text=self._t('Idioma:'), bg='#eff3f9', fg='#23364f',
+                 font=('Microsoft YaHei', 10)).pack(side='left', padx=(0, 8))
+        self.language_combo = ttk.Combobox(language_row, textvariable=self.language_var,
+                values=list(LANGUAGE_NAMES.values()), state='readonly', width=18,
+                font=('Microsoft YaHei', 10))
+        self.language_combo.pack(side='left')
+        self.language_combo.bind('<<ComboboxSelected>>', self._language_changed)
+        row = tk.Frame(root, bg='#eff3f9')
+        row.pack(fill='x')
         self.stats = {}
-        for key, label in (("total", "PALAVRAS"), ("seen", "ESTUDADAS"),
-                           ("hits", "ACERTOS"), ("misses", "ERROS PENDENTES"),
-                           ("rate", "TAXA DE ACERTO")):
-            box = tk.Frame(row, bg="white", padx=11, pady=8,
-                           highlightthickness=1, highlightbackground="#e0e6f0")
-            box.pack(side="left", fill="both", expand=True, padx=(0, 7))
-            tk.Label(box, text=label, font=("Arial", 8, "bold"),
-                     fg="#73829a", bg="white").pack(anchor="w")
-            stat = tk.Label(box, text="0", font=("Arial", 19, "bold"),
-                            fg="#15283d", bg="white")
-            stat.pack(anchor="w")
+        for key, label in (('total', self._t('PALAVRAS')), ('seen', self._t('ESTUDADAS')), ('hits', self._t('ACERTOS')), ('misses', self._t('ERROS PENDENTES')), ('rate', self._t('TAXA DE ACERTO'))):
+            box = tk.Frame(row, bg='white', padx=11, pady=8, highlightthickness=1, highlightbackground='#e0e6f0')
+            box.pack(side='left', fill='both', expand=True, padx=(0, 7))
+            tk.Label(box, text=label, font=('Arial', 8, 'bold'), fg='#73829a', bg='white').pack(anchor='w')
+            stat = tk.Label(box, text='0', font=('Arial', 19, 'bold'), fg='#15283d', bg='white')
+            stat.pack(anchor='w')
             self.stats[key] = stat
-
-        block_row = tk.Frame(root, bg="#eff3f9")
-        block_row.pack(fill="x", pady=(14, 0))
-        tk.Label(block_row, text="Bloco:", bg="#eff3f9", font=("Arial", 11, "bold"),
-                 fg="#23364f").pack(side="left", padx=(0, 8))
-        self.block_combo = ttk.Combobox(block_row, textvariable=self.block_var,
-                                        values=list(BLOCK_LABELS.values()),
-                                        state="readonly", width=15)
-        self.block_combo.pack(side="left")
-        self.block_combo.bind("<<ComboboxSelected>>", self._block_changed)
-
-        filter_box = tk.Frame(root, bg="#eff3f9")
-        filter_box.pack(fill="x", pady=(16, 8))
-        tk.Label(filter_box, text="Sessão:", bg="#eff3f9", font=("Arial", 11, "bold"),
-                 fg="#23364f").pack(side="left", padx=(0, 8))
-        self.session_combo = ttk.Combobox(filter_box, textvariable=self.session_var,
-                                          values=[session_display(self.data, s) for s in self.sessions],
-                                          state="readonly", width=42)
-        self.session_combo.pack(side="left")
-        self.session_combo.bind("<<ComboboxSelected>>", self._filter_changed)
-        tk.Button(filter_box, text="◀", command=lambda: self._change_session(-1),
-                  relief="flat", bg="#dfe8f5", padx=7).pack(side="left", padx=(6, 3))
-        tk.Button(filter_box, text="▶", command=lambda: self._change_session(1),
-                  relief="flat", bg="#dfe8f5", padx=7).pack(side="left")
-        tk.Button(block_row, text="Zerar tudo", command=self._reset,
-                  relief="flat", bg="#eff3f9", fg="#8b5360", padx=9, pady=6).pack(side="right")
-        training_row = tk.Frame(root, bg="#eff3f9")
-        training_row.pack(fill="x", pady=(0, 10))
-        tk.Button(training_row, text="Progresso da sessão", command=self._show_training,
-                  relief="flat", bg="#dfe8f5", fg="#164c85", padx=10, pady=7).pack(side="left")
-        tk.Button(training_row, text="Zerar esta sessão", command=self._reset_session,
-                  relief="flat", bg="#fee6e7", fg="#a52731", padx=10, pady=7).pack(side="right")
-        self.training_banner = tk.Label(root, textvariable=self.training_var,
-                                        font=("Arial", 11, "bold"), bg="#eff3f9",
-                                        fg="#194f8b", anchor="w", justify="left")
-        self.training_banner.pack(fill="x", pady=(0, 10))
+        block_row = tk.Frame(root, bg='#eff3f9')
+        block_row.pack(fill='x', pady=(14, 0))
+        tk.Label(block_row, text=self._t('Bloco:'), bg='#eff3f9', font=('Arial', 11, 'bold'), fg='#23364f').pack(side='left', padx=(0, 8))
+        self.block_combo = ttk.Combobox(block_row, textvariable=self.block_var, values=[block_display(b, self.data['ui_language']) for b in BLOCKS], state='readonly', width=15)
+        self.block_combo.pack(side='left')
+        self.block_combo.bind('<<ComboboxSelected>>', self._block_changed)
+        filter_box = tk.Frame(root, bg='#eff3f9')
+        filter_box.pack(fill='x', pady=(16, 8))
+        tk.Label(filter_box, text=self._t('Sessão:'), bg='#eff3f9', font=('Arial', 11, 'bold'), fg='#23364f').pack(side='left', padx=(0, 8))
+        self.session_combo = ttk.Combobox(filter_box, textvariable=self.session_var, values=[session_display(self.data, s, self.data['ui_language']) for s in self.sessions], state='readonly', width=42)
+        self.session_combo.pack(side='left')
+        self.session_combo.bind('<<ComboboxSelected>>', self._filter_changed)
+        tk.Button(filter_box, text='◀', command=lambda: self._change_session(-1), relief='flat', bg='#dfe8f5', padx=7).pack(side='left', padx=(6, 3))
+        tk.Button(filter_box, text='▶', command=lambda: self._change_session(1), relief='flat', bg='#dfe8f5', padx=7).pack(side='left')
+        tk.Button(block_row, text=self._t('Zerar tudo'), command=self._reset, relief='flat', bg='#eff3f9', fg='#8b5360', padx=9, pady=6).pack(side='right')
+        training_row = tk.Frame(root, bg='#eff3f9')
+        training_row.pack(fill='x', pady=(0, 10))
+        tk.Button(training_row, text=self._t('Progresso da sessão'), command=self._show_training, relief='flat', bg='#dfe8f5', fg='#164c85', padx=10, pady=7).pack(side='left')
+        tk.Button(training_row, text=self._t('Zerar esta sessão'), command=self._reset_session, relief='flat', bg='#fee6e7', fg='#a52731', padx=10, pady=7).pack(side='right')
+        self.training_banner = tk.Label(root, textvariable=self.training_var, font=('Arial', 11, 'bold'), bg='#eff3f9', fg='#194f8b', anchor='w', justify='left')
+        self.training_banner.pack(fill='x', pady=(0, 10))
         self._responsive_labels.append(self.training_banner)
+        panel = tk.Frame(root, bg='white', padx=24, pady=18, highlightbackground='#dde6f1', highlightthickness=1)
+        panel.pack(fill='both', expand=True)
+        self.info_label = tk.Label(panel, textvariable=self.info_var, font=('Arial', 10), fg='#6f7e90', bg='white', justify='left', wraplength=780)
+        self.info_label.pack(anchor='w')
+        self.word_label = tk.Label(panel, text='', font=('Microsoft YaHei', 46), bg='white', fg='#0f2544', wraplength=730)
+        self.word_label.pack(fill='x', pady=(9, 18))
+        tk.Label(panel, text=self._t('Digite o pinyin NUMÉRICO (incluindo cada tom):'), font=('Arial', 11, 'bold'), fg='#223955', bg='white').pack(anchor='w')
+        self.entry = tk.Entry(panel, textvariable=self.input_var, font=('Arial', 18), relief='solid', bd=1)
+        self.entry.pack(fill='x', ipady=9, pady=(6, 12))
+        self.feedback_label = tk.Label(panel, textvariable=self.feedback_var, font=('Arial', 11, 'bold'), bg='white', fg='#137c48', anchor='w', justify='left', wraplength=770)
+        self.feedback_label.pack(fill='x', pady=(0, 4))
+        self.details = tk.Frame(panel, bg='#f2f7fd', padx=13, pady=10, highlightbackground='#dde6f1', highlightthickness=1)
+        answer_label = tk.Label(self.details, textvariable=self.answer_var, font=('Arial', 12, 'bold'), bg='#f2f7fd', fg='#194f8b', anchor='w', justify='left')
+        answer_label.pack(fill='x')
+        translation_label = tk.Label(self.details, textvariable=self.translation_var, font=('Arial', 11), bg='#f2f7fd', fg='#194f8b', anchor='w', justify='left')
+        if self.data['ui_language'] != 'zh':
+            translation_label.pack(fill='x', pady=(3, 8))
+        tk.Label(self.details, text=self._t('EXEMPLO DE USO'), font=('Arial', 9, 'bold'), bg='#f2f7fd', fg='#586c85', anchor='w').pack(fill='x')
+        example_label = tk.Label(self.details, textvariable=self.example_hanzi_var, font=('Microsoft YaHei', 12), bg='#f2f7fd', fg='#213a58', anchor='w', justify='left')
+        example_label.pack(fill='x', pady=(3, 1))
+        pinyin_label = tk.Label(self.details, textvariable=self.example_pinyin_var, font=('Arial', 11, 'italic'), bg='#f2f7fd', fg='#194f8b', anchor='w', justify='left')
+        pinyin_label.pack(fill='x', pady=(2, 1))
+        example_translation_label = tk.Label(self.details, textvariable=self.example_translation_var, font=('Arial', 11), bg='#f2f7fd', fg='#334d68', anchor='w', justify='left')
+        if self.data['ui_language'] != 'zh':
+            example_translation_label.pack(fill='x', pady=(2, 0))
+        self._responsive_labels.extend((answer_label, translation_label, example_label, pinyin_label, example_translation_label, self.info_label, self.word_label, self.feedback_label))
+        action_row = tk.Frame(panel, bg='white')
+        action_row.pack(fill='x', pady=(4, 0))
+        self.check_btn = tk.Button(action_row, text=self._t('Verificar  ↵'), command=self._check, bg='#276ed1', fg='white', relief='flat', font=('Arial', 11, 'bold'), padx=16, pady=10)
+        self.check_btn.pack(side='left', padx=(0, 8))
+        self.give_up_btn = tk.Button(action_row, text=self._t('Não sei (erro)'), command=self._give_up, bg='#e7edf6', fg='#354965', relief='flat', font=('Arial', 11), padx=13, pady=10)
+        self.give_up_btn.pack(side='left')
+        self.next_btn = tk.Button(action_row, text=self._t('Próxima palavra  →'), command=self._next_card, bg='#276ed1', fg='white', relief='flat', font=('Arial', 11, 'bold'), padx=16, pady=10)
+        self.progress = ttk.Progressbar(root, maximum=100, value=0, style='Horizontal.TProgressbar')
+        self.progress.pack(fill='x', pady=(14, 6))
+        tk.Label(root, textvariable=self.footer_var, fg='#4d617c', bg='#eff3f9', font=('Arial', 10), wraplength=850, justify='left').pack(anchor='w')
+        tk.Label(root, text=self._t('{v0} cartões · {v1} bloco(s) · {v2} sessões', v0=len(CARDS), v1=len(BLOCKS), v2=len(SESSIONS)), fg='#7d899a', bg='#eff3f9', font=('Arial', 9)).pack(anchor='w', pady=(5, 0))
 
-        panel = tk.Frame(root, bg="white", padx=24, pady=18,
-                         highlightbackground="#dde6f1", highlightthickness=1)
-        panel.pack(fill="both", expand=True)
-        self.info_label = tk.Label(panel, textvariable=self.info_var,
-                                   font=("Arial", 10), fg="#6f7e90", bg="white",
-                                   justify="left", wraplength=780)
-        self.info_label.pack(anchor="w")
-        self.word_label = tk.Label(panel, text="", font=("Microsoft YaHei", 46),
-                                   bg="white", fg="#0f2544", wraplength=730)
-        self.word_label.pack(fill="x", pady=(9, 18))
-        tk.Label(panel, text="Digite o pinyin NUMÉRICO (incluindo cada tom):",
-                 font=("Arial", 11, "bold"), fg="#223955", bg="white").pack(anchor="w")
-        self.entry = tk.Entry(panel, textvariable=self.input_var, font=("Arial", 18),
-                              relief="solid", bd=1)
-        self.entry.pack(fill="x", ipady=9, pady=(6, 12))
-        self.feedback_label = tk.Label(panel, textvariable=self.feedback_var,
-                                       font=("Arial", 11, "bold"), bg="white",
-                                       fg="#137c48", anchor="w", justify="left",
-                                       wraplength=770)
-        self.feedback_label.pack(fill="x", pady=(0, 4))
-        self.details = tk.Frame(panel, bg="#f2f7fd", padx=13, pady=10,
-                                highlightbackground="#dde6f1", highlightthickness=1)
-        answer_label = tk.Label(self.details, textvariable=self.answer_var,
-                                font=("Arial", 12, "bold"), bg="#f2f7fd",
-                                fg="#194f8b", anchor="w", justify="left")
-        answer_label.pack(fill="x")
-        translation_label = tk.Label(self.details, textvariable=self.translation_var,
-                                     font=("Arial", 11), bg="#f2f7fd",
-                                     fg="#194f8b", anchor="w", justify="left")
-        translation_label.pack(fill="x", pady=(3, 8))
-        tk.Label(self.details, text="EXEMPLO DE USO", font=("Arial", 9, "bold"),
-                 bg="#f2f7fd", fg="#586c85", anchor="w").pack(fill="x")
-        example_label = tk.Label(self.details, textvariable=self.example_hanzi_var,
-                                 font=("Microsoft YaHei", 12), bg="#f2f7fd",
-                                 fg="#213a58", anchor="w", justify="left")
-        example_label.pack(fill="x", pady=(3, 1))
-        pinyin_label = tk.Label(self.details, textvariable=self.example_pinyin_var,
-                                font=("Arial", 11, "italic"), bg="#f2f7fd",
-                                fg="#194f8b", anchor="w", justify="left")
-        pinyin_label.pack(fill="x", pady=(2, 1))
-        example_translation_label = tk.Label(
-            self.details, textvariable=self.example_translation_var,
-            font=("Arial", 11), bg="#f2f7fd", fg="#334d68",
-            anchor="w", justify="left")
-        example_translation_label.pack(fill="x", pady=(2, 0))
-        self._responsive_labels.extend((answer_label, translation_label,
-                                         example_label, pinyin_label,
-                                         example_translation_label,
-                                         self.info_label, self.word_label,
-                                         self.feedback_label))
-        action_row = tk.Frame(panel, bg="white")
-        action_row.pack(fill="x", pady=(4, 0))
-        self.check_btn = tk.Button(action_row, text="Verificar  ↵", command=self._check,
-                                   bg="#276ed1", fg="white", relief="flat",
-                                   font=("Arial", 11, "bold"), padx=16, pady=10)
-        self.check_btn.pack(side="left", padx=(0, 8))
-        self.give_up_btn = tk.Button(action_row, text="Não sei (erro)", command=self._give_up,
-                                     bg="#e7edf6", fg="#354965", relief="flat",
-                                     font=("Arial", 11), padx=13, pady=10)
-        self.give_up_btn.pack(side="left")
-        self.next_btn = tk.Button(action_row, text="Próxima palavra  →", command=self._next_card,
-                                  bg="#276ed1", fg="white", relief="flat",
-                                  font=("Arial", 11, "bold"), padx=16, pady=10)
-        self.progress = ttk.Progressbar(root, maximum=100, value=0,
-                                        style="Horizontal.TProgressbar")
-        self.progress.pack(fill="x", pady=(14, 6))
-        tk.Label(root, textvariable=self.footer_var, fg="#4d617c", bg="#eff3f9",
-                 font=("Arial", 10), wraplength=850, justify="left").pack(anchor="w")
-        tk.Label(root, text=(f"{len(CARDS)} cartões · {len(BLOCKS)} bloco(s) · {len(SESSIONS)} sessões"),
-                 fg="#7d899a", bg="#eff3f9", font=("Arial", 9)).pack(anchor="w", pady=(5, 0))
+    def _build_settings(self):
+        outer = tk.Frame(self.settings_tab, bg='#eff3f9')
+        outer.pack(fill='both', expand=True)
+        canvas = tk.Canvas(outer, bg='#eff3f9', highlightthickness=0)
+        self.settings_canvas = canvas
+        scroll = ttk.Scrollbar(outer, orient='vertical', command=canvas.yview)
+        canvas.configure(yscrollcommand=scroll.set)
+        scroll.pack(side='right', fill='y')
+        canvas.pack(side='left', fill='both', expand=True)
+        body = tk.Frame(canvas, bg='#eff3f9', padx=24, pady=18)
+        window = canvas.create_window((0, 0), window=body, anchor='nw')
+        body.bind('<Configure>', lambda e: canvas.configure(scrollregion=canvas.bbox('all')))
+        labels = []
+
+        def resize(event):
+            canvas.itemconfigure(window, width=event.width)
+            for label in labels:
+                label.configure(wraplength=max(300, event.width - 70))
+        canvas.bind('<Configure>', resize)
+
+        def heading(text):
+            label = tk.Label(body, text=self._t(text), bg='#eff3f9', fg='#14273d',
+                            font=('Microsoft YaHei', 12, 'bold'), anchor='w', justify='left')
+            label.pack(fill='x', pady=(14, 8))
+            labels.append(label)
+
+        def note(text):
+            label = tk.Label(body, text=self._t(text), bg='#eff3f9', fg='#55677f',
+                            font=('Microsoft YaHei', 10), anchor='w', justify='left', wraplength=680)
+            label.pack(fill='x', pady=(0, 8))
+            labels.append(label)
+
+        self.setting_vars = {}
+        self.setting_inputs = {}
+
+        def number(parent, key, row, column, low, high):
+            var = tk.StringVar()
+            self.setting_vars[key] = var
+            control = ttk.Spinbox(parent, from_=low, to=high, increment=1, width=8,
+                                  textvariable=var, font=('Arial', 11))
+            control.grid(row=row, column=column, padx=8, pady=6, sticky='e')
+            self.setting_inputs[key] = control
+
+        def field(parent, row, key, label, low, high):
+            tk.Label(parent, text=self._t(label), bg='white', fg='#23364f',
+                     font=('Microsoft YaHei', 10), wraplength=470, justify='left',
+                     anchor='w').grid(row=row, column=0, sticky='w', padx=12, pady=6)
+            number(parent, key, row, 1, low, high)
+
+        def box():
+            frame = tk.Frame(body, bg='white', padx=8, pady=8)
+            frame.pack(fill='x')
+            frame.columnconfigure(0, weight=1)
+            return frame
+
+        heading('Configurações de treinamento')
+        note('Valem para todas as sessões. Salvar não apaga o progresso. Novos intervalos valem nas próximas respostas; revisões já marcadas mantêm seus prazos. Os índices são atualizados imediatamente.')
+        heading('Acertos: intervalos e repetições')
+        note('Intervalos em outras respostas: 1–10000. Repetições por etapa: 1–1000. A última etapa se repete até o cartão ficar treinado.')
+        frame = box()
+        for col, text in enumerate(('Etapa', 'Mínimo', 'Máximo', 'Repetições')):
+            tk.Label(frame, text=self._t(text), bg='white', fg='#194f8b',
+                     font=('Microsoft YaHei', 10, 'bold')).grid(row=0, column=col, padx=10, pady=5, sticky='w')
+        for i in range(4):
+            tk.Label(frame, text=str(i + 1), bg='white', fg='#23364f').grid(row=i+1, column=0, sticky='w', padx=12)
+            number(frame, f'low_{i}', i+1, 1, 1, 10000)
+            number(frame, f'high_{i}', i+1, 2, 1, 10000)
+            number(frame, f'repeats_{i}', i+1, 3, 1, 1000)
+        heading('Erros e recuperação')
+        frame = box()
+        for row, (key, label, low, high) in enumerate((
+            ('error_low', 'Intervalo após erro: mínimo (1–10000)', 1, 10000),
+            ('error_high', 'Intervalo após erro: máximo (1–10000)', 1, 10000),
+            ('error_extra_repetitions', 'Repetições extras por erro histórico, em cada etapa (0–100)', 0, 100),
+            ('pending_error_recovery', 'Erros pendentes removidos por acerto (1–100)', 1, 100),
+        )):
+            field(frame, row, key, label, low, high)
+        heading('Índices de treinamento')
+        note('Índice = acertos consecutivos − erros pendentes. Um erro reinicia a sequência.')
+        note('Use OK < Bom < Treinado (1–10000). Aumentar a meta pode trazer cartões treinados de volta à fila.')
+        frame = box()
+        for row, (key, label) in enumerate((('ok_index', 'Índice mínimo: OK'),
+                ('good_index', 'Índice mínimo: Bom'), ('trained_index', 'Índice mínimo: Treinado'))):
+            field(frame, row, key, label, 1, 10000)
+        heading('Prioridade de cartões novos')
+        note('A chance começa em 0% e zera após a primeira resposta a um cartão novo. Use 0 no aumento ou no teto para desativar essa prioridade extra.')
+        frame = box()
+        field(frame, 0, 'new_pressure_step', 'Aumento por rodada sem cartão novo (pontos percentuais, 0–100)', 0, 100)
+        field(frame, 1, 'new_pressure_cap', 'Chance máxima de antecipar um cartão novo (%, 0–100)', 0, 100)
+        self._fill_settings(training_settings(self.data))
+        actions = tk.Frame(self.settings_tab, bg='#eff3f9', padx=24, pady=12)
+        actions.pack(fill='x')
+        self.settings_status = tk.StringVar()
+        tk.Label(actions, textvariable=self.settings_status, bg='#eff3f9', fg='#194f8b',
+                 wraplength=680, justify='left').pack(anchor='w', pady=(0, 6))
+        self.save_settings_btn = tk.Button(actions, text=self._t('Salvar configurações'),
+            command=self._save_settings, bg='#276ed1', fg='white', relief='flat', padx=15, pady=10)
+        self.save_settings_btn.pack(side='left')
+        self.restore_settings_btn = tk.Button(actions, text=self._t('Restaurar padrões'),
+            command=self._restore_settings, bg='#dfe8f5', fg='#164c85', relief='flat', padx=15, pady=10)
+        self.restore_settings_btn.pack(side='left', padx=10)
+
+    def _fill_settings(self, settings):
+        for i, (low, high) in enumerate(settings['correct_intervals']):
+            self.setting_vars[f'low_{i}'].set(str(low))
+            self.setting_vars[f'high_{i}'].set(str(high))
+            self.setting_vars[f'repeats_{i}'].set(str(settings['base_repetitions'][i]))
+        self.setting_vars['error_low'].set(str(settings['error_interval'][0]))
+        self.setting_vars['error_high'].set(str(settings['error_interval'][1]))
+        for key in ('error_extra_repetitions', 'pending_error_recovery', 'ok_index', 'good_index',
+                    'trained_index', 'new_pressure_step', 'new_pressure_cap'):
+            self.setting_vars[key].set(str(settings[key]))
+
+    def _restore_settings(self):
+        self._fill_settings(default_settings())
+        self.settings_status.set(self._t('Padrões carregados. Clique em Salvar configurações para aplicar.'))
+
+    def _save_settings(self):
+        try:
+            values = {}
+            for key, var in self.setting_vars.items():
+                text = var.get().strip()
+                if not text.isascii() or not text.isdecimal():
+                    raise ValueError('Use números inteiros nos campos.')
+                values[key] = int(text)
+            candidate = {key: values[key] for key in default_settings()
+                         if key not in ('correct_intervals', 'base_repetitions', 'error_interval')}
+            candidate.update(correct_intervals=[[values[f'low_{i}'], values[f'high_{i}']] for i in range(4)],
+                base_repetitions=[values[f'repeats_{i}'] for i in range(4)],
+                error_interval=[values['error_low'], values['error_high']])
+            settings = validate_settings(candidate)
+        except ValueError as error:
+            messagebox.showwarning(self._t('Configurações inválidas'), self._t(str(error)), parent=self)
+            return
+        previous = training_settings(self.data)
+        self.data['settings'] = settings
+        try:
+            save_state(self.data)
+        except OSError:
+            self.data['settings'] = previous
+            messagebox.showerror(self._t('Configurações'), self._t('Não foi possível salvar as configurações.'), parent=self)
+            return
+        if self.current is None or (not self.data['graded'] and is_trained(self.data['cards'][self.current], settings)):
+            self.data['graded'] = True
+            self._next_card()
+        else:
+            self._render()
+        self.settings_status.set(self._t('Configurações salvas. Progresso preservado.'))
+
+    def _training_legend(self):
+        settings = training_settings(self.data)
+        return self._t('OK: ≥{ok}     Bom: ≥{good}     Treinado: ≥{trained} (sai da fila)',
+                       ok=settings['ok_index'], good=settings['good_index'], trained=settings['trained_index'])
+
+    def _focus_training(self, widget):
+        if self.notebook.select() == str(self.training_tab):
+            widget.focus_set()
+
 
     def _resize_text(self, canvas: tk.Canvas, window_id: int, width: int):
         canvas.itemconfigure(window_id, width=width)
@@ -7354,141 +10533,116 @@ class PinyinTrainer(tk.Tk):
             label.configure(wraplength=wrap)
 
     def _filtered(self) -> list[str]:
-        return SESSIONS[self.data["session"]]
+        return SESSIONS[self.data['session']]
 
     def _stats(self):
         words = self._filtered()
-        records = [self.data["cards"][w] for w in words]
-        seen = sum(1 for x in records if x["hits"] or x["misses"])
-        hits = sum(x["hits"] for x in records)
-        misses = sum(x["misses"] for x in records)
-        values = {"total": len(words), "seen": seen, "hits": hits,
-                  "misses": misses,
-                  "rate": f"{100*hits/(hits+misses):.1f}%" if hits+misses else "—"}
+        records = [self.data['cards'][w] for w in words]
+        seen = sum((1 for x in records if x['hits'] or x['misses']))
+        hits = sum((x['hits'] for x in records))
+        misses = sum((x['misses'] for x in records))
+        values = {'total': len(words), 'seen': seen, 'hits': hits, 'misses': misses, 'rate': f'{100 * hits / (hits + misses):.1f}%' if hits + misses else '—'}
         for k, val in values.items():
             self.stats[k].config(text=str(val))
-        session_id = self.data["session"]
+        session_id = self.data['session']
         trained, total = session_training(self.data, session_id)
         complete = session_is_trained(self.data, session_id)
-        self.progress["value"] = 100*trained/total if total else 0
-        self.training_var.set(
-            f"✓ Sessão treinada · {trained}/{total} cartões com índice 10"
-            if complete else f"Treinamento: {trained}/{total} cartões treinados")
-        self.training_banner.configure(fg="#137c48" if complete else "#194f8b")
-        self.session_combo.configure(values=[session_display(self.data, s) for s in self.sessions])
-        self.session_var.set(session_display(self.data, session_id))
+        self.progress['value'] = 100 * trained / total if total else 0
+        self.training_var.set(self._t('✓ Sessão treinada · {v0}/{v1} cartões com índice {target}', v0=trained, v1=total, target=training_settings(self.data)['trained_index']) if complete else self._t('Treinamento: {v0}/{v1} cartões treinados', v0=trained, v1=total))
+        self.training_banner.configure(fg='#137c48' if complete else '#194f8b')
+        self.session_combo.configure(values=[session_display(self.data, s, self.data['ui_language']) for s in self.sessions])
+        self.session_var.set(session_display(self.data, session_id, self.data['ui_language']))
         self._refresh_training()
-        local_count = self.data["session_counts"][self.data["session"]]
-        due = sum(1 for x in records if x["hits"]+x["misses"] > 0
-                  and not is_trained(x) and x["due"] <= local_count)
-        chars = sum(hanzi_count(w) for w in words)
-        covered_chars = sum(hanzi_count(w) for w, x in zip(words, records)
-                            if x["hits"] or x["misses"])
-        global_seen = sum(1 for r in self.data["cards"].values()
-                          if r["hits"] or r["misses"])
-        self.footer_var.set(
-            f"Esta sessão: {chars} caracteres chineses · {covered_chars} vistos · "
-            f"{len(words)-seen} cartões novos · {due} revisões pendentes · "
-            f"{local_count} respostas locais\n"
-            f"Geral: {global_seen}/{len(CARDS)} cartões vistos · "
-            f"{self.data['completed']} respostas em {len(SESSIONS)} sessões"
-            + (f" · Chance de novo: {new_card_pressure(self.data, session_id)}%"
-               if len(words) > seen else "")
-        )
+        local_count = self.data['session_counts'][self.data['session']]
+        due = sum((1 for x in records if x['hits'] + x['misses'] > 0 and (not is_trained(x, training_settings(self.data))) and (x['due'] <= local_count)))
+        chars = sum((hanzi_count(w) for w in words))
+        covered_chars = sum((hanzi_count(w) for w, x in zip(words, records) if x['hits'] or x['misses']))
+        global_seen = sum((1 for r in self.data['cards'].values() if r['hits'] or r['misses']))
+        self.footer_var.set(self._t('Esta sessão: {v0} caracteres chineses · {v1} vistos · {v2} cartões novos · {v3} revisões pendentes · {v4} respostas locais\nGeral: {v5}/{v6} cartões vistos · {v7} respostas em {v8} sessões', v0=chars, v1=covered_chars, v2=len(words) - seen, v3=due, v4=local_count, v5=global_seen, v6=len(CARDS), v7=self.data['completed'], v8=len(SESSIONS)) + (self._t(' · Chance de novo: {v0}%', v0=new_card_pressure(self.data, session_id)) if len(words) > seen else ''))
 
     def _next_card(self):
-        if self.current is not None and not self.data["graded"]:
+        if self.current is not None and (not self.data['graded']):
             return
         previous = self.current
-        self.current, self.data["early"] = choose_word(
-            self.data, self._filtered(), previous)
-        self.data["current"] = self.current
-        self.data["graded"] = False
-        self.data["feedback"] = ""
-        self.data["was_correct"] = False
-        self.input_var.set("")
+        self.current, self.data['early'] = choose_word(self.data, self._filtered(), previous)
+        self.data['current'] = self.current
+        self.data['graded'] = False
+        self.data['feedback'] = ''
+        self.data['was_correct'] = False
+        self.input_var.set('')
         self._render()
         save_state(self.data)
 
     def _render(self):
         self._stats()
         if not self.current:
-            complete = session_is_trained(self.data, self.data["session"])
-            self.word_label.config(text="Sessão treinada ✓" if complete else "Sem palavras nesta sessão",
-                                   font=("Arial", 26))
-            self.info_var.set("Todos os cartões chegaram ao índice 10. Escolha outra sessão ou zere esta sessão."
-                              if complete else "Escolha outra sessão")
-            self.feedback_var.set("")
-            self.answer_var.set("")
+            complete = session_is_trained(self.data, self.data['session'])
+            self.word_label.config(text=self._t('Sessão treinada ✓') if complete else self._t('Sem palavras nesta sessão'), font=('Arial', 26))
+            self.info_var.set(self._t('Todos os cartões chegaram ao índice {target}. Escolha outra sessão ou zere esta sessão.', target=training_settings(self.data)['trained_index']) if complete else self._t('Escolha outra sessão'))
+            self.feedback_var.set('')
+            self.answer_var.set('')
             self.details.pack_forget()
-            self.entry.config(state="disabled")
+            self.entry.config(state='disabled')
             self.check_btn.pack_forget()
             self.give_up_btn.pack_forget()
             self.next_btn.pack_forget()
             return
         card = CARDS[self.current]
-        record = self.data["cards"][self.current]
-        self.word_label.config(text=card["word"], font=("Microsoft YaHei", 46))
-        early = " · Revisão antecipada (sem itens disponíveis)" if self.data["early"] else ""
-        self.info_var.set(
-            f"{record['hits']} acerto(s) no total · {record['correct_streak']} consecutivo(s) · "
-            f"{record['misses']} erro(s) pendente(s)\n"
-            f"Índice de treinamento: {training_index(record)}/10 · {training_label(record)}" + early)
+        record = self.data['cards'][self.current]
+        self.word_label.config(text=card['word'], font=('Microsoft YaHei', 46))
+        early = self._t(' · Revisão antecipada (sem itens disponíveis)') if self.data['early'] else ''
+        self.info_var.set(self._t('{v0} acerto(s) no total · {v1} consecutivo(s) · {v2} erro(s) pendente(s)\nÍndice de treinamento: {v3}/{target} · {v4}', target=training_settings(self.data)['trained_index'], v0=record['hits'], v1=record['correct_streak'], v2=record['misses'], v3=training_index(record), v4=self._t(training_label(record, training_settings(self.data)))) + early)
         self.check_btn.pack_forget()
         self.give_up_btn.pack_forget()
         self.next_btn.pack_forget()
-        if self.data["graded"]:
-            self.entry.config(state="disabled")
-            self.feedback_var.set(self.data["feedback"])
-            self.feedback_label.config(fg="#137c48" if self.data["was_correct"] else "#b33434")
-            example = card["examples"][0]
-            self.answer_var.set(
-                f"Resposta: {card['answer']}    ({pretty_word(self.current)})")
-            self.translation_var.set(f"Tradução: {WORD_TRANSLATIONS[self.current]}")
+        if self.data['graded']:
+            self.entry.config(state='disabled')
+            self.feedback_var.set(self._t('✓ Correto!' if self.data['was_correct'] else '✗ Incorreto! Revise o pinyin e os tons.'))
+            self.feedback_label.config(fg='#137c48' if self.data['was_correct'] else '#b33434')
+            example = card['examples'][0]
+            self.answer_var.set(self._t('Resposta: {v0}    ({v1})', v0=card['answer'], v1=pretty_word(self.current)))
+            show_translations = self.data['ui_language'] != 'zh'
+            self.translation_var.set(self._t('Tradução: {v0}', v0=word_translation(self.current, self.data['ui_language'])) if show_translations else '')
             self.example_hanzi_var.set(example)
-            example_pin = card.get("example_pinyin") or pinyin_sentence(example)
-            example_pt = card.get("example_translation") or EXAMPLE_TRANSLATIONS[example]
-            self.example_pinyin_var.set(f"Pinyin: {example_pin}")
-            self.example_translation_var.set(f"Tradução: {example_pt}")
-            self.details.pack(fill="x", pady=(0, 10), before=self.check_btn.master)
-            self.next_btn.configure(text="Concluir sessão  ✓"
-                                    if session_is_trained(self.data, self.data["session"])
-                                    else "Próxima palavra  →")
-            self.next_btn.pack(side="left")
-            self.next_btn.focus_set()
+            example_pin = card.get('example_pinyin') or pinyin_sentence(example)
+            self.example_pinyin_var.set(self._t('Pinyin: {v0}', v0=example_pin))
+            self.example_translation_var.set(self._t('Tradução: {v0}', v0=example_translation(self.current, self.data['ui_language'])) if show_translations else '')
+            self.details.pack(fill='x', pady=(0, 10), before=self.check_btn.master)
+            self.next_btn.configure(text=self._t('Concluir sessão  ✓') if session_is_trained(self.data, self.data['session']) else self._t('Próxima palavra  →'))
+            self.next_btn.pack(side='left')
+            self._focus_training(self.next_btn)
         else:
-            self.entry.config(state="normal")
-            self.feedback_var.set("")
-            self.answer_var.set("")
+            self.entry.config(state='normal')
+            self.feedback_var.set('')
+            self.answer_var.set('')
             self.details.pack_forget()
-            self.check_btn.pack(side="left", padx=(0, 8))
-            self.give_up_btn.pack(side="left")
-            self.entry.focus_set()
+            self.check_btn.pack(side='left', padx=(0, 8))
+            self.give_up_btn.pack(side='left')
+            self._focus_training(self.entry)
 
     def _grade(self, correct):
-        if (self.current is None or self.data["graded"]
-                or is_trained(self.data["cards"][self.current])):
+        if self.current is None or self.data['graded'] or is_trained(self.data['cards'][self.current], training_settings(self.data)):
             return
         record_answer(self.data, self.current, correct)
-        self.data["graded"] = True
-        self.data["was_correct"] = correct
+        self.data['graded'] = True
+        self.data['was_correct'] = correct
         if correct:
-            self.data["feedback"] = "✓ Correto!"
+            self.data['feedback'] = '✓ Correto!'
         else:
-            self.data["feedback"] = "✗ Incorreto! Revise o pinyin e os tons."
+            self.data['feedback'] = '✗ Incorreto! Revise o pinyin e os tons.'
         self._render()
         save_state(self.data)
 
     def _check(self):
-        if self.current is None or self.data["graded"]:
+        if self.current is None or self.data['graded']:
             return
         raw = self.input_var.get().strip()
         if not raw:
-            messagebox.showinfo("Resposta vazia", "Digite o pinyin numérico ou clique em 'Não sei'.")
+            messagebox.showinfo(self._t('Resposta vazia'), self._t("Digite o pinyin numérico ou clique em 'Não sei'."))
             return
         answer = normalize_pinyin(raw)
         if not answer:
-            messagebox.showwarning("Entrada inválida", "Use pinyin com letras e números 1–4 (5 opcional para neutro).")
+            messagebox.showwarning(self._t('Entrada inválida'), self._t('Use pinyin com letras e números 1–4 (5 opcional para neutro).'))
             return
         self._grade(answer in accepted_answers(self.current))
 
@@ -7496,23 +10650,27 @@ class PinyinTrainer(tk.Tk):
         self._grade(False)
 
     def _on_enter(self, _event=None):
-        if self.data["graded"]:
+        if self.notebook.select() == str(self.settings_tab):
+            return 'break'
+        if _event is not None and isinstance(_event.widget, ttk.Combobox):
+            return 'break' 
+        if self.data['graded']:
             self._next_card()
         else:
             self._check()
 
     def _change_session(self, delta: int):
-        current = self.sessions.index(self.data["session"])
-        new_idx = max(0, min(len(self.sessions)-1, current + delta))
+        current = self.sessions.index(self.data['session'])
+        new_idx = max(0, min(len(self.sessions) - 1, current + delta))
         if new_idx != current:
             self.session_combo.current(new_idx)
             self._filter_changed()
 
     def _block_changed(self, _event=None):
-        block = next(b for b, label in BLOCK_LABELS.items() if label == self.block_var.get())
-        self.data["block"] = block
+        block = next(b for b in BLOCKS if block_display(b, self.data['ui_language']) == self.block_var.get())
+        self.data['block'] = block
         self.sessions = list(BLOCKS[block])
-        self.session_combo.configure(values=[session_display(self.data, s) for s in self.sessions])
+        self.session_combo.configure(values=[session_display(self.data, s, self.data['ui_language']) for s in self.sessions])
         self.session_combo.current(0)
         self._filter_changed()
 
@@ -7520,11 +10678,10 @@ class PinyinTrainer(tk.Tk):
         index = self.session_combo.current()
         if index < 0:
             return
-        self.data["session"] = self.sessions[index]
-        self.data["block"] = SESSION_BLOCK[self.data["session"]]
-        if (self.current is None or self.current not in self._filtered()
-                or (is_trained(self.data["cards"][self.current]) and not self.data["graded"])):
-            self.data["graded"] = True
+        self.data['session'] = self.sessions[index]
+        self.data['block'] = SESSION_BLOCK[self.data['session']]
+        if self.current is None or self.current not in self._filtered() or (is_trained(self.data['cards'][self.current], training_settings(self.data)) and (not self.data['graded'])):
+            self.data['graded'] = True
             self._next_card()
         else:
             self._render()
@@ -7537,89 +10694,80 @@ class PinyinTrainer(tk.Tk):
             return
         window = tk.Toplevel(self)
         self.training_window = window
-        window.title("Progresso da sessão")
-        window.geometry("810x560")
+        window.title(self._t('Progresso da sessão'))
+        window.geometry('810x560')
         window.minsize(720, 420)
         window.transient(self)
-        window.configure(bg="#eff3f9")
-        body = tk.Frame(window, bg="#eff3f9", padx=18, pady=16)
-        body.pack(fill="both", expand=True)
+        window.configure(bg='#eff3f9')
+        body = tk.Frame(window, bg='#eff3f9', padx=18, pady=16)
+        body.pack(fill='both', expand=True)
         self.training_summary = tk.StringVar()
-        tk.Label(body, textvariable=self.training_summary, font=("Arial", 12, "bold"),
-                 bg="#eff3f9", fg="#194f8b", justify="left").pack(anchor="w", pady=(0, 10))
-        tk.Label(body, text="Índice = acertos consecutivos − erros pendentes. Um erro reinicia a sequência.",
-                 font=("Arial", 10), bg="#eff3f9", fg="#4d617c").pack(anchor="w", pady=(0, 4))
-        tk.Label(body, text="1–4: OK     5–9: Bom     10: Treinado (sai da fila)",
-                 font=("Arial", 10), bg="#eff3f9", fg="#4d617c").pack(anchor="w", pady=(0, 12))
+        tk.Label(body, textvariable=self.training_summary, font=('Arial', 12, 'bold'), bg='#eff3f9', fg='#194f8b', justify='left').pack(anchor='w', pady=(0, 10))
+        tk.Label(body, text=self._t('Índice = acertos consecutivos − erros pendentes. Um erro reinicia a sequência.'), font=('Arial', 10), bg='#eff3f9', fg='#4d617c', wraplength=680, justify='left').pack(anchor='w', pady=(0, 4))
+        self.training_legend_var = tk.StringVar(value=self._training_legend())
+        tk.Label(body, textvariable=self.training_legend_var, font=('Arial', 10), bg='#eff3f9', fg='#4d617c', wraplength=680, justify='left').pack(anchor='w', pady=(0, 12))
         table_box = tk.Frame(body)
-        table_box.pack(fill="both", expand=True)
-        columns = ("word", "hits", "streak", "misses", "index", "status")
-        self.training_table = ttk.Treeview(table_box, columns=columns, show="headings",
-                                           style="Training.Treeview", selectmode="browse")
-        for key, label, width in (("word", "Cartão", 160), ("hits", "Acertos totais", 115),
-                                  ("streak", "Consecutivos", 115), ("misses", "Erros pendentes", 130),
-                                  ("index", "Índice", 80), ("status", "Estado", 110)):
+        table_box.pack(fill='both', expand=True)
+        columns = ('word', 'hits', 'streak', 'misses', 'index', 'status')
+        self.training_table = ttk.Treeview(table_box, columns=columns, show='headings', style='Training.Treeview', selectmode='browse')
+        for key, label, width in (('word', self._t('Cartão'), 160), ('hits', self._t('Acertos totais'), 115), ('streak', self._t('Consecutivos'), 115), ('misses', self._t('Erros pendentes'), 130), ('index', self._t('Índice'), 80), ('status', self._t('Estado'), 110)):
             self.training_table.heading(key, text=label)
-            self.training_table.column(key, width=width, minwidth=60,
-                                        anchor="w" if key in ("word", "status") else "center")
-        scrollbar = ttk.Scrollbar(table_box, orient="vertical", command=self.training_table.yview)
+            self.training_table.column(key, width=width, minwidth=60, anchor='w' if key in ('word', 'status') else 'center')
+        scrollbar = ttk.Scrollbar(table_box, orient='vertical', command=self.training_table.yview)
         self.training_table.configure(yscrollcommand=scrollbar.set)
-        scrollbar.pack(side="right", fill="y")
-        self.training_table.pack(side="left", fill="both", expand=True)
-        self.training_table.tag_configure("Treinado", foreground="#137c48", background="#edf8f2")
-        self.training_table.tag_configure("Bom", foreground="#194f8b")
-        self.training_table.tag_configure("Novo", foreground="#788494")
-        buttons = tk.Frame(body, bg="#eff3f9")
-        buttons.pack(fill="x", pady=(12, 0))
-        tk.Button(buttons, text="Zerar esta sessão", command=self._reset_session,
-                  bg="#fee6e7", fg="#a52731", relief="flat", padx=12, pady=8).pack(side="left")
-        tk.Button(buttons, text="Fechar", command=window.destroy,
-                  bg="#dfe8f5", fg="#164c85", relief="flat", padx=12, pady=8).pack(side="right")
+        scrollbar.pack(side='right', fill='y')
+        self.training_table.pack(side='left', fill='both', expand=True)
+        self.training_table.tag_configure('Treinado', foreground='#137c48', background='#edf8f2')
+        self.training_table.tag_configure('Bom', foreground='#194f8b')
+        self.training_table.tag_configure('Novo', foreground='#788494')
+        buttons = tk.Frame(body, bg='#eff3f9')
+        buttons.pack(fill='x', pady=(12, 0))
+        tk.Button(buttons, text=self._t('Zerar esta sessão'), command=self._reset_session, bg='#fee6e7', fg='#a52731', relief='flat', padx=12, pady=8).pack(side='left')
+        tk.Button(buttons, text=self._t('Fechar'), command=window.destroy, bg='#dfe8f5', fg='#164c85', relief='flat', padx=12, pady=8).pack(side='right')
         self._refresh_training()
 
     def _refresh_training(self):
         if self.training_window is None or not self.training_window.winfo_exists():
             return
-        sid = self.data["session"]
+        self.training_legend_var.set(self._training_legend())
+        sid = self.data['session']
         trained, total = session_training(self.data, sid)
-        self.training_summary.set(
-            f"{BLOCK_LABELS[SESSION_BLOCK[sid]]} · {SESSION_LABELS[sid]}\n"
-            f"{trained}/{total} cartões treinados"
-            + (" · ✓ Sessão treinada" if session_is_trained(self.data, sid) else ""))
+        self.training_summary.set(self._t('{v0} · {v1}\n{v2}/{v3} cartões treinados', v0=block_display(SESSION_BLOCK[sid], self.data['ui_language']), v1=session_label(sid, self.data['ui_language']), v2=trained, v3=total) + (self._t(' · ✓ Sessão treinada') if session_is_trained(self.data, sid) else ''))
         existing = set(self.training_table.get_children())
         wanted = set(SESSIONS[sid])
         for word in existing - wanted:
             self.training_table.delete(word)
         for pos, word in enumerate(SESSIONS[sid]):
-            record = self.data["cards"][word]
-            label = training_label(record)
-            values = (CARDS[word]["word"], record["hits"], record["correct_streak"], record["misses"],
-                      training_index(record), label)
+            record = self.data['cards'][word]
+            label = training_label(record, training_settings(self.data))
+            values = (CARDS[word]['word'], record['hits'], record['correct_streak'], record['misses'], training_index(record), self._t(label))
             if word in existing:
                 self.training_table.item(word, values=values, tags=(label,))
-                self.training_table.move(word, "", pos)
+                self.training_table.move(word, '', pos)
             else:
-                self.training_table.insert("", "end", iid=word, values=values, tags=(label,))
+                self.training_table.insert('', 'end', iid=word, values=values, tags=(label,))
 
     def _reset_session(self):
-        sid = self.data["session"]
-        if not messagebox.askyesno("Zerar esta sessão",
-                                  f"Apagar o progresso de {SESSION_LABELS[sid]}?\n"
-                                  "As outras sessões serão preservadas.", parent=self):
+        sid = self.data['session']
+        if not messagebox.askyesno(self._t('Zerar esta sessão'), self._t('Apagar o progresso de {v0}?\nAs outras sessões serão preservadas.', v0=session_label(sid, self.data['ui_language'])), parent=self):
             return
         reset_session(self.data, sid)
         self.current = None
         self._next_card()
 
     def _reset(self):
-        if not messagebox.askyesno("Zerar progresso", "Apagar o histórico de acertos, erros e revisões de TODAS as sessões?"):
+        if not messagebox.askyesno(self._t('Zerar progresso'), self._t('Apagar o histórico de acertos, erros e revisões de TODAS as sessões?')):
             return
-        session = self.data["session"]
+        session = self.data['session']
+        language = self.data['ui_language']
+        settings = training_settings(self.data)
         self.data = initial_state()
-        self.data["session"] = session
-        self.data["block"] = SESSION_BLOCK[session]
+        self.data['settings'] = settings
+        self.data['ui_language'] = language
+        self.data['session'] = session
+        self.data['block'] = SESSION_BLOCK[session]
         self.current = None
-        self.data["graded"] = True
+        self.data['graded'] = True
         self._next_card()
 
     def _close(self):
@@ -7631,6 +10779,14 @@ def test_logic():
     assert len(CARDS) > 150, f"Poucas palavras: {len(CARDS)}"
     assert set(CARDS) == set(WORD_TRANSLATIONS), (
         "Palavras sem tradução: " + str(set(CARDS) - set(WORD_TRANSLATIONS)))
+    assert set(WORD_TRANSLATIONS_ES) == set(CARDS), "Incomplete Spanish vocabulary"
+    assert all(WORD_TRANSLATIONS_ES.values()), "Empty Spanish word translation"
+    assert {c["examples"][0] for c in CARDS.values()} <= set(EXAMPLE_TRANSLATIONS_ES), "Incomplete Spanish examples"
+    assert all(EXAMPLE_TRANSLATIONS_ES.values()), "Empty Spanish example translation"
+    assert set(WORD_TRANSLATIONS_EN) == set(CARDS), "Incomplete English vocabulary"
+    assert all(WORD_TRANSLATIONS_EN.values()), "Empty English word translation"
+    assert {c["examples"][0] for c in CARDS.values()} <= set(EXAMPLE_TRANSLATIONS_EN), "Incomplete English examples"
+    assert all(EXAMPLE_TRANSLATIONS_EN.values()), "Empty English example translation"
     assert {c["examples"][0] for c in CARDS.values()} <= set(EXAMPLE_TRANSLATIONS), (
         "Exemplos sem tradução: " + str({c["examples"][0] for c in CARDS.values()} - set(EXAMPLE_TRANSLATIONS)))
     assert pinyin_sentence("我没去公园跑步。") == "wǒ méi qù gōngyuán pǎobù."
