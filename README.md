@@ -8,7 +8,6 @@ Built with Python and Tkinter. The interface is available in Brazilian Portugues
 
 <img width="1264" height="1057" alt="image" src="https://github.com/user-attachments/assets/bf5221b9-b129-4ce3-8dcd-30dd8173285e" />
 
-
 ## Project Purpose
 
 Mandarin Pinyin Trainer connects Hanzi, Pinyin, and meaning through active recall. Each flashcard presents a word or vocabulary unit; the learner types its pronunciation with tones and receives feedback, a translation, and a contextual example.
@@ -105,18 +104,18 @@ The selection takes effect immediately and is saved for the next launch. It upda
 
 ### Practice a Session
 
-The labels below refer to the default Portuguese interface.
+The instructions below use the English interface labels. Select **English** from the language selector to follow along.
 
-1. Select a **Bloco** (Block), then a **Sessão** (Session).
+1. Select a **Block**, then a **Session**.
 2. Read the Chinese word and recall its pronunciation.
 3. Enter Pinyin with the correct tones.
-4. Click **Verificar** or press **Enter** to check the answer.
+4. Click **Check** or press **Enter** to check the answer.
 5. Review the pronunciation, translation, and example.
-6. Click **Próxima palavra** or press **Enter** again to continue.
+6. Click **Next word** or press **Enter** again to continue.
 
-Use **Não sei (erro)** when you cannot recall an answer. It counts as a mistake and schedules additional review.
+Use **I don't know (incorrect)** when you cannot recall an answer. It counts as a mistake and schedules additional review.
 
-Open **Progresso da sessão** to inspect each card's learning record.
+Open **Session progress** to inspect each card's learning record.
 
 ### Pinyin Input
 
@@ -186,12 +185,12 @@ An incorrect answer restarts the consecutive-correct sequence at zero.
 
 | Index | Status | Behavior |
 |---|---|---|
-| Below 1 | Novo / Em treino | New or still in training |
+| Below 1 | New / In training | New or still in training |
 | 1–4 | OK | Remains in the review queue |
-| 5–9 | Bom | Remains in the review queue |
-| 10 or above | Treinado | Leaves the review queue |
+| 5–9 | Good | Remains in the review queue |
+| 10 or above | Trained | Leaves the review queue |
 
-Once every card in a session reaches the trained threshold, the session receives a **✓ Treinada** indicator. The progress bar measures the percentage of trained cards, not merely cards that have appeared.
+Once every card in a session reaches the trained threshold, the session receives a **✓ Trained** indicator. The progress bar measures the percentage of trained cards, not merely cards that have appeared.
 
 The training threshold takes precedence over scheduled reviews: a trained card no longer appears unless its progress is reset.
 
@@ -207,7 +206,7 @@ Accuracy = correct answers / (correct answers + pending errors) × 100
 
 After all pending errors are cleared, the rate returns to **100%**. A session with no answers displays **—**.
 
-The **Progresso da sessão** window lists each card's total correct answers, consecutive correct answers, pending errors, training index, and status.
+The **Session progress** window lists each card's total correct answers, consecutive correct answers, pending errors, training index, and status.
 
 ## Saving and Resetting Progress
 
@@ -233,8 +232,8 @@ Close the application and copy the JSON file to back up your progress. To restor
 
 ### Reset Options
 
-- **Zerar esta sessão:** resets only the selected session, including its card records, review clock, and new-card priority. Other sessions remain unchanged.
-- **Zerar tudo:** resets progress across every block and session.
+- **Reset this session:** resets only the selected session, including its card records, review clock, and new-card priority. Other sessions remain unchanged.
+- **Reset all:** resets progress across every block and session.
 
 Both actions request confirmation. Back up the save file beforehand if you want to retain the previous history.
 
