@@ -2,7 +2,7 @@
 
 **An offline desktop application for practicing Mandarin vocabulary, recognizing Chinese characters, and recalling accurate Hanyu Pinyin with tones.**
 
-Built with Python and Tkinter. The interface, vocabulary translations, and example translations are in Brazilian Portuguese.
+Built with Python and Tkinter. The interface is available in Brazilian Portuguese, English, Spanish, and Simplified Chinese. Vocabulary and example translations remain in Brazilian Portuguese in every interface language.
 
 **Tested on Windows 11.**
 
@@ -31,6 +31,7 @@ Words may appear in more than one block. Each occurrence has independent progres
 
 ## Features
 
+- **Interface language selector:** switch between Português, English, Español, and 简体中文 without changing study content or progress. Your choice is saved automatically.
 - **Tone-aware answers:** numerical Pinyin and accented Pinyin input, with supported pronunciation variants.
 - **Contextual feedback:** numerical Pinyin, tone marks, Brazilian Portuguese translation, and an example with Chinese text, Pinyin, and translation.
 - **Adaptive review:** intervals measured in answers within the selected session, with extra reinforcement after mistakes.
@@ -83,6 +84,25 @@ If a compiled Windows version has been published in the repository's **Releases*
 An executable does not require a separate Python installation. Check the release description for its included lesson blocks: a previously published executable may contain an older vocabulary collection than the current source code.
 
 ## How to Use
+
+### Interface Language
+
+Use the language selector at the top of the window to choose:
+
+| Option | Interface language |
+|---|---|
+| Português | Brazilian Portuguese (default) |
+| English | English |
+| Español | Spanish |
+| 简体中文 | Simplified Chinese |
+
+The selection takes effect immediately and is saved for the next launch. It updates interface labels, buttons, feedback messages, and progress displays while preserving the current card, typed answer, and learning progress.
+
+**Only the interface changes language.** Chinese vocabulary, Pinyin, example sentences, and their Brazilian Portuguese translations remain unchanged. Selecting Spanish, English, or Simplified Chinese does not translate the study content into that language.
+
+### Practice a Session
+
+The labels below refer to the default Portuguese interface.
 
 1. Select a **Bloco** (Block), then a **Sessão** (Session).
 2. Read the Chinese word and recall its pronunciation.
@@ -227,7 +247,7 @@ The UTF-8 option allows Chinese test output to display correctly in compatible W
 
 ## Scope and Limitations
 
-- The interface and translations are primarily in Brazilian Portuguese.
+- The interface supports Portuguese, English, Spanish, and Simplified Chinese; vocabulary and example translations remain in Brazilian Portuguese.
 - Vocabulary is bundled in the Python source; the application does not import PDFs automatically.
 - There is no microphone input, pronunciation scoring, audio playback, or speech recognition.
 - Review scheduling is based on answered cards rather than calendar time.
