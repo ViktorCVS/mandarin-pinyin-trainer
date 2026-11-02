@@ -1,371 +1,240 @@
 # Mandarin Pinyin Trainer (汉语拼音)
 
-**A desktop application for practicing Mandarin Chinese vocabulary, Chinese character recognition (Hanzi), and accurate Hanyu Pinyin transcription through tone validation, spaced repetition, and progress tracking.**
+**An offline desktop application for practicing Mandarin vocabulary, recognizing Chinese characters, and recalling accurate Hanyu Pinyin with tones.**
 
-Built with Python and Tkinter, Mandarin Pinyin Trainer is a free, offline study tool designed to help Mandarin learners strengthen vocabulary retention, pronunciation awareness, and familiarity with Chinese characters.
+Built with Python and Tkinter. The interface, vocabulary translations, and example translations are in Brazilian Portuguese.
 
 **Tested on Windows 11.**
 
----
-
 ## Project Purpose
 
-Mandarin Pinyin Trainer was developed to support Mandarin Chinese learners in building stronger connections between three essential components of the language:
+Mandarin Pinyin Trainer connects Hanzi, Pinyin, and meaning through active recall. Each flashcard presents a word or vocabulary unit; the learner types its pronunciation with tones and receives feedback, a translation, and a contextual example.
 
-- **Hanzi (汉字):** The Chinese characters used in written Mandarin.
-- **Hanyu Pinyin (汉语拼音):** The romanization system used to represent Mandarin pronunciation with the Latin alphabet.
-- **Tones:** The tonal distinctions that affect pronunciation and often determine the meaning of Chinese words.
+The application supports independent review of classroom vocabulary. It focuses on written recognition and Pinyin transcription rather than evaluating spoken pronunciation.
 
-The primary objective is not simply to recognize vocabulary, but to develop the ability to actively recall pronunciation, identify correct tones, and retain vocabulary through repeated practice.
+## Current Vocabulary
 
-Unlike conventional vocabulary lists, the application uses an interactive flashcard system with spaced repetition. The learner's performance influences how frequently individual vocabulary items are presented.
+The current collection includes **1,009 flashcards across 5 blocks and 20 sessions**, incorporating textbook material and classroom slides from Lessons 16–20.
 
-The project originated from the need to systematically review vocabulary introduced in Mandarin Chinese lessons. Its initial vocabulary database combines study sentences, classroom slides, and textbook material from Lesson 16, covering topics such as sports, hobbies, preferences, daily activities, questions, and common grammatical constructions.
+| Block | Main topics | Cards | Sessions | Chinese characters per session |
+|---|---|---:|---:|---|
+| 16 | Sports, hobbies, preferences, and daily activities | 234 | 5 | 100, 100, 100, 100, 26 |
+| 17 | Calligraphy, cooking, home, furniture, and ongoing actions | 167 | 3 | 100, 100, 62 |
+| 18 | Comparisons, food, weather, and transportation | 197 | 4 | 100, 100, 100, 48 |
+| 19 | Lost belongings, city locations, accidents, and past-event details | 196 | 4 | 100, 100, 100, 58 |
+| 20 | Job interviews, personal qualities, teaching, and result complements | 215 | 4 | 100, 100, 100, 74 |
+| **Total** | | **1,009** | **20** | |
 
-Vocabulary is divided into manageable study sessions, allowing learners to concentrate on smaller groups of characters while progressively consolidating their knowledge.
+Each session contains **at most 100 Chinese characters**, counted across its cards. This does not mean 100 cards or 100 distinct characters. Words are never split between sessions.
 
-The application is particularly suitable for beginners and students who want a structured, self-paced way to practice Mandarin vocabulary independently.
+Words may appear in more than one block. Each occurrence has independent progress, so the total above counts cards rather than globally unique words.
 
 ## Features
 
-### Interactive Vocabulary Flashcards
+- **Tone-aware answers:** numerical Pinyin and accented Pinyin input, with supported pronunciation variants.
+- **Contextual feedback:** numerical Pinyin, tone marks, Brazilian Portuguese translation, and an example with Chinese text, Pinyin, and translation.
+- **Adaptive review:** intervals measured in answers within the selected session, with extra reinforcement after mistakes.
+- **Growing priority for new cards:** a gradually increasing chance of introducing unseen vocabulary ahead of due reviews.
+- **Individual training index:** consecutive correct answers minus pending errors.
+- **Session completion:** trained cards leave the queue; completed sessions receive a visible indicator.
+- **Detailed progress:** total correct answers, consecutive correct answers, pending errors, training index, and status for each card.
+- **Independent reset:** restart one session or reset all progress.
+- **Automatic local saving:** resume learning without an account or internet connection.
 
-Each flashcard presents a Chinese word or vocabulary unit written in Hanzi.
+## Installation
 
-The learner must recall and enter the corresponding Pinyin transcription, including the appropriate tones.
+### Run the Python Source
 
-Flashcards focus on individual vocabulary units rather than requiring the transcription of entire sentences.
+Requirements:
 
-### Pinyin and Tone Validation
+- Python 3.9 or newer.
+- Tkinter support.
+- A graphical desktop environment and a font capable of displaying Chinese characters.
 
-The application checks both the spelling and tonal accuracy of the submitted answer.
+The application uses Python's standard library. No third-party Python packages are required to run it.
 
-Correct letters alone are not sufficient when the expected tones are incorrect.
-
-The validation system supports numerical Pinyin notation and includes normalization for accented Pinyin input.
-
-### Adaptive Spaced Repetition
-
-A custom review algorithm adjusts the frequency of vocabulary repetition according to the learner's performance.
-
-Words answered incorrectly return for review after shorter intervals, while words answered correctly advance through progressively longer review stages.
-
-The system also considers historical mistakes, increasing the reinforcement required for vocabulary that has previously caused difficulty.
-
-### Organized Study Sessions
-
-Vocabulary is divided into sessions containing up to 100 Chinese characters, without splitting individual words between sessions.
-
-Learners can select sessions and navigate between them using the graphical interface.
-
-### Portuguese Translations and Contextual Examples
-
-After answering a flashcard, the application displays:
-
-- The expected numerical Pinyin transcription.
-- The Pinyin with tone marks.
-- The vocabulary translation in Brazilian Portuguese.
-- An example sentence written in Chinese characters.
-- The example sentence's Pinyin transcription.
-- The example sentence's Portuguese translation.
-
-This helps learners connect isolated vocabulary with meaningful language usage.
-
-### Performance Statistics
-
-The application tracks several learning indicators, including:
-
-- Total vocabulary items in the selected session.
-- Vocabulary items already studied.
-- Correct answers.
-- Pending errors.
-- Answer accuracy rate.
-- Session progress and pending reviews.
-
-### Automatic Progress Saving
-
-Learning progress is automatically saved locally, allowing users to resume studying without restarting their entire review history.
-
-### Offline Operation
-
-The application does not require an internet connection, user account, cloud service, or external API.
-
-The vocabulary database and learning logic are included directly in the Python source code.
-
----
-
-## Download and Installation
-
-There are two ways to use Mandarin Pinyin Trainer.
-
-The first option is recommended for users who simply want to study Mandarin without installing programming tools.
-
-### Option 1: Download the Windows Executable (.exe)
-
-**Recommended for beginners and users without programming experience.**
-
-This method does not require Python to be installed.
-
-**Step 1 — Find the executable**
-
-1. Open this project's GitHub repository.
-2. Find the **Releases** section.
-3. Open the latest published release.
-4. Under **Assets**, locate `TreinoPinyin.exe` or the corresponding executable filename.
-5. Download the file.
-
-**Step 2 — Run the application**
-
-1. Open your Downloads folder.
-2. Locate the downloaded `.exe` file.
-3. Double-click it.
-4. The Mandarin Pinyin Trainer interface should appear.
-
-The program is ready to use.
-
-**Important notes:**
-
-- The executable is available through Releases only when a compiled version has been published.
-- Python does not need to be installed separately.
-- No internet connection is required.
-- The `.exe` is a standalone application, not an installer.
-- Download executable files only from trusted sources. If Windows displays a security warning, verify the file's origin before proceeding.
-
-### Option 2: Download and Run the Python Source Code
-
-This option is intended for users who prefer to run the original Python script, inspect the source code, or modify the application.
-
-No advanced programming experience is required.
-
-**Step 1 — Install Python**
-
-Visit the official Python website:
-
-https://www.python.org/downloads/
-
-Download and install Python 3.9 or newer.
-
-If your installer provides an **Add Python to PATH** option, enable it.
-
-**Step 2 — Download the repository**
-
-1. Open the GitHub repository.
-2. Click the green **Code** button.
-3. Select **Download ZIP**.
-4. Wait for the download to finish.
-5. Extract the ZIP archive.
-6. Open the extracted folder.
-
-Locate the main Python script:
-
-`treino_pinyin_tkinter.py`
-
-**Step 3 — Open a terminal**
-
-On Windows 11:
-
-1. Open the folder containing the Python script.
-2. Click the File Explorer address bar.
-3. Type `cmd`.
-4. Press Enter.
-
-A Command Prompt window will open in the selected directory.
-
-**Step 4 — Start the application**
-
-Run:
+1. Install Python if necessary.
+2. Download and extract the repository, or download the main script.
+3. Open a terminal in the folder containing the script.
+4. Run:
 
 ```bash
-py treino_pinyin_tkinter.py
+py mandarin-pinyin-trainer.py
 ```
 
-Alternatively, if the `py` command is unavailable:
+If `py` is unavailable:
 
 ```bash
-python treino_pinyin_tkinter.py
+python mandarin-pinyin-trainer.py
 ```
 
-The application should launch its graphical interface.
+If your copy uses the alternative filename `treino_pinyin_tkinter.py`, substitute that filename in the commands.
 
-**Dependencies**
+To check whether Tkinter is available:
 
-The program relies on Python's standard library, including Tkinter, JSON handling, and file-system utilities.
+```bash
+python -m tkinter
+```
 
-No additional third-party Python packages are required to run the source code, provided that Tkinter is available in the Python installation.
+### Run a Windows Executable
 
----
+If a compiled Windows version has been published in the repository's **Releases**, download the executable from that release's assets and open it.
+
+An executable does not require a separate Python installation. Check the release description for its included lesson blocks: a previously published executable may contain an older vocabulary collection than the current source code.
 
 ## How to Use
 
-Once the application is running, follow these steps.
+1. Select a **Bloco** (Block), then a **Sessão** (Session).
+2. Read the Chinese word and recall its pronunciation.
+3. Enter Pinyin with the correct tones.
+4. Click **Verificar** or press **Enter** to check the answer.
+5. Review the pronunciation, translation, and example.
+6. Click **Próxima palavra** or press **Enter** again to continue.
 
-### 1. Select a Study Session
+Use **Não sei (erro)** when you cannot recall an answer. It counts as a mistake and schedules additional review.
 
-Choose the vocabulary session you want to practice.
+Open **Progresso da sessão** to inspect each card's learning record.
 
-The current vocabulary collection is organized under Block 16.
+### Pinyin Input
 
-Each session contains a limited number of Chinese characters to make studying more manageable.
-
-### 2. Read the Chinese Characters
-
-A flashcard will display a Chinese word or vocabulary unit.
-
-Try to remember its pronunciation before submitting an answer.
-
-### 3. Enter the Pinyin
-
-Type the Pinyin transcription in the input field, including the tone numbers.
-
-For example:
-
-| Chinese | Meaning | Expected Pinyin |
+| Chinese | Meaning | Numerical Pinyin |
 |---|---|---|
 | 喜欢 | To like | `xi3huan` |
 | 游泳 | To swim | `you2yong3` |
 | 篮球 | Basketball | `lan2qiu2` |
-| 跑步 | To run | `pao3bu4` |
 | 朋友 | Friend | `peng2you` |
+| 面试 | Interview | `mian4shi4` |
 
-### 4. Check Your Answer
+The four main tones use numbers **1–4**. A neutral tone can omit its number or use **5** or **0**. For example, `peng2you`, `peng2you5`, and `peng2you0` are equivalent.
 
-Click **Verificar** (Check) or press Enter.
+Spaces between syllables are accepted. Accented Pinyin is also supported, for example `miàn shì`.
 
-The application will indicate whether the answer is correct.
+Tone accuracy matters: correct letters with an incorrect tone are not enough. Supported pronunciation variants are handled explicitly.
 
-After evaluation, it displays the expected Pinyin, translation, and an example sentence with its corresponding pronunciation and meaning.
+## Review Scheduling
 
-### 5. Continue Studying
+Review intervals use the number of **other evaluated answers within the same session**, not minutes or calendar days. Studying another session does not advance the current session's review clock.
 
-Click **Próxima palavra** (Next Word) or press Enter again to move to the next flashcard.
+### Correct Answers
 
-If you cannot remember a word, click **Não sei (erro)** (I Don't Know).
+| Stage | Review interval | Correct answers required at this stage, without historical errors |
+|---|---|---:|
+| 1 | 5–10 answers | 1 |
+| 2 | 15–20 answers | 2 |
+| 3 | 25–50 answers | 3 |
+| 4 | 50–100 answers | 4 |
 
-The application will record the answer as incorrect and schedule that vocabulary item for additional review.
+The interval is randomly selected within the current range. The final range remains **50–100** while the card is still in training.
 
-### Understanding Mandarin Tone Numbers
+Each historical mistake adds **one additional correct repetition to every stage's requirement**. After one mistake, the requirements become 2, 3, 4, and 5; after two mistakes, they become 3, 4, 5, and 6.
 
-Mandarin Chinese has four main lexical tones and a neutral tone.
+### Incorrect Answers
 
-| Tone | Example | Numerical Pinyin |
+An incorrect answer:
+
+- Adds one pending error and one historical error.
+- Resets the consecutive-correct streak and review stage.
+- Schedules a review after **3–7 other answers** in that session.
+
+A subsequent correct answer removes **one pending error**, down to zero. Historical errors remain recorded and continue to increase the reinforcement requirement until the session is reset.
+
+### Growing Priority for New Cards
+
+When both new cards and due reviews are available, the application can choose a new card first:
+
+- The chance starts at **0%**.
+- Each evaluated answer to a previously attempted card adds **1 percentage point**.
+- The chance is capped at **20%**.
+- Answering a new card for the first time resets the chance to **0%**, whether the answer is correct or incorrect.
+
+For example, five rounds without a newly attempted card produce a 5% chance; fifteen rounds produce 15%.
+
+Review intervals are soft scheduling targets. A new card can delay a due review without changing that review's stored due value. When no reviews are due, new cards already have priority. When neither new cards nor due reviews remain, an upcoming review may appear early.
+
+## Training Index and Session Completion
+
+Each card has a training index:
+
+```text
+Training index = consecutive correct answers − pending errors
+```
+
+An incorrect answer restarts the consecutive-correct sequence at zero.
+
+| Index | Status | Behavior |
 |---|---|---|
-| First tone | mā | ma1 |
-| Second tone | má | ma2 |
-| Third tone | mǎ | ma3 |
-| Fourth tone | mà | ma4 |
-| Neutral tone | ma | ma, ma5, or ma0 |
+| Below 1 | Novo / Em treino | New or still in training |
+| 1–4 | OK | Remains in the review queue |
+| 5–9 | Bom | Remains in the review queue |
+| 10 or above | Treinado | Leaves the review queue |
 
-Numerical notation is recommended because it is straightforward to enter using a conventional keyboard.
+Once every card in a session reaches the trained threshold, the session receives a **✓ Treinada** indicator. The progress bar measures the percentage of trained cards, not merely cards that have appeared.
 
-**Tone accuracy matters:** an incorrect tone may cause an otherwise correctly spelled answer to be marked incorrect.
+The training threshold takes precedence over scheduled reviews: a trained card no longer appears unless its progress is reset.
 
----
+## Statistics
 
-## How Spaced Repetition Works
+The selected session shows its card count, studied cards, total correct answers, pending errors, and accuracy rate. The footer also reports unseen cards, pending reviews, local answer counts, and overall progress.
 
-The application's spaced repetition mechanism is designed to reinforce difficult vocabulary while gradually reducing unnecessary repetition of familiar words.
+The displayed accuracy rate uses **pending errors**, not lifetime mistakes:
 
-Every flashcard has an individual learning record.
+```text
+Accuracy = correct answers / (correct answers + pending errors) × 100
+```
 
-When a word is answered correctly, it progresses through stages with increasingly longer review intervals.
+After all pending errors are cleared, the rate returns to **100%**. A session with no answers displays **—**.
 
-When a word is answered incorrectly, its learning stage is reset and it becomes eligible for review after a shorter interval.
+The **Progresso da sessão** window lists each card's total correct answers, consecutive correct answers, pending errors, training index, and status.
 
-The application also tracks historical mistakes, which influence how much repetition is required before advancing through learning stages.
+## Saving and Resetting Progress
 
-### Review Intervals
-
-The review system uses the number of evaluated answers within the active study session rather than calendar time.
-
-For example, a word may become eligible for review after several other answers have been evaluated.
-
-As performance improves, review intervals increase. Words with repeated errors require additional reinforcement.
-
-This makes the system suitable for continuous practice sessions without depending on daily schedules or internet-based reminders.
-
-When no new or currently due vocabulary is available, the program can present an upcoming review early.
-
----
-
-## Saving and Managing Progress
-
-Mandarin Pinyin Trainer automatically stores the learner's progress on the local computer.
-
-Saved information includes answer history, learning stages, pending reviews, and study-session information.
-
-On Windows 11, the progress file is stored in the user's home directory:
+Progress is saved automatically in the current user's home directory:
 
 ```text
 .treino_pinyin_sessoes_progresso.json
 ```
 
-The progress file is separate from the application executable.
+On Windows, this is normally:
 
-This allows study history to remain available after moving the executable to another directory, provided that the same Windows user account and progress file are retained.
+```text
+%USERPROFILE%\.treino_pinyin_sessoes_progresso.json
+```
 
-### Backing Up Your Progress
+The save file is separate from the script or executable. Moving the program does not remove progress when the same user profile and save file are retained.
 
-To preserve your progress, make a backup copy of the JSON file.
+The current version preserves existing blocks when adding new ones and supports migration from earlier supported save formats. New blocks start with fresh progress.
 
-The file can also be transferred to another computer to restore the saved learning history, provided that the application version supports the saved data format.
+### Backups
 
-### Resetting Progress
+Close the application and copy the JSON file to back up your progress. To restore it, close the application and place the backup in the same location, using a compatible application version.
 
-The **Zerar tudo** (Reset All) button resets the learning history across all sessions after user confirmation.
+### Reset Options
 
-This includes stored answer statistics and review history.
+- **Zerar esta sessão:** resets only the selected session, including its card records, review clock, and new-card priority. Other sessions remain unchanged.
+- **Zerar tudo:** resets progress across every block and session.
 
-**Warning:** resetting progress removes the existing learning records.
+Both actions request confirmation. Back up the save file beforehand if you want to retain the previous history.
 
-The application does not provide cloud synchronization or automatic online backups.
+## Built-in Self-Test
 
----
+Run the built-in checks without opening the study interface:
 
-## System Requirements and Compatibility
+```bash
+py -X utf8 mandarin-pinyin-trainer.py --self-test
+```
 
-**Tested operating system: Windows 11.**
+The UTF-8 option allows Chinese test output to display correctly in compatible Windows terminals. The checks cover vocabulary structure, session sizes, tone normalization, review intervals, and progress migration.
 
-For running the Python source code:
+## Scope and Limitations
 
-- Python 3.9 or newer.
-- Tkinter support.
-- A graphical desktop environment.
-- A font capable of displaying Chinese characters.
-
-For running the Windows executable:
-
-- Windows 11.
-- The compiled `.exe` file.
-
-An internet connection is not required for normal operation.
-
----
-
-## Current Scope and Limitations
-
-The current version focuses on written vocabulary recognition and Pinyin recall.
-
-The application is designed as a supplementary study tool rather than a complete Mandarin language course.
-
-The following limitations apply:
-
-- The vocabulary database is based on the educational material incorporated into the application.
-- The application does not evaluate spoken pronunciation or microphone input.
-- It does not provide audio playback or speech recognition.
-- The interface and vocabulary explanations are primarily in Brazilian Portuguese.
-- Learning progress is stored locally rather than synchronized online.
-- The review algorithm uses answer-based intervals rather than real-time calendar scheduling.
-
-The project is intended to support active recall, accurate tone identification, vocabulary reinforcement, and independent Mandarin study.
-
----
+- The interface and translations are primarily in Brazilian Portuguese.
+- Vocabulary is bundled in the Python source; the application does not import PDFs automatically.
+- There is no microphone input, pronunciation scoring, audio playback, or speech recognition.
+- Review scheduling is based on answered cards rather than calendar time.
+- Progress is stored locally, without cloud synchronization.
+- CSV export is not included.
+- A trained card's status is an application practice milestone, not a certification of language proficiency.
 
 ## License
 
-This project is released under **The Unlicense**, allowing unrestricted use, modification, copying, and redistribution of the source code.
-
-See the `LICENSE` file for the complete terms.
-
----
-
-**Mandarin Pinyin Trainer** — A simple, structured, and offline approach to strengthening Mandarin vocabulary recognition, Pinyin accuracy, and long-term retention through active recall and spaced repetition.
+This project is released under **The Unlicense**. See the `LICENSE` file for the complete terms.
