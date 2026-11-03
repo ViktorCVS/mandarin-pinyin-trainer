@@ -6,11 +6,11 @@ Built with Python and Tkinter. The interface is available in Brazilian Portugues
 
 **Tested on Windows 11.**
 
-<img width="1264" height="1057" alt="image" src="https://github.com/user-attachments/assets/bf5221b9-b129-4ce3-8dcd-30dd8173285e" />
+<img width="1264" height="1057" alt="Mandarin Pinyin Trainer interface" src="https://github.com/user-attachments/assets/bf5221b9-b129-4ce3-8dcd-30dd8173285e" />
 
 ## Project Purpose
 
-Mandarin Pinyin Trainer connects Hanzi, Pinyin, and meaning through active recall. Each flashcard presents a word or vocabulary unit; the learner types its pronunciation with tones and receives feedback, a translation, and a contextual example.
+Mandarin Pinyin Trainer connects Hanzi, Pinyin, and meaning through active recall. Each flashcard presents a word or vocabulary unit; the learner types its pronunciation with tones and receives feedback and a contextual example. Translations are included in Portuguese, English, and Spanish modes; Simplified Chinese mode keeps Chinese text and Pinyin without translations.
 
 The application supports independent review of classroom vocabulary. It focuses on written recognition and Pinyin transcription rather than evaluating spoken pronunciation.
 
@@ -40,10 +40,11 @@ Words may appear in more than one block. Each occurrence has independent progres
 - **Adaptive review:** intervals measured in answers within the selected session, with extra reinforcement after mistakes.
 - **Growing priority for new cards:** a gradually increasing chance of introducing unseen vocabulary ahead of due reviews.
 - **Individual training index:** consecutive correct answers minus pending errors.
-- **Session completion:** trained cards leave the queue; completed sessions receive a visible indicator.
+- **Session completion:** trained cards leave normal review; near completion, some return as reinforcement to keep ten cards circulating. Completed sessions receive a visible indicator.
+- **Mistake correction:** replace an accidentally marked error with a correct answer before moving on, without an extra round or a lasting error penalty.
 - **Detailed progress:** total correct answers, consecutive correct answers, pending errors, training index, and status for each card.
 - **Independent reset:** restart one session or reset all progress.
-- **Settings tab:** customize review intervals, repetitions, error recovery, training thresholds, and new-card priority. The original training values are the defaults.
+- **Settings tab:** customize review intervals, repetitions, error recovery, training thresholds, and new-card priority. The current defaults are listed below.
 - **Automatic local saving:** resume learning without an account or internet connection.
 
 ## Installation
@@ -117,6 +118,8 @@ The instructions below use the English interface labels. Select **English** from
 5. Review the pronunciation, translation, and example.
 6. Click **Next word** or press **Enter** again to continue.
 
+After each answer, **Next word** appears above the explanation. If an answer was marked incorrect by mistake, click **Correct mistake: I was right** before advancing. It replaces that error with one correct answer, restoring the previous streak and review stage before applying the correct-answer result. Pending and historical errors, repetition penalties, accuracy, review timing, and round counts are recalculated as if that answer had been correct initially. This also works after reopening the application while that same result is still displayed.
+
 Use **I don't know (incorrect)** when you cannot recall an answer. It counts as a mistake and schedules additional review.
 
 Open **Session progress** to inspect each card's learning record.
@@ -137,6 +140,8 @@ Spaces between syllables are accepted. Accented Pinyin is also supported, for ex
 
 Tone accuracy matters: correct letters with an incorrect tone are not enough. Supported pronunciation variants are handled explicitly.
 
+For words ending in **儿** with *erhua*, both the attached **r** and a separate **er** are accepted. For example, **哪儿** accepts `na3r`, `nar3`, `nǎr`, `na3 er2`, and `nǎ ér`; a neutral `er` is also accepted for the suffix. The preceding syllable still requires its correct tone. This applies to the bundled erhua words, including **这儿**, **一点儿**, and **聊天儿**.
+
 ## Training Settings
 
 Open the **Settings** tab, edit the values, and click **Save settings**. These settings apply to all blocks and sessions and are saved locally with your progress.
@@ -149,14 +154,14 @@ Open the **Settings** tab, edit the values, and click **Save settings**. These s
 | Extra repetitions per historical error, at each stage | 1 |
 | Pending errors cleared per correct answer | 1 |
 | Minimum indices for OK / Good / Trained | 1 / 5 / 10 |
-| New-card chance increase per round without a new card | 1 percentage point |
-| Maximum new-card chance | 20% |
+| New-card chance increase per round without a new card | 2.5 percentage points |
+| Maximum new-card chance | 33.33% |
 
-Intervals accept whole numbers from 1 to 10,000 and repetitions from 1 to 1,000. Each interval's minimum must not exceed its maximum, and correct-answer intervals must stay the same or increase between stages. Training thresholds must follow **OK < Good < Trained**. The form shows the allowed ranges for the remaining fields. Invalid changes are rejected without changing the saved settings.
+Intervals accept whole numbers from 1 to 10,000 and repetitions from 1 to 1,000. Each interval's minimum must not exceed its maximum, and correct-answer intervals must stay the same or increase between stages. Training thresholds must follow **OK < Good < Trained**. The two new-card pressure fields accept up to two decimal places, with a comma or dot; other fields require whole numbers. Invalid changes are rejected without changing the saved settings.
 
 Saving preserves your answers, errors, streaks, and scheduled review times. New intervals and repetition requirements apply to future answers. Training statuses, session completion indicators, and the progress bar update immediately: raising the trained threshold can return previously trained cards to the queue. Lowering it can mark more cards as trained.
 
-Click **Restore defaults**, then **Save settings**, to apply the original values. Resetting session or overall learning progress preserves your settings. Changing the interface language also preserves unsaved settings while the application remains open.
+Click **Restore defaults**, then **Save settings**, to apply the defaults listed above. Resetting session or overall learning progress preserves your settings. Changing the interface language also preserves unsaved settings while the application remains open.
 
 ## Review Scheduling
 
@@ -192,13 +197,21 @@ A subsequent correct answer removes **one pending error** by default, down to ze
 When both new cards and due reviews are available, the application can choose a new card first:
 
 - The chance starts at **0%**.
-- Each evaluated answer to a previously attempted card adds **1 percentage point**.
-- The chance is capped at **20%**.
+- Each evaluated answer to a previously attempted card adds **2.5 percentage points**.
+- The chance is capped at **33.33%**.
 - Answering a new card for the first time resets the chance to **0%**, whether the answer is correct or incorrect.
 
-With the defaults, five rounds without a newly attempted card produce a 5% chance; fifteen rounds produce 15%. The increase and cap are configurable from 0 to 100; setting either to zero disables this extra priority.
+With the defaults, five rounds without a newly attempted card produce a 12.5% chance; thirteen rounds produce 32.5%; fourteen or more reach the 33.33% cap. The increase and cap are configurable from 0 to 100; setting either to zero disables this extra priority. Upgrading an older save applies these new pressure defaults while preserving other training settings and progress.
 
 Review intervals are soft scheduling targets. A new card can delay a due review without changing that review's stored due value. When no reviews are due, new cards already have priority. When neither new cards nor due reviews remain, an upcoming review may appear early.
+
+### Variety Near Session Completion
+
+When fewer than ten cards remain unfinished, trained cards temporarily fill a pool of **ten cards** within the same session. Cards answered in the previous **nine rounds** are excluded from the next draw, so the last few unfinished cards do not repeat on their own. All current sessions contain at least ten cards; a smaller future session would use all its cards.
+
+The chance of choosing reinforcement is proportional to its share of this pool (for example, nine reinforcement slots out of ten when only one card remains unfinished). A waiting-time limit gives unfinished cards priority after twenty other rounds, preventing reinforcement from postponing them indefinitely. Existing intervals remain soft targets.
+
+Reinforcement cards are labeled in the interface and graded normally. A correct answer keeps them trained; a wrong answer returns them to training. Accidental errors can be corrected with the same correction button. **Once every card meets the trained threshold, the session ends immediately** and no more reinforcement is drawn.
 
 ## Training Index and Session Completion
 
@@ -215,11 +228,11 @@ An incorrect answer restarts the consecutive-correct sequence at zero.
 | Below 1 | New / In training | New or still in training |
 | 1–4 | OK | Remains in the review queue |
 | 5–9 | Good | Remains in the review queue |
-| 10 or above | Trained | Leaves the review queue |
+| 10 or above | Trained | Leaves normal review; may return as reinforcement near completion |
 
 Once every card in a session reaches the configured trained threshold (10 by default), the session receives a **✓ Trained** indicator. The progress bar measures the percentage of trained cards, not merely cards that have appeared.
 
-The training threshold takes precedence over scheduled reviews: a trained card no longer appears unless its progress is reset or the trained threshold is raised above its current index.
+Trained cards leave normal review but can appear as reinforcement while other cards remain unfinished. Resetting progress or raising the trained threshold can also return them to normal training.
 
 ## Statistics
 
@@ -251,7 +264,7 @@ On Windows, this is normally:
 
 The save file is separate from the script or executable. Moving the program does not remove progress when the same user profile and save file are retained.
 
-The current version preserves existing blocks when adding new ones and supports migration from earlier supported save formats. Saves without training settings receive the original defaults while keeping their learning history. New blocks start with fresh progress.
+The current version preserves existing blocks when adding new ones and supports migration from earlier supported save formats. Saves without training settings receive the current defaults while keeping their learning history. New blocks start with fresh progress.
 
 ### Backups
 
