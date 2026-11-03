@@ -9,6 +9,8 @@ Blocos contêm sessões de até 100 caracteres chineses, sem dividir palavras.
 """
 from __future__ import annotations
 
+import copy
+import math
 import json
 import random
 import re
@@ -9586,8 +9588,8 @@ CORRECT_INTERVALS = ((5, 10), (15, 20), (25, 50), (50, 100))
 # Cada erro histórico aumenta a exigência de TODAS as etapas seguintes.
 # A última faixa é de manutenção: não volta ao início após acertos.
 BASE_REPETITIONS = (1, 2, 3, 4)
-STATE_VERSION = 6
-NEW_PRESSURE_CAP = 20
+STATE_VERSION = 7
+NEW_PRESSURE_CAP = 33.33
 TRAINED_INDEX = 10
 ERROR_INTERVAL = (3, 7)
 SAVE_PATH = Path.home() / ".treino_pinyin_sessoes_progresso.json"
@@ -9752,13 +9754,22 @@ def accepted_answers(word: str) -> set[str]:
     if CARDS[word]["word"] == "聊天儿":
         # O diacrítico de tiānr abrange a sílaba inteira com erhua.
         variants.add("liao2tianr1")
+    # Erhua may be written with r before/after its tone or as a separate er syllable.
+    if CARDS[word]['word'].endswith('儿'):
+        for value in tuple(variants):
+            match = re.fullmatch(r'(.*?)([a-zv]+)([1-4])r', value)
+            if match:
+                prefix, syllable, tone = match.groups()
+                variants.update((prefix + syllable + 'r' + tone,
+                                 prefix + syllable + tone + 'er',
+                                 prefix + syllable + tone + 'er2'))
     return {normalize_pinyin(v) for v in variants}
 
 
 def fresh_record() -> dict:
     return {"hits": 0, "misses": 0, "total_misses": 0, "correct_streak": 0,
             "stage": 0, "stage_repetitions": 0,
-            "due": 0, "last_interval": None}
+            "due": 0, "last_interval": None, "last_seen": -1}
 
 
 # Interface labels. English and Spanish study translations are handled separately above.
@@ -9810,7 +9821,7 @@ entry("Digite o pinyin numérico ou clique em 'Não sei'.", "Enter numerical Pin
 entry('Entrada inválida', 'Invalid input', '输入无效', 'Entrada no válida')
 entry('Use pinyin com letras e números 1–4 (5 opcional para neutro).', 'Use Pinyin letters and tone numbers 1–4 (optional 5 for a neutral tone).', '请使用拼音字母和声调数字1–4（轻声可用5）。', 'Usa pinyin con letras y números del 1 al 4 (5 opcional para el tono neutro).')
 entry('Índice = acertos consecutivos − erros pendentes. Um erro reinicia a sequência.', 'Index = consecutive correct answers − pending errors. A mistake resets the streak.', '训练指数 = 连续答对次数 − 待纠正错误次数。答错后连续答对次数归零。', 'Índice = aciertos consecutivos − errores pendientes. Un error reinicia la racha.')
-entry('1–4: OK     5–9: Bom     10: Treinado (sai da fila)', '1–4: OK     5–9: Good     10: Trained (leaves the queue)', '1–4：合格     5–9：良好     10：已完成（退出练习队列）', '1–4: Aceptable     5–9: Bien     10: Entrenada (sale de la cola)')
+entry('1–4: OK     5–9: Bom     10: Treinado (fim da revisão normal)', '1–4: OK     5–9: Good     10: Trained (normal review ends)', '1–4：合格     5–9：良好     10：已完成（退出练习队列）', '1–4: Aceptable     5–9: Bien     10: Entrenada (fin del repaso normal)')
 entry('Cartão', 'Card', '卡片', 'Tarjeta')
 entry('Acertos totais', 'Total correct', '累计答对', 'Aciertos totales')
 entry('Consecutivos', 'Consecutive', '连续答对', 'Consecutivos')
@@ -9865,11 +9876,15 @@ entry('O mínimo de um intervalo não pode superar o máximo.', 'An interval min
 entry('Os intervalos de acerto devem crescer ou permanecer iguais entre etapas.', 'Correct-answer intervals must increase or stay the same between stages.', '答对间隔必须随阶段递增或保持不变。', 'Los intervalos de acierto deben aumentar o mantenerse entre etapas.')
 entry('Os índices devem seguir a ordem: OK < Bom < Treinado.', 'Thresholds must follow: OK < Good < Trained.', '指数门槛须按以下顺序：合格 < 良好 < 已完成。', 'Los umbrales deben seguir: Aceptable < Bien < Entrenada.')
 entry('Não foi possível salvar as configurações.', 'Could not save settings.', '无法保存设置。', 'No se pudo guardar la configuración.')
-entry('OK: ≥{ok}     Bom: ≥{good}     Treinado: ≥{trained} (sai da fila)', 'OK: ≥{ok}     Good: ≥{good}     Trained: ≥{trained} (leaves the queue)', '合格：≥{ok}     良好：≥{good}     已完成：≥{trained}（退出队列）', 'Aceptable: ≥{ok}     Bien: ≥{good}     Entrenada: ≥{trained} (sale de la cola)')
+entry('OK: ≥{ok}     Bom: ≥{good}     Treinado: ≥{trained} (fim da revisão normal)', 'OK: ≥{ok}     Good: ≥{good}     Trained: ≥{trained} (normal review ends)', '合格：≥{ok}     良好：≥{good}     已完成：≥{trained}（结束常规复习）', 'Aceptable: ≥{ok}     Bien: ≥{good}     Entrenada: ≥{trained} (fin del repaso normal)')
 
 entry('✓ Sessão treinada · {v0}/{v1} cartões com índice {target}', '✓ Session trained · {v0}/{v1} cards at index {target}', '✓ 本组已完成 · {v0}/{v1}张卡片达到训练指数{target}', '✓ Sesión entrenada · {v0}/{v1} tarjetas con índice {target}')
 entry('Todos os cartões chegaram ao índice {target}. Escolha outra sessão ou zere esta sessão.', 'All cards reached index {target}. Choose another session or reset this one.', '所有卡片均已达到训练指数{target}。请选择其他练习组，或重置本组。', 'Todas las tarjetas han alcanzado el índice {target}. Elige otra sesión o reinicia esta.')
 entry('{v0} acerto(s) no total · {v1} consecutivo(s) · {v2} erro(s) pendente(s)\nÍndice de treinamento: {v3}/{target} · {v4}', '{v0} correct answers in total · {v1} consecutive · {v2} pending errors\nTraining index: {v3}/{target} · {v4}', '累计答对{v0}次 · 连续答对{v1}次 · 待纠正错误{v2}次\n训练指数：{v3}/{target} · {v4}', '{v0} aciertos en total · {v1} consecutivos · {v2} errores pendientes\nÍndice de entrenamiento: {v3}/{target} · {v4}')
+
+entry('Corrigir engano: eu acertei', 'Correct mistake: I was right', '纠正误判：我答对了', 'Corregir error: acerté')
+entry(' · Revisão de reforço', ' · Reinforcement review', ' · 巩固复习', ' · Repaso de refuerzo')
+entry('Use até duas casas decimais na pressão (vírgula ou ponto). Os demais campos exigem inteiros.', 'Use up to two decimal places for new-card pressure (comma or dot). Other fields require whole numbers.', '新卡片概率最多保留两位小数（逗号或小数点均可）。其他字段须为整数。', 'Usa hasta dos decimales para la prioridad de tarjetas nuevas (coma o punto). Los demás campos requieren enteros.')
 
 def ui_text(message, language='pt', **values):
     return UI_TEXT.get(message, {}).get(language, message).format(**values)
@@ -9896,7 +9911,7 @@ def default_settings() -> dict:
         'ok_index': 1,
         'good_index': 5,
         'trained_index': TRAINED_INDEX,
-        'new_pressure_step': 1,
+        'new_pressure_step': 2.5,
         'new_pressure_cap': NEW_PRESSURE_CAP,
     }
 
@@ -9939,7 +9954,10 @@ def validate_settings(values: dict) -> dict:
     settings['error_extra_repetitions'] = integer(settings['error_extra_repetitions'], 0, 100)
     settings['pending_error_recovery'] = integer(settings['pending_error_recovery'], 1, 100)
     for key in ('new_pressure_step', 'new_pressure_cap'):
-        settings[key] = integer(settings[key], 0, 100)
+        value = settings[key]
+        if type(value) not in (int, float) or not math.isfinite(value) or not 0 <= value <= 100:
+            raise ValueError('Valores fora dos limites indicados.')
+        settings[key] = round(value, 2)
     return settings
 
 
@@ -9952,6 +9970,8 @@ def initial_state() -> dict:
     return {"version": STATE_VERSION, "ui_language": "pt", "settings": default_settings(), "completed": 0,
             "session_counts": {sid: 0 for sid in SESSIONS},
             "rounds_without_new": {sid: 0 for sid in SESSIONS},
+            "recent_cards": {sid: [] for sid in SESSIONS},
+            "last_answer": None, "support_review": False,
             "cards": {w: fresh_record() for w in CARDS},
             "current": None, "graded": False, "feedback": "",
             "was_correct": False, "early": False,
@@ -9982,10 +10002,10 @@ def is_new(record: dict) -> bool:
     return not (record["hits"] or record["total_misses"])
 
 
-def new_card_pressure(state: dict, session_id: str) -> int:
+def new_card_pressure(state: dict, session_id: str) -> float:
     settings = training_settings(state)
-    return min(settings['new_pressure_cap'],
-               state['rounds_without_new'][session_id] * settings['new_pressure_step'])
+    return round(min(settings['new_pressure_cap'],
+               state['rounds_without_new'][session_id] * settings['new_pressure_step']), 2)
 
 
 def session_training(state: dict, session_id: str) -> tuple[int, int]:
@@ -10018,7 +10038,7 @@ def advance_stage(record: dict, settings: dict | None = None):
 
 
 def migrate_state(data: dict) -> dict:
-    """Preserva os dados das versões 2–6, incluindo os relógios de revisão.
+    """Preserva os dados das versões 2–7, incluindo os relógios de revisão.
 
     Antes da v5, não havia registro explícito de acertos consecutivos. Sem
     erros históricos, todos os acertos são consecutivos. Com erros, usamos
@@ -10030,11 +10050,14 @@ def migrate_state(data: dict) -> dict:
     language = data.get("ui_language", "pt")
     state["ui_language"] = language if isinstance(language, str) and language in LANGUAGE_NAMES else "pt"
     try:
-        state['settings'] = validate_settings(data.get('settings', {}))
+        settings_data = copy.deepcopy(data.get('settings', {}))
+        if data.get('version') in (2, 3, 4, 5, 6) and isinstance(settings_data, dict):
+            settings_data.update(new_pressure_step=2.5, new_pressure_cap=33.33)
+        state['settings'] = validate_settings(settings_data)
     except (ValueError, TypeError):
         state['settings'] = default_settings()
     version = data.get("version")
-    if version not in (2, 3, 4, 5, STATE_VERSION):
+    if version not in (2, 3, 4, 5, 6, STATE_VERSION):
         return state
     state["completed"] = max(0, int(data.get("completed", 0)))
     old_counts = data.get("session_counts", {})
@@ -10048,6 +10071,12 @@ def migrate_state(data: dict) -> dict:
         for sid in SESSIONS:
             state["rounds_without_new"][sid] = max(0, int(
                 data.get("rounds_without_new", {}).get(sid, 0)))
+    recent_data = data.get('recent_cards', {})
+    if isinstance(recent_data, dict):
+        for sid in SESSIONS:
+            recent = recent_data.get(sid, [])
+            if isinstance(recent, list):
+                state['recent_cards'][sid] = [w for w in recent if isinstance(w, str) and w in SESSIONS[sid]][-9:]
     for word, rec in state["cards"].items():
         old = old_cards.get(word)
         if not isinstance(old, dict):
@@ -10076,6 +10105,7 @@ def migrate_state(data: dict) -> dict:
         rec["correct_streak"] = min(rec["hits"], streak)
         remaining = int(old.get("due", 0)) - old_clock
         rec["due"] = max(0, state["session_counts"][WORD_SESSION[word]] + remaining)
+        rec['last_seen'] = max(-1, min(state['session_counts'][WORD_SESSION[word]], int(old.get('last_seen', -1))))
         last = old.get("last_interval")
         rec["last_interval"] = max(0, int(last)) if last is not None else None
     old_sid = data.get("session")
@@ -10085,13 +10115,16 @@ def migrate_state(data: dict) -> dict:
     current = data.get("current")
     if current in CARDS:
         state["session"] = WORD_SESSION[current]
-        if data.get("graded") or not is_trained(state["cards"][current], training_settings(state)):
-            for key in ("current", "graded", "was_correct", "early"):
+        if data.get("graded") or data.get("support_review") or not is_trained(state["cards"][current], training_settings(state)):
+            for key in ("current", "graded", "was_correct", "early", "support_review"):
                 if key in data:
                     state[key] = data[key]
             if state["graded"]:
                 state["feedback"] = ("✓ Correto!" if state["was_correct"]
                                      else "✗ Incorreto! Revise o pinyin e os tons.")
+    state['last_answer'] = copy.deepcopy(data.get('last_answer'))
+    if not can_correct_error(state):
+        state['last_answer'] = None
     state["block"] = SESSION_BLOCK[state["session"]]
     return state
 
@@ -10113,7 +10146,7 @@ def save_state(state: dict):
     tmp.replace(SAVE_PATH)
 
 
-def choose_word(state: dict, candidates: list[str], previous: str | None = None):
+def choose_active_word(state: dict, candidates: list[str], previous: str | None = None):
     """Revisões vencidas cedem a novos cartões com chance configurável.
 
     O sorteio só ocorre quando novos e vencidos disputam a próxima rodada.
@@ -10149,13 +10182,128 @@ def choose_word(state: dict, candidates: list[str], previous: str | None = None)
     return random.choice(group), True
 
 
-def record_answer(state: dict, word: str, correct: bool) -> int:
+def choose_word(state: dict, candidates: list[str], previous: str | None = None):
+    """Keep ten different cards circulating near completion, with bounded waits."""
     settings = training_settings(state)
+    recs = state['cards']
+    active = [w for w in candidates if not is_trained(recs[w], settings)]
+    if not active:
+        return None, False
+    size = min(10, len(candidates))
+    if len(active) >= size:
+        return choose_active_word(state, active, previous)
+
+    # Recent answers, including reinforcement cards, are excluded from the next draw.
+    recent = state.get('recent_cards', {}).get(state['session'], [])[-(size - 1):] if size > 1 else []
+    excluded = set(recent)
+    if previous is not None and size > 1:
+        excluded.add(previous)
+        # Previous is normally already in recent; at migration, keep one slot available.
+        if len(excluded) >= size:
+            excluded = set(([w for w in recent if w != previous] + [previous])[-(size - 1):])
+    trained = [w for w in candidates if is_trained(recs[w], settings)]
+    random.shuffle(trained)
+    trained.sort(key=lambda w: (w in excluded, recs[w].get('last_seen', -1)))
+    support = trained[:size - len(active)]
+    ready = [w for w in active if w not in excluded]
+    fillers = [w for w in support if w not in excluded]
+    now = state['session_counts'][state['session']]
+    # Do not let random reinforcement choices postpone an unfinished card indefinitely.
+    overdue = [w for w in ready if now - recs[w].get('last_seen', -1) >= 2 * size]
+    if overdue:
+        oldest = min(recs[w].get('last_seen', -1) for w in overdue)
+        ready = [w for w in overdue if recs[w].get('last_seen', -1) == oldest]
+        return choose_active_word(state, ready, previous)
+    if fillers and (not ready or random.random() < len(support) / size):
+        return random.choice(fillers), False
+    if ready:
+        return choose_active_word(state, ready, previous)
+    # A pool of size N always has an item outside the last N-1 distinct answers.
+    raise RuntimeError('No card available in the reinforcement pool')
+
+
+def submit_answer(state: dict, word: str, correct: bool):
+    sid = WORD_SESSION[word]
+    before = {
+        'word': word, 'session': sid, 'record': copy.deepcopy(state['cards'][word]),
+        'completed': state['completed'], 'session_count': state['session_counts'][sid],
+        'rounds': state['rounds_without_new'][sid],
+        'recent': list(state['recent_cards'][sid]),
+        'settings': copy.deepcopy(training_settings(state)),
+    }
+    record_answer(state, word, correct)
+    state['graded'] = True
+    state['was_correct'] = correct
+    state['feedback'] = '✓ Correto!' if correct else '✗ Incorreto! Revise o pinyin e os tons.'
+    if not correct:
+        before['after'] = copy.deepcopy(state['cards'][word])
+    state['last_answer'] = before if not correct else None
+
+
+def can_correct_error(state: dict) -> bool:
+    snapshot = state.get('last_answer')
+    if not isinstance(snapshot, dict) or not state.get('graded') or state.get('was_correct'):
+        return False
+    try:
+        word, sid = snapshot['word'], snapshot['session']
+        if (word != state.get('current') or sid != state['session'] or WORD_SESSION[word] != sid
+                or state['completed'] != snapshot['completed'] + 1
+                or state['session_counts'][sid] != snapshot['session_count'] + 1
+                or state['cards'][word] != snapshot['after']):
+            return False
+        record = snapshot['record']
+        if set(record) != set(fresh_record()):
+            return False
+        for key, value in record.items():
+            if key == 'last_interval' and value is None:
+                continue
+            if type(value) is not int or value < (-1 if key == 'last_seen' else 0):
+                return False
+        if not 0 <= record['stage'] < 4:
+            return False
+        for key in ('completed', 'session_count', 'rounds'):
+            if type(snapshot[key]) is not int or snapshot[key] < 0:
+                return False
+        if not isinstance(snapshot['recent'], list) or len(snapshot['recent']) > 9:
+            return False
+        if any(w not in SESSIONS[sid] for w in snapshot['recent']):
+            return False
+        validate_settings(snapshot['settings'])
+        return True
+    except (KeyError, TypeError, ValueError):
+        return False
+
+
+def correct_last_error(state: dict) -> bool:
+    """Replace the latest mistake with one correct answer using its original settings."""
+    if not can_correct_error(state):
+        return False
+    snapshot = state['last_answer']
+    word, sid = snapshot['word'], snapshot['session']
+    state['cards'][word] = copy.deepcopy(snapshot['record'])
+    state['completed'] = snapshot['completed']
+    state['session_counts'][sid] = snapshot['session_count']
+    state['rounds_without_new'][sid] = snapshot['rounds']
+    state['recent_cards'][sid] = list(snapshot['recent'])
+    record_answer(state, word, True, settings=snapshot['settings'])
+    state['last_answer'] = None
+    state['graded'] = True
+    state['was_correct'] = True
+    state['feedback'] = '✓ Correto!'
+    return True
+
+
+def record_answer(state: dict, word: str, correct: bool, settings: dict | None = None) -> int:
+    settings = settings or training_settings(state)
+    state['last_answer'] = None
     rec = state['cards'][word]
     was_new = is_new(rec)
     state['completed'] += 1
     sid = WORD_SESSION[word]
     state['session_counts'][sid] += 1
+    rec['last_seen'] = state['session_counts'][sid]
+    recent = state.setdefault('recent_cards', {}).setdefault(sid, [])
+    state['recent_cards'][sid] = (recent + [word])[-9:]
     state['rounds_without_new'][sid] = 0 if was_new else state['rounds_without_new'][sid] + 1
     if correct:
         low, high = settings['correct_intervals'][rec['stage']]
@@ -10181,10 +10329,11 @@ def reset_session(state: dict, session_id: str):
     state["completed"] = max(0, state["completed"] - state["session_counts"][session_id])
     state["session_counts"][session_id] = 0
     state["rounds_without_new"][session_id] = 0
+    state["recent_cards"][session_id] = []
     for word in SESSIONS[session_id]:
         state["cards"][word] = fresh_record()
     if state["session"] == session_id:
-        state.update(current=None, graded=False, feedback="", was_correct=False, early=False)
+        state.update(current=None, graded=False, feedback="", was_correct=False, early=False, support_review=False, last_answer=None)
 
 
 
@@ -10215,7 +10364,7 @@ class PinyinTrainer(tk.Tk):
         self.training_window = None
         self.current = self.data['current']
         self._build_ui()
-        if self.current is None or self.current not in self._filtered() or (is_trained(self.data['cards'][self.current], training_settings(self.data)) and (not self.data['graded'])):
+        if self.current is None or self.current not in self._filtered() or (is_trained(self.data['cards'][self.current], training_settings(self.data)) and not self.data.get('support_review') and (not self.data['graded'])):
             self.data['graded'] = True
             self._next_card()
         else:
@@ -10361,6 +10510,7 @@ class PinyinTrainer(tk.Tk):
         self.check_btn.pack(side='left', padx=(0, 8))
         self.give_up_btn = tk.Button(action_row, text=self._t('Não sei (erro)'), command=self._give_up, bg='#e7edf6', fg='#354965', relief='flat', font=('Arial', 11), padx=13, pady=10)
         self.give_up_btn.pack(side='left')
+        self.correct_error_btn = tk.Button(action_row, text=self._t('Corrigir engano: eu acertei'), command=self._correct_error, bg='#e7edf6', fg='#354965', relief='flat', font=('Arial', 10), padx=10, pady=10)
         self.next_btn = tk.Button(action_row, text=self._t('Próxima palavra  →'), command=self._next_card, bg='#276ed1', fg='white', relief='flat', font=('Arial', 11, 'bold'), padx=16, pady=10)
         self.progress = ttk.Progressbar(root, maximum=100, value=0, style='Horizontal.TProgressbar')
         self.progress.pack(fill='x', pady=(14, 6))
@@ -10405,7 +10555,7 @@ class PinyinTrainer(tk.Tk):
         def number(parent, key, row, column, low, high):
             var = tk.StringVar()
             self.setting_vars[key] = var
-            control = ttk.Spinbox(parent, from_=low, to=high, increment=1, width=8,
+            control = ttk.Spinbox(parent, from_=low, to=high, increment=0.01 if key.startswith('new_pressure_') else 1, width=8,
                                   textvariable=var, font=('Arial', 11))
             control.grid(row=row, column=column, padx=8, pady=6, sticky='e')
             self.setting_inputs[key] = control
@@ -10452,6 +10602,7 @@ class PinyinTrainer(tk.Tk):
                 ('good_index', 'Índice mínimo: Bom'), ('trained_index', 'Índice mínimo: Treinado'))):
             field(frame, row, key, label, 1, 10000)
         heading('Prioridade de cartões novos')
+        note('Use até duas casas decimais na pressão (vírgula ou ponto). Os demais campos exigem inteiros.')
         note('A chance começa em 0% e zera após a primeira resposta a um cartão novo. Use 0 no aumento ou no teto para desativar essa prioridade extra.')
         frame = box()
         field(frame, 0, 'new_pressure_step', 'Aumento por rodada sem cartão novo (pontos percentuais, 0–100)', 0, 100)
@@ -10489,9 +10640,15 @@ class PinyinTrainer(tk.Tk):
             values = {}
             for key, var in self.setting_vars.items():
                 text = var.get().strip()
-                if not text.isascii() or not text.isdecimal():
-                    raise ValueError('Use números inteiros nos campos.')
-                values[key] = int(text)
+                if key in ('new_pressure_step', 'new_pressure_cap'):
+                    text = text.replace(',', '.')
+                    if not re.fullmatch(r'[0-9]+(?:\.[0-9]{1,2})?', text):
+                        raise ValueError('Use até duas casas decimais na pressão (vírgula ou ponto). Os demais campos exigem inteiros.')
+                    values[key] = float(text)
+                else:
+                    if not text.isascii() or not text.isdecimal():
+                        raise ValueError('Use números inteiros nos campos.')
+                    values[key] = int(text)
             candidate = {key: values[key] for key in default_settings()
                          if key not in ('correct_intervals', 'base_repetitions', 'error_interval')}
             candidate.update(correct_intervals=[[values[f'low_{i}'], values[f'high_{i}']] for i in range(4)],
@@ -10509,7 +10666,7 @@ class PinyinTrainer(tk.Tk):
             self.data['settings'] = previous
             messagebox.showerror(self._t('Configurações'), self._t('Não foi possível salvar as configurações.'), parent=self)
             return
-        if self.current is None or (not self.data['graded'] and is_trained(self.data['cards'][self.current], settings)):
+        if self.current is None or (not self.data['graded'] and not self.data.get('support_review') and is_trained(self.data['cards'][self.current], settings)):
             self.data['graded'] = True
             self._next_card()
         else:
@@ -10518,7 +10675,7 @@ class PinyinTrainer(tk.Tk):
 
     def _training_legend(self):
         settings = training_settings(self.data)
-        return self._t('OK: ≥{ok}     Bom: ≥{good}     Treinado: ≥{trained} (sai da fila)',
+        return self._t('OK: ≥{ok}     Bom: ≥{good}     Treinado: ≥{trained} (fim da revisão normal)',
                        ok=settings['ok_index'], good=settings['good_index'], trained=settings['trained_index'])
 
     def _focus_training(self, widget):
@@ -10558,14 +10715,16 @@ class PinyinTrainer(tk.Tk):
         chars = sum((hanzi_count(w) for w in words))
         covered_chars = sum((hanzi_count(w) for w, x in zip(words, records) if x['hits'] or x['misses']))
         global_seen = sum((1 for r in self.data['cards'].values() if r['hits'] or r['misses']))
-        self.footer_var.set(self._t('Esta sessão: {v0} caracteres chineses · {v1} vistos · {v2} cartões novos · {v3} revisões pendentes · {v4} respostas locais\nGeral: {v5}/{v6} cartões vistos · {v7} respostas em {v8} sessões', v0=chars, v1=covered_chars, v2=len(words) - seen, v3=due, v4=local_count, v5=global_seen, v6=len(CARDS), v7=self.data['completed'], v8=len(SESSIONS)) + (self._t(' · Chance de novo: {v0}%', v0=new_card_pressure(self.data, session_id)) if len(words) > seen else ''))
+        self.footer_var.set(self._t('Esta sessão: {v0} caracteres chineses · {v1} vistos · {v2} cartões novos · {v3} revisões pendentes · {v4} respostas locais\nGeral: {v5}/{v6} cartões vistos · {v7} respostas em {v8} sessões', v0=chars, v1=covered_chars, v2=len(words) - seen, v3=due, v4=local_count, v5=global_seen, v6=len(CARDS), v7=self.data['completed'], v8=len(SESSIONS)) + (self._t(' · Chance de novo: {v0}%', v0=f'{new_card_pressure(self.data, session_id):g}') if len(words) > seen else ''))
 
     def _next_card(self):
         if self.current is not None and (not self.data['graded']):
             return
         previous = self.current
+        self.data['last_answer'] = None
         self.current, self.data['early'] = choose_word(self.data, self._filtered(), previous)
         self.data['current'] = self.current
+        self.data['support_review'] = bool(self.current and is_trained(self.data['cards'][self.current], training_settings(self.data)))
         self.data['graded'] = False
         self.data['feedback'] = ''
         self.data['was_correct'] = False
@@ -10574,6 +10733,7 @@ class PinyinTrainer(tk.Tk):
         save_state(self.data)
 
     def _render(self):
+        self.correct_error_btn.pack_forget()
         self._stats()
         if not self.current:
             complete = session_is_trained(self.data, self.data['session'])
@@ -10595,6 +10755,8 @@ class PinyinTrainer(tk.Tk):
         self.check_btn.pack_forget()
         self.give_up_btn.pack_forget()
         self.next_btn.pack_forget()
+        if self.data.get('support_review'):
+            self.info_var.set(self.info_var.get() + self._t(' · Revisão de reforço'))
         if self.data['graded']:
             self.entry.config(state='disabled')
             self.feedback_var.set(self._t('✓ Correto!' if self.data['was_correct'] else '✗ Incorreto! Revise o pinyin e os tons.'))
@@ -10607,9 +10769,11 @@ class PinyinTrainer(tk.Tk):
             example_pin = card.get('example_pinyin') or pinyin_sentence(example)
             self.example_pinyin_var.set(self._t('Pinyin: {v0}', v0=example_pin))
             self.example_translation_var.set(self._t('Tradução: {v0}', v0=example_translation(self.current, self.data['ui_language'])) if show_translations else '')
-            self.details.pack(fill='x', pady=(0, 10), before=self.check_btn.master)
+            self.details.pack(fill='x', pady=(10, 0), after=self.check_btn.master)
             self.next_btn.configure(text=self._t('Concluir sessão  ✓') if session_is_trained(self.data, self.data['session']) else self._t('Próxima palavra  →'))
             self.next_btn.pack(side='left')
+            if can_correct_error(self.data):
+                self.correct_error_btn.pack(side='left', padx=(8, 0))
             self._focus_training(self.next_btn)
         else:
             self.entry.config(state='normal')
@@ -10621,17 +10785,16 @@ class PinyinTrainer(tk.Tk):
             self._focus_training(self.entry)
 
     def _grade(self, correct):
-        if self.current is None or self.data['graded'] or is_trained(self.data['cards'][self.current], training_settings(self.data)):
+        if self.current is None or self.data['graded'] or (is_trained(self.data['cards'][self.current], training_settings(self.data)) and not self.data.get('support_review')):
             return
-        record_answer(self.data, self.current, correct)
-        self.data['graded'] = True
-        self.data['was_correct'] = correct
-        if correct:
-            self.data['feedback'] = '✓ Correto!'
-        else:
-            self.data['feedback'] = '✗ Incorreto! Revise o pinyin e os tons.'
+        submit_answer(self.data, self.current, correct)
         self._render()
         save_state(self.data)
+
+    def _correct_error(self):
+        if correct_last_error(self.data):
+            self._render()
+            save_state(self.data)
 
     def _check(self):
         if self.current is None or self.data['graded']:
@@ -10680,7 +10843,7 @@ class PinyinTrainer(tk.Tk):
             return
         self.data['session'] = self.sessions[index]
         self.data['block'] = SESSION_BLOCK[self.data['session']]
-        if self.current is None or self.current not in self._filtered() or (is_trained(self.data['cards'][self.current], training_settings(self.data)) and (not self.data['graded'])):
+        if self.current is None or self.current not in self._filtered() or (is_trained(self.data['cards'][self.current], training_settings(self.data)) and not self.data.get('support_review') and (not self.data['graded'])):
             self.data['graded'] = True
             self._next_card()
         else:
